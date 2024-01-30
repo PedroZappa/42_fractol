@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 11:18:58 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/30 12:28:37 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,14 @@
 #                                NAMES & PATHS                                  #
 #==============================================================================#
 
-NAME		=	fractol
+NAME		= fractol
 
 SRC_PATH	= src
-LIBFT_PATH = ./libft
+INC_PATH	= ./inc
+LIBFT_PATH	= $(INC_PATH)/libft
+MLX_PATH 	= $(INC_PATH)/mlx
 
-SRC			= $(addprefix $(SRC_PATH)/ )
+SRC			= $(addprefix $(SRC_PATH)/, main.c )
 
 OBJS		= $(SRC:.c=.o)
 
@@ -29,10 +31,12 @@ OBJS		= $(SRC:.c=.o)
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra -g -03
+CFLAGS	= -Wall -Werror -Wextra 
+CFLAGS	+= -g 
+CFLAGS 	+= -03
 MLXFLAGS = -lX11 -lXext -lm
 
-INC		= -I.
+INC		= -I .
 
 AR		= ar rcs
 RM		= rm -rf
@@ -56,11 +60,12 @@ MAKE	= make -C
 .PHONY: help
 help: 			## Display this help page
 	@awk 'BEGIN {FS = ":.*##"; \
-			printf "\n=> Usage:\n\tmake $(GRN)<target>$(NC)\n"} \
+			printf "\n=> Usage:\n\tmake $(GRN)<target>$(D)\n"} \
 		/^[a-zA-Z_0-9-]+:.*?##/ { \
-			printf "\t$(GRN)%-15s$(NC) %s\n", $$1, $$2 } \
+			printf "\t$(GRN)%-15s$(D) %s\n", $$1, $$2 } \
 		/^##@/ { \
 			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
+
 
 ##@ Fract'ol Compilation Rules 🏗
 
@@ -73,33 +78,38 @@ $(NAME): $(OBJS)
 
 .PHONY: deps
 deps:			## Check if libft & mlx folder exist
-	if [ -d "libft" ]; then echo "libft folder found"; else make get_libft; fi
-	if [ -d "mlx" ]; then echo "mlx folder found"; else make get_mlx; fi
+	@if [ -d "libft" ]; then echo "$(YRL)libft folder found$(D)"; else make get_libft; fi
+	@if [ -d "mlx" ]; then echo "$(YRL)mlx folder found$(D)"; else make get_mlx; fi
 
 .PHONY: get_mlx
 get_mlx:		## Get MLX submodule
-	git clone git@github.com:42Paris/minilibx-linux.git mlx
-	git submodule --init
+	git clone git@github.com:42Paris/minilibx-linux.git $(MLX_PATH)
+	git submodule init
 	git submodule update --recursive --remote
 
 .PHONY: get_libft
 get_libft:		## Get Libft submodule
-	git clone git@github.com:PedroZappa/libft.git
-	git submodule --init
+	git clone git@github.com:PedroZappa/libft.git $(LIBFT_PATH)
+	git submodule init
 	git submodule update --recursive --remote
+
 
 ##@ Clean-up Rules 󰃢
 
 .PHONY: clean
-clean:
+clean:			## Remove object files
+	@echo "\t$(RED)Cleaning objects 󰃢$(D)"
 	@$(RM) $(OBJS)
+	@echo "\n==> $(GRN)Object files successfully removed!$(D)\n"
 
 .PHONY: fclean
-fclean: clean
+fclean: clean	## Remove archives & executables
+	@echo "\t$(RED)Cleaning executable 󰃢$(D)"
 	@$(RM) $(NAME)
+	@echo "\n==> $(GRN)$(NAME)Successfully removed!$(D)\n"
 
 .PHONY: re
-re: fclean all
+re: fclean all	## Remove everything and Recompile the project
 
 #==============================================================================#
 #                                  UTILS                                       # 
@@ -121,7 +131,7 @@ CYA		= $(shell tput setaf 6)
 WHI		= $(shell tput setaf 7)
 GRE		= $(shell tput setaf 8)
 BRED 	= $(shell tput setaf 9)
-GRN		= $(shell tput setaf 10)
+BGRN	= $(shell tput setaf 10)
 BYEL	= $(shell tput setaf 11)
 BBLU	= $(shell tput setaf 12)
 BMAG	= $(shell tput setaf 13)
@@ -135,7 +145,7 @@ CLR 	= $(shell tput el 1)
 # Loading Bar Function
 define	progress_bar
 	i=0
-	while [[ $$i -le $(words $(SRCS)) ]] ; do \
+	while [[ $$i -le $(words $(SRC)) ]] ; do \
 		printf " " ; \
 		((i = i + 1)) ; \
 	done
