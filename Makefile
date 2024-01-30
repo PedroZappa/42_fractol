@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 12:57:58 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/30 13:20:23 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,12 @@ SRC_PATH	= src
 INC_PATH	= ./inc
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
+
+LIBFT_OBJS	= $(LIBFT_PATH)/*.o
+LIBINC		= -I$(LIBFT_PATH)
+
+MLX_OBJS	= $(MLX_PATH)/*.o
+MLXINC		= -I$(MLX_PATH)
 
 SRC			= $(addprefix $(SRC_PATH)/, main.c )
 
@@ -44,14 +50,6 @@ RM		= rm -rf
 MAKE	= make -C
 
 #==============================================================================#
-#                                  LIBS                                        # 
-#==============================================================================#
-
-
-
-
-
-#==============================================================================#
 #                                  RULES                                       # 
 #==============================================================================#
 
@@ -69,39 +67,37 @@ help: 			## Display this help page
 
 ##@ Fract'ol Compilation Rules 🏗
 
-all: $(NAME)
+all: launch $(NAME)
+
+launch:
+	$(call progress_bar)
 
 .PHONY: fractol
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) -o $@ $^
 
-
 .PHONY: deps
-deps:			## Check if libft & mlx folder exist
+deps:			## Download/Update libft & mlx
 	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; else echo "$(YRL)libft folder found$(D)"; fi
 	@if test ! -d "$(MLX_PATH)"; then make get_mlx; else echo "$(YRL)mlx folder found$(D)"; fi
-	@make update_submodules
-
+	@make update_modules
 
 .PHONY: get_mlx
-get_mlx:		## Get MLX submodule
+get_mlx:		## Get MLX module
 	@echo "\t$(CYA)Getting MLX submodule$(D)"
 	git clone git@github.com:42Paris/minilibx-linux.git $(MLX_PATH)
-	git submodule init
-	git submodule update --recursive --remote
-	@echo "\t$(GRN)MLX submodule successfully updated$(D)"
+	@echo "\t$(GRN)MLX submodule successfully downloaded$(D)"
 
 .PHONY: get_libft
-get_libft:		## Get Libft submodule
+get_libft:		## Get Libft module
 	@echo "\t$(CYA)Getting Libft submodule$(D)"
 	git clone git@github.com:PedroZappa/libft.git $(LIBFT_PATH)
-	git submodule init
-	git submodule update --recursive --remote
-	@echo "\t$(GRN)Libft submodule successfully updated$(D)"
+	@echo "\t$(GRN)Libft submodule successfully downloaded$(D)"
 
-.PHONY: update_submodules
-update_submodules:	## Update submodules
+.PHONY: update_modules
+update_modules:	## Update modules
 	@echo "\t$(CYA)Updating submodules$(D)"
+	git submodule init
 	git submodule update --recursive --remote
 	@echo "\t$(GRN)Submodules successfully updated$(D)"
 
@@ -119,6 +115,14 @@ fclean: clean	## Remove archives & executables
 	@echo "\t$(RED)Cleaning executable 󰃢$(D)"
 	@$(RM) $(NAME)
 	@echo "\n==> $(GRN)$(NAME) Successfully removed!$(D)\n"
+
+.PHONY: libclean
+libclean: clean		## Remove libft
+	@echo "\t$(RED)Cleaning libft 󰃢$(D)"
+	@$(RM) $(LIBFT_PATH)
+	@echo "\n==> $(GRN)libft successfully removed!$(D)\n"
+	@$(RM) $(LIBFT_PATH)
+	@echo "\n==> $(GRN)mlx successfully removed!$(D)\n"
 
 .PHONY: re
 re: fclean all	## Remove everything and Recompile the project
