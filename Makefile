@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 13:20:23 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/30 13:38:07 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,18 @@ INC_PATH	= ./inc
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
-LIBFT_OBJS	= $(LIBFT_PATH)/*.o
+SRC			= $(addprefix $(SRC_PATH)/, main.c )
 LIBINC		= -I$(LIBFT_PATH)
-
-MLX_OBJS	= $(MLX_PATH)/*.o
 MLXINC		= -I$(MLX_PATH)
 
-SRC			= $(addprefix $(SRC_PATH)/, main.c )
-
 OBJS		= $(SRC:.c=.o)
+MLX_OBJS	= $(MLX_PATH)/*.o
+LIBFT_OBJS	= $(LIBFT_PATH)/*.o
+
+LIBFT_ARC	= $(LIBFT_PATH)/libft.a
+MLX_ARC		= $(MLX_PATH)/libmlx.a
+
+SHELL := bash
 
 #==============================================================================#
 #                            FLAGS & CMDS                                      # 
@@ -76,6 +79,14 @@ launch:
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) -o $@ $^
 
+$(LIBFT_OBJS):
+	@printf "$(D)$(B)$(BLU)\n$(NAME)  compiled\n\n$(D)"
+	@$(MAKE) -C $(LIBPATH)
+
+$(MLXNAME):
+	@$(MAKE) -C $(MLX_PATH) > /dev/null 2>&1 || true
+	@printf "$(B)$(CYA)$(MLXNAME) compiled\n$(D)"
+
 .PHONY: deps
 deps:			## Download/Update libft & mlx
 	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; else echo "$(YRL)libft folder found$(D)"; fi
@@ -101,17 +112,16 @@ update_modules:	## Update modules
 	git submodule update --recursive --remote
 	@echo "\t$(GRN)Submodules successfully updated$(D)"
 
-
 ##@ Clean-up Rules 󰃢
 
 .PHONY: clean
-clean:			## Remove object files
+clean: 				## Remove object files
 	@echo "\t$(RED)Cleaning objects 󰃢$(D)"
 	@$(RM) $(OBJS)
 	@echo "\n==> $(GRN)Object files successfully removed!$(D)\n"
 
 .PHONY: fclean
-fclean: clean	## Remove archives & executables
+fclean: launch clean	## Remove archives & executables
 	@echo "\t$(RED)Cleaning executable 󰃢$(D)"
 	@$(RM) $(NAME)
 	@echo "\n==> $(GRN)$(NAME) Successfully removed!$(D)\n"
@@ -157,7 +167,6 @@ D 		= $(shell tput sgr0)
 BEL 	= $(shell tput bel)
 CLR 	= $(shell tput el 1)
 
-
 # Loading Bar Function
 define	progress_bar
 	i=0
@@ -167,3 +176,4 @@ define	progress_bar
 	done
 	printf "$(B)]\r[$(GRE)"
 endef
+
