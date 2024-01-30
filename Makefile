@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 13:38:07 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/30 13:42:17 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ help: 			## Display this help page
 
 ##@ Fract'ol Compilation Rules 🏗
 
-all: launch $(NAME)
+all: $(NAME)
 
 launch:
 	$(call progress_bar)
@@ -129,9 +129,9 @@ fclean: launch clean	## Remove archives & executables
 .PHONY: libclean
 libclean: clean		## Remove libft
 	@echo "\t$(RED)Cleaning libft 󰃢$(D)"
-	@$(RM) $(LIBFT_PATH)
+	$(RM) $(LIBFT_PATH)
 	@echo "\n==> $(GRN)libft successfully removed!$(D)\n"
-	@$(RM) $(LIBFT_PATH)
+	$(RM) $(LIBFT_PATH)
 	@echo "\n==> $(GRN)mlx successfully removed!$(D)\n"
 
 .PHONY: re
