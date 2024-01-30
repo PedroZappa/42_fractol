@@ -32,7 +32,7 @@ LIBFT_OBJS	= $(LIBFT_PATH)/*.o
 LIBFT_ARC	= $(LIBFT_PATH)/libft.a
 MLX_ARC		= $(MLX_PATH)/libmlx.a
 
-SHELL := bash
+SHELL := zsh
 
 #==============================================================================#
 #                            FLAGS & CMDS                                      # 
@@ -71,27 +71,28 @@ help: 			## Display this help page
 ##@ Fract'ol Compilation Rules 🏗
 
 all: $(NAME)
+	$(call progress_bar)
 
 launch:
 	$(call progress_bar)
 
 .PHONY: fractol
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) -o $@ $^
+	$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) -o $@ $^
 
 $(LIBFT_OBJS):
 	@printf "$(D)$(B)$(BLU)\n$(NAME)  compiled\n\n$(D)"
-	@$(MAKE) -C $(LIBPATH)
+	$(MAKE) -C $(LIBPATH)
 
 $(MLXNAME):
-	@$(MAKE) -C $(MLX_PATH) > /dev/null 2>&1 || true
+	$(MAKE) -C $(MLX_PATH) > /dev/null 2>&1 || true
 	@printf "$(B)$(CYA)$(MLXNAME) compiled\n$(D)"
 
 .PHONY: deps
 deps:			## Download/Update libft & mlx
 	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; else echo "$(YRL)libft folder found$(D)"; fi
 	@if test ! -d "$(MLX_PATH)"; then make get_mlx; else echo "$(YRL)mlx folder found$(D)"; fi
-	@make update_modules
+	make update_modules
 
 .PHONY: get_mlx
 get_mlx:		## Get MLX module
@@ -117,13 +118,13 @@ update_modules:	## Update modules
 .PHONY: clean
 clean: 				## Remove object files
 	@echo "\t$(RED)Cleaning objects 󰃢$(D)"
-	@$(RM) $(OBJS)
+	$(RM) $(OBJS)
 	@echo "\n==> $(GRN)Object files successfully removed!$(D)\n"
 
 .PHONY: fclean
-fclean: launch clean	## Remove archives & executables
+fclean: clean	## Remove archives & executables
 	@echo "\t$(RED)Cleaning executable 󰃢$(D)"
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 	@echo "\n==> $(GRN)$(NAME) Successfully removed!$(D)\n"
 
 .PHONY: libclean
