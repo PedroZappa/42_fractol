@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 10:37:36 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/30 11:18:58 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,15 @@ OBJS		= $(SRC:.c=.o)
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra -g
-CFLAGS 	+= -03
+CFLAGS	= -Wall -Werror -Wextra -g -03
+MLXFLAGS = -lX11 -lXext -lm
 
 INC		= -I.
 
 AR		= ar rcs
 RM		= rm -rf
 
+MAKE	= make -C
 
 #==============================================================================#
 #                                  LIBS                                        # 
@@ -44,16 +45,58 @@ RM		= rm -rf
 
 
 
+
+
 #==============================================================================#
 #                                  RULES                                       # 
 #==============================================================================#
 
-.o:.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+##@ Help 󰛵
+
+.PHONY: help
+help: 			## Display this help page
+	@awk 'BEGIN {FS = ":.*##"; \
+			printf "\n=> Usage:\n\tmake $(GRN)<target>$(NC)\n"} \
+		/^[a-zA-Z_0-9-]+:.*?##/ { \
+			printf "\t$(GRN)%-15s$(NC) %s\n", $$1, $$2 } \
+		/^##@/ { \
+			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
+
+##@ Fract'ol Compilation Rules 🏗
+
+all: $(NAME)
+
+.PHONY: fractol
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(INC) -o $@ $^
 
 
+.PHONY: deps
+deps:			## Check if libft & mlx folder exist
+	if [ -d "libft" ]; then echo "libft folder found"; else make get_libft; fi
+	if [ -d "mlx" ]; then echo "mlx folder found"; else make get_mlx; fi
 
+.PHONY: get_mlx
+get_mlx:		## Get MLX submodule
+	git clone git@github.com:42Paris/minilibx-linux.git mlx
+	git submodule --init
+	git submodule update --recursive --remote
 
+.PHONY: get_libft
+get_libft:		## Get Libft submodule
+	git clone git@github.com:PedroZappa/libft.git
+	git submodule --init
+	git submodule update --recursive --remote
+
+##@ Clean-up Rules 󰃢
+
+.PHONY: clean
+clean:
+	@$(RM) $(OBJS)
+
+.PHONY: fclean
+fclean: clean
+	@$(RM) $(NAME)
 
 .PHONY: re
 re: fclean all
@@ -87,3 +130,14 @@ BWHI	= $(shell tput setaf 15)
 D 		= $(shell tput sgr0)
 BEL 	= $(shell tput bel)
 CLR 	= $(shell tput el 1)
+
+
+# Loading Bar Function
+define	progress_bar
+	i=0
+	while [[ $$i -le $(words $(SRCS)) ]] ; do \
+		printf " " ; \
+		((i = i + 1)) ; \
+	done
+	printf "$(B)]\r[$(GRE)"
+endef
