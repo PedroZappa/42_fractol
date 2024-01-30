@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 12:28:37 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/30 12:57:58 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,25 +73,37 @@ all: $(NAME)
 
 .PHONY: fractol
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(INC) -o $@ $^
+	@$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) -o $@ $^
 
 
 .PHONY: deps
 deps:			## Check if libft & mlx folder exist
-	@if [ -d "libft" ]; then echo "$(YRL)libft folder found$(D)"; else make get_libft; fi
-	@if [ -d "mlx" ]; then echo "$(YRL)mlx folder found$(D)"; else make get_mlx; fi
+	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; else echo "$(YRL)libft folder found$(D)"; fi
+	@if test ! -d "$(MLX_PATH)"; then make get_mlx; else echo "$(YRL)mlx folder found$(D)"; fi
+	@make update_submodules
+
 
 .PHONY: get_mlx
 get_mlx:		## Get MLX submodule
+	@echo "\t$(CYA)Getting MLX submodule$(D)"
 	git clone git@github.com:42Paris/minilibx-linux.git $(MLX_PATH)
 	git submodule init
 	git submodule update --recursive --remote
+	@echo "\t$(GRN)MLX submodule successfully updated$(D)"
 
 .PHONY: get_libft
 get_libft:		## Get Libft submodule
+	@echo "\t$(CYA)Getting Libft submodule$(D)"
 	git clone git@github.com:PedroZappa/libft.git $(LIBFT_PATH)
 	git submodule init
 	git submodule update --recursive --remote
+	@echo "\t$(GRN)Libft submodule successfully updated$(D)"
+
+.PHONY: update_submodules
+update_submodules:	## Update submodules
+	@echo "\t$(CYA)Updating submodules$(D)"
+	git submodule update --recursive --remote
+	@echo "\t$(GRN)Submodules successfully updated$(D)"
 
 
 ##@ Clean-up Rules 󰃢
@@ -106,7 +118,7 @@ clean:			## Remove object files
 fclean: clean	## Remove archives & executables
 	@echo "\t$(RED)Cleaning executable 󰃢$(D)"
 	@$(RM) $(NAME)
-	@echo "\n==> $(GRN)$(NAME)Successfully removed!$(D)\n"
+	@echo "\n==> $(GRN)$(NAME) Successfully removed!$(D)\n"
 
 .PHONY: re
 re: fclean all	## Remove everything and Recompile the project
