@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/31 10:55:53 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/31 11:09:26 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -144,7 +144,7 @@ libclean: clean		## Remove libft
 	#
 
 .PHONY: re
-re: fclean all	## Remove everything and Recompile the project
+re: fclean all	## Purge and Recompile
 
 #==============================================================================#
 #                                  UTILS                                       # 
