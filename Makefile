@@ -134,7 +134,11 @@ libclean: fclean	## Remove libft
 	@echo "==> $(GRN)libft successfully removed!$(D)\n"
 	$(RM) $(MLX_PATH)
 	@echo "==> $(GRN)mlx successfully removed!$(D)\n"
-	#
+
+
+.PHONY: re
+re: fclean all	## Purge and Recompile
+
 
 ##@ Help 󰛵
 
@@ -146,10 +150,6 @@ help: 			## Display this help page
 			printf "\t$(GRN)%-15s$(D) %s\n", $$1, $$2 } \
 		/^##@/ { \
 			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
-
-
-.PHONY: re
-re: fclean all	## Purge and Recompile
 
 #==============================================================================#
 #                                  UTILS                                       #
