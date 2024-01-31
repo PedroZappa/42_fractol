@@ -13,11 +13,16 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# define HEIGHT	 800
+# define WIDTH	 800
+
 //=============================================================================/
 //								Librariy Headers                               /
 //=============================================================================/
 # include <stdio.h>				// printf(), EXIT_FAILURE, EXIT_SUCCESS
 # include <stdlib.h>			// malloc(), free()
+# include <math.h>
+
 # include "../inc/mlx/mlx.h"	// MLX library
 # include "../inc/libft/libft/libft.h"	// Libft library
 
