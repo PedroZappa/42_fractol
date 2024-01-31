@@ -26,8 +26,6 @@ LIBINC		= -I$(LIBFT_PATH)
 MLXINC		= -I$(MLX_PATH)
 
 OBJS		= $(SRC:.c=.o)
-# MLX_OBJS	= $(MLX_PATH)/*.o
-# LIBFT_OBJS	= $(LIBFT_PATH)/*.o
 
 LIBFT_ARC	= $(LIBFT_PATH)/libft.a
 MLX_ARC		= $(MLX_PATH)/libmlx.a
@@ -63,9 +61,6 @@ all: $(NAME)		## Compile Fract'ol
 
 .o:.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-launch:
-	$(call progress_bar)
 
 $(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
 	$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
