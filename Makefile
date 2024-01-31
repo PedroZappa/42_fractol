@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/30 13:42:17 by passunca         ###   ########.fr        #
+#    Updated: 2024/01/31 10:55:53 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,13 @@ update_modules:	## Update modules
 	git submodule update --recursive --remote
 	@echo "\t$(GRN)Submodules successfully updated$(D)"
 
+##@ Debug & Leak Check Rules 󰃢
+
+.PHONY: leak
+leak: all			## Check for leaks w/ valgrind
+	@valgrind -q --leak-check=full --show-leak-kinds=all \
+		--suppressions=readline_supression ./$(NAME)
+
 ##@ Clean-up Rules 󰃢
 
 .PHONY: clean
@@ -134,6 +141,7 @@ libclean: clean		## Remove libft
 	@echo "\n==> $(GRN)libft successfully removed!$(D)\n"
 	$(RM) $(LIBFT_PATH)
 	@echo "\n==> $(GRN)mlx successfully removed!$(D)\n"
+	#
 
 .PHONY: re
 re: fclean all	## Remove everything and Recompile the project
