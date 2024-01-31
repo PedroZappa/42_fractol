@@ -105,7 +105,9 @@ update_modules:	## Update modules
 	git submodule update --recursive --remote
 	@echo "[$(GRN)Submodules successfully updated$(D)]"
 
-
+.PHONY: exec
+exec:		## Compile Executable
+	$(CC) $(CFLAGS) $(MLXFLAGS) $(MATHFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
 ##@ Debug & Leak Check Rules 󰃢
 
 .PHONY: leak
