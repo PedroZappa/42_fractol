@@ -33,25 +33,27 @@ MLX_ARC		= $(MLX_PATH)/libmlx.a
 SHELL := zsh
 
 #==============================================================================#
-#                            FLAGS & CMDS                                      # 
+#                            FLAGS & CMDS                                      #
 #==============================================================================#
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra 
-CFLAGS	+= -g 
-CFLAGS 	+= -O3
-MLXFLAGS = -lX11 -lXext -lm
+CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		+= -g
+CFLAGS 		+= -O3
+MLXFLAGS	= -lX11 -lXext
+MLXFLAGS	+= -L/usr/X11R6/lib
+MATHFLAGS	= -lm
 
-INC		= -I .
+INC			= -I .
 
-AR		= ar rcs
-RM		= rm -rf
+AR			= ar rcs
+RM			= rm -rf
 
-MAKE	= make -C
+MAKE		= make -C
 
 #==============================================================================#
-#                                  RULES                                       # 
+#                                  RULES                                       #
 #==============================================================================#
 
 ##@ Fract'ol Compilation Rules 🏗
@@ -63,7 +65,7 @@ all: $(NAME)		## Compile Fract'ol
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLXFLAGS) $(MATHFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
 
 $(LIBFT_ARC):
 	$(MAKE) $(LIBFT_PATH)
@@ -150,7 +152,7 @@ help: 			## Display this help page
 re: fclean all	## Purge and Recompile
 
 #==============================================================================#
-#                                  UTILS                                       # 
+#                                  UTILS                                       #
 #==============================================================================#
 
 # Colors
