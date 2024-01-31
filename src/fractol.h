@@ -16,8 +16,10 @@
 //=============================================================================/
 //								Librariy Headers                               /
 //=============================================================================/
-# include <stdio.h>		// printf(), EXIT_FAILURE, EXIT_SUCCESS
-# include <stdlib.h>	// malloc(), free()
+# include <stdio.h>				// printf(), EXIT_FAILURE, EXIT_SUCCESS
+# include <stdlib.h>			// malloc(), free()
+# include "../inc/mlx/mlx.h"	// MLX library
+# include "../inc/libft/libft/libft.h"	// Libft library
 
 //=============================================================================/
 //                               Structures                                    /
