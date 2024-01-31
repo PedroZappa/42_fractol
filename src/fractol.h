@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/01/31 10:52:08 by passunca         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:01:20 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ typedef struct s_display
 }				t_display;
 
 /* Image Data Buffer Structure 
- *	Stores image data coming from mlx_get_data_addr()
- *	
+ * [ Stores image data coming from mlx_get_data_addr() ]
+ *	img:		Pointer to image
+ *	pix:		Pointer to image pixel data
+ *	bpp:		Bytes per pixel
+ *	endian:		Endian
+ *	line_len:	Line length
  *	*/
 typedef struct s_img
 {
