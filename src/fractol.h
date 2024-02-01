@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/01/31 11:07:01 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:10:16 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 //=============================================================================/
 //								Librariy Headers                               /
 //=============================================================================/
-# include <stdio.h>				// printf(), EXIT_FAILURE, EXIT_SUCCESS
-# include <stdlib.h>			// malloc(), free()
-# include <math.h>
+
+# include <stdio.h>				// EXIT_FAILURE, EXIT_SUCCESS
+# include <stdlib.h>			// malloc(), free(), exit()
+# include <math.h>				// Math functions
+# include <X11/keysym.h>		// Keysym for event handling
 
 # include "../inc/mlx/mlx.h"	// MLX library
 # include "../inc/libft/libft/libft.h"	// Libft library
@@ -70,5 +72,8 @@ typedef struct s_img
 //=============================================================================/
 //							Function Prototypes                                /
 //=============================================================================/
+
+/* ft_events.c */
+int	handle_input(int key, t_display *display);
 
 #endif
