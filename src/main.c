@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 17:17:27 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:28:01 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	t_display	display;
-	// t_img		img;
+	t_img		img;
 
 	display.mlx_conn = mlx_init();
 	if (!display.mlx_conn)
@@ -31,9 +31,9 @@ int	main(int argc, char **argv)
 		free(display.mlx_conn);
 		exit (1);
 	}
-	// img.img = mlx_new_image(display.mlx_conn, WIDTH, HEIGHT);
-	// img.pix = mlx_get_data_addr(img.img, 
-	// 					&img.bpp, &img.line_len, &img.endian);
+	img.img = mlx_new_image(display.mlx_conn, WIDTH, HEIGHT);
+	img.pix = mlx_get_data_addr(img.img, 
+	 					&img.bpp, &img.line_len, &img.endian);
 	
 	mlx_key_hook(display.mlx_win, handle_input, &display);
 
