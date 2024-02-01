@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 21:47:46 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:50:16 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ int	ft_input_checker(int argc, char **argv);
 
 int	main(int argc, char **argv)
 {
-
 	if (ft_input_checker(argc, argv))
 	{
-		// TODO
 		exit(EXIT_SUCCESS);
 	}
 	else
@@ -34,15 +32,11 @@ int	ft_input_checker(int argc, char **argv)
 	char	*tolower;
 	int		i;
 
-	i = 0;
+	i = -1;
 	tolower = argv[1];
-	while (tolower[i])
-	{
+	while (tolower[++i])
 		if (ft_isalpha(tolower[i]))
 			tolower[i] = ft_tolower(tolower[i]);
-		++i;
-	}
-
 	if (((argc == 2) && !ft_strncmp(tolower, "mandelbrot", 10))
 		|| ((argc == 4) && !ft_strncmp(tolower, "julia", 5)))
 		return (1);
