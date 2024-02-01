@@ -16,5 +16,7 @@ int	main(int argc, char **argv)
 						&img.bpp, &img.line_len, &img.endian);
 
 	mlx_loop(display.mlx_conn);
+
+	mlx_destroy_display(display.mlx_conn);
 	return (0);
 }
