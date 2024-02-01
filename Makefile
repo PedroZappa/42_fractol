@@ -110,7 +110,7 @@ update_modules:	## Update modules
 
 .PHONY: exec
 exec:		## Compile Executable
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(MATHFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) $(MLXFLAGS) -o $(NAME)
 
 ##@ Debug & Leak Check Rules 󰃢
 
