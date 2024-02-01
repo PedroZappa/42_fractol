@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/01/31 13:01:44 by passunca         ###   ########.fr        #
+#    Updated: 2024/02/01 17:36:12 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,16 @@
 
 NAME		= fractol
 
-SRC_PATH	= src
+SRC_PATH	= ./src
 INC_PATH	= ./inc
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
-SRC			= $(addprefix $(SRC_PATH)/, main.c )
+SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c)
 LIBINC		= -I$(LIBFT_PATH)
 MLXINC		= -I$(MLX_PATH)
-BUILD_DIR	= .build
 
+BUILD_DIR	= .build
 OBJS		= $(SRC:.c=.o)
 DEPS		= $(OBJS:.o=.d)
 
@@ -69,7 +69,7 @@ $(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) $(MLXFLAGS) -o $(NAME)
 
 $(LIBFT_ARC):
-	$(MAKE) $(LIBFT_PATH)
+	$(MAKE) $(LIBFT_PATH) extra
 	@printf "$(D)$(B)$(BLU)\nlibft compiled\n\n$(D)"
 
 $(MLX_ARC):
