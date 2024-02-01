@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 17:10:16 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:00:18 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # include <stdio.h>				// EXIT_FAILURE, EXIT_SUCCESS
 # include <stdlib.h>			// malloc(), free(), exit()
+# include <unistd.h>			// write()
 # include <math.h>				// Math functions
 # include <X11/keysym.h>		// Keysym for event handling
 

@@ -6,41 +6,67 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 19:28:01 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:07:18 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+int	ft_input_checker(int argc, char **argv);
+
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
 	t_display	display;
-	t_img		img;
 
-	display.mlx_conn = mlx_init();
-	if (!display.mlx_conn)
-		exit (1);
-
-	display.mlx_win = mlx_new_window(display.mlx_conn, 
-						WIDTH, HEIGHT, "Fractol");
-	if (!display.mlx_win)
+	if (ft_input_checker(argc, argv))
 	{
-		mlx_destroy_display(display.mlx_conn);
-		free(display.mlx_conn);
-		exit (1);
+		// TODO
+		exit(EXIT_SUCCESS);
 	}
-	img.img = mlx_new_image(display.mlx_conn, WIDTH, HEIGHT);
-	img.pix = mlx_get_data_addr(img.img, 
-	 					&img.bpp, &img.line_len, &img.endian);
-	
-	mlx_key_hook(display.mlx_win, handle_input, &display);
-
-	mlx_loop(display.mlx_conn);
-
-	mlx_destroy_window(display.mlx_conn, display.mlx_win);
-	mlx_destroy_display(display.mlx_conn);
-	free(display.mlx_conn);
-	exit(0);
+	else
+	{
+		ft_putstr_fd("Error\n", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 }
+
+int	ft_input_checker(int argc, char **argv)
+{
+	if ((argc == 2) && !(ft_strncmp(argv[1], "mandelbrot", 10) == 0)
+		|| (argc == 4) && !(ft_strncmp(argv[1], "julia", 5) == 0))
+		return (1);
+	return (0);
+}
+
+// int	main(int argc, char **argv)
+// {
+// 	(void)argc;
+// 	(void)argv;
+// 	t_display	display;
+// 	t_img		img;
+//
+// 	display.mlx_conn = mlx_init();
+// 	if (!display.mlx_conn)
+// 		exit (1);
+//
+// 	display.mlx_win = mlx_new_window(display.mlx_conn,
+// 						WIDTH, HEIGHT, "Fractol");
+// 	if (!display.mlx_win)
+// 	{
+// 		mlx_destroy_display(display.mlx_conn);
+// 		free(display.mlx_conn);
+// 		exit (1);
+// 	}
+// 	img.img = mlx_new_image(display.mlx_conn, WIDTH, HEIGHT);
+// 	img.pix = mlx_get_data_addr(img.img,
+// 	 					&img.bpp, &img.line_len, &img.endian);
+//
+// 	mlx_key_hook(display.mlx_win, handle_input, &display);
+//
+// 	mlx_loop(display.mlx_conn);
+//
+// 	mlx_destroy_window(display.mlx_conn, display.mlx_win);
+// 	mlx_destroy_display(display.mlx_conn);
+// 	free(display.mlx_conn);
+// 	exit(0);
+// }
