@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 21:46:42 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:51:52 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ typedef struct s_env
 //=============================================================================/
 
 /* ft_events.c */
-int	handle_input(int key, t_display *display);
+int	handle_input(int key, t_env *display);
 
 #endif

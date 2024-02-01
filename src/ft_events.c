@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 20:52:37 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:52:13 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  *		If `XK_Escape` keysym is received, 
  *		destroy the window and exit.
  *	*/
-int	handle_input(int keysym, t_display *display)
+int	handle_input(int keysym, t_env *display)
 {
 	if (keysym == XK_Escape)
 	{
