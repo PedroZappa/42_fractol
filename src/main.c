@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 21:27:06 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:47:46 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ int	ft_input_checker(int argc, char **argv)
 	tolower = argv[1];
 	while (tolower[i])
 	{
-		if (!ft_isalpha(tolower[i]))
-			break;
-		tolower[i] = ft_tolower(tolower[i]);
+		if (ft_isalpha(tolower[i]))
+			tolower[i] = ft_tolower(tolower[i]);
 		++i;
 	}
 
