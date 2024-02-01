@@ -24,8 +24,10 @@ MLX_PATH 	= $(INC_PATH)/mlx
 SRC			= $(addprefix $(SRC_PATH)/, main.c )
 LIBINC		= -I$(LIBFT_PATH)
 MLXINC		= -I$(MLX_PATH)
+BUILD_DIR	= .build
 
 OBJS		= $(SRC:.c=.o)
+DEPS		= $(OBJS:.o=.d)
 
 LIBFT_ARC	= $(LIBFT_PATH)/libft.a
 MLX_ARC		= $(MLX_PATH)/libmlx.a
@@ -41,11 +43,10 @@ CC		= cc
 CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
 CFLAGS 		+= -O3
-MLXFLAGS	= -lX11 -lXext
+MLXFLAGS	= -lX11 -lXext -lm
 MLXFLAGS	+= -L/usr/X11R6/lib
-MATHFLAGS	= -lm
 
-INC			= -I .
+INC			= -I
 
 AR			= ar rcs
 RM			= rm -rf
@@ -58,28 +59,30 @@ MAKE		= make -C
 
 ##@ Fract'ol Compilation Rules 🏗
 
-# .PHONY: all
 all: $(NAME)		## Compile Fract'ol
 
 .o:.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	@echo -n "$(MAG)█$(D)"
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(MATHFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) $(MLXFLAGS) -o $(NAME)
 
 $(LIBFT_ARC):
 	$(MAKE) $(LIBFT_PATH)
-	@printf "$(D)$(B)$(BLU)\n$(NAME) compiled\n\n$(D)"
+	@printf "$(D)$(B)$(BLU)\nlibft compiled\n\n$(D)"
 
 $(MLX_ARC):
 	$(MAKE) $(MLX_PATH)
-	@printf "$(D)$(B)$(BLU)\n$(NAME) compiled\n\n$(D)"
+	@printf "$(D)$(B)$(BLU)\nmlx compiled\n\n$(D)"
 
 .PHONY: deps
 deps:			## Download/Update libft & mlx
-	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; else echo "$(YEL)libft folder found$(D)"; fi
-	@if test ! -d "$(MLX_PATH)"; then make get_mlx; else echo "$(YEL)mlx folder found$(D)"; fi
-	make update_modules
+	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; \
+		else echo "$(YEL)[libft]$(D) folder found"; fi
+	@if test ! -d "$(MLX_PATH)"; then make get_mlx; \
+		else echo "$(YEL)[mlx]$(D) folder found"; fi
+	@make update_modules
 
 .PHONY: get_mlx
 get_mlx: compile_mlx	## Get MLX module
@@ -108,6 +111,7 @@ update_modules:	## Update modules
 .PHONY: exec
 exec:		## Compile Executable
 	$(CC) $(CFLAGS) $(MLXFLAGS) $(MATHFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) -o $(NAME)
+
 ##@ Debug & Leak Check Rules 󰃢
 
 .PHONY: leak
@@ -127,6 +131,7 @@ clean: 				## Remove object files
 fclean: clean	## Remove archives & executables
 	@echo "[$(RED)Cleaning executable 󰃢$(D)]"
 	$(RM) $(NAME)
+	$(MAKE) $(LIBFT_PATH) fclean
 	@echo "==> $(GRN)$(NAME) Successfully removed!$(D)\n"
 
 .PHONY: libclean
@@ -182,14 +187,3 @@ BWHI	= $(shell tput setaf 15)
 D 		= $(shell tput sgr0)
 BEL 	= $(shell tput bel)
 CLR 	= $(shell tput el 1)
-
-# Loading Bar Function
-define	progress_bar
-	i=0
-	while [[ $$i -le $(words $(SRC)) ]] ; do \
-		printf " " ; \
-		((i = i + 1)) ; \
-	done
-	printf "$(B)]\r[$(GRE)"
-endef
-
