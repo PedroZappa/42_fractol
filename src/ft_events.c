@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 17:10:48 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:13:52 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		handle_input(int keysym, t_display *display)
 {
 	if (keysym == XK_Escape)
 	{
+		ft_printf("Fractol Exiting...\n");
 		mlx_destroy_window(display->mlx_conn, display->mlx_win);
 		mlx_destroy_display(display->mlx_conn);
 		free(display->mlx_conn);
