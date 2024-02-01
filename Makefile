@@ -135,7 +135,7 @@ fclean: clean	## Remove archives & executables
 	@echo "==> $(GRN)$(NAME) Successfully removed!$(D)\n"
 
 .PHONY: libclean
-libclean: fclean	## Remove libft
+libclean: fclean	## Remove libft & mlx
 	@echo "[$(RED)Cleaning libft 󰃢$(D)]"
 	$(RM) $(LIBFT_PATH)
 	@echo "==> $(GRN)libft successfully removed!$(D)\n"
