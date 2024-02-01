@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 16:50:08 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:12:36 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	{
 		mlx_destroy_display(display.mlx_conn);
 		free(display.mlx_conn);
-		return (1);
+		exit (1);
 	}
 	// img.img = mlx_new_image(display.mlx_conn, WIDTH, HEIGHT);
 	// img.pix = mlx_get_data_addr(img.img, 
@@ -42,5 +42,5 @@ int	main(int argc, char **argv)
 	mlx_destroy_window(display.mlx_conn, display.mlx_win);
 	mlx_destroy_display(display.mlx_conn);
 	free(display.mlx_conn);
-	return (0);
+	exit(0);
 }
