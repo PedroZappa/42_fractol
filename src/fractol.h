@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 21:00:18 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/01 21:46:42 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,6 @@ typedef struct s_complex
 	double	i;
 }				t_complex;
 
-/* Display Structure
- *	mlx_conn:	Stores pointer to the MLX connection
- *	mlx_win:	Stores pointer to the MLX window
- *	*/
-typedef struct s_display
-{
-	void	*mlx_conn;
-	void	*mlx_win;
-}				t_display;
-
 /* Image Data Buffer Structure 
  * [ Stores image data coming from mlx_get_data_addr() ]
  *	img:		Pointer to image
@@ -69,6 +59,23 @@ typedef struct s_img
 	int		endian;
 	int		line_len;
 }				t_img;
+
+/* X Environment Structure
+ *	mlx_conn:	Stores pointer to the MLX connection
+ *	mlx_win:	Stores pointer to the MLX window
+ *	*/
+typedef struct s_env
+{
+	void		*mlx_conn;
+	void		*mlx_win;
+	int			size_x;
+	int			size_y;
+	int			type;
+	long		iter;
+	t_complex	c;
+	t_complex	z;
+	t_img		*img;
+}				t_env;
 
 //=============================================================================/
 //							Function Prototypes                                /
