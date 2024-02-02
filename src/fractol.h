@@ -120,7 +120,7 @@ void		ft_malloc_error(void);
 /* ft_math.c : Useful math functions */
 double		ft_scale(double unscaled_n, double max,
 					double scaled_min, double scaled_max);
-t_complex	ft_complex_sum(t_complex c1, t_complex c2);
-t_complex	ft_complex_square(t_complex c);
+t_complex	ft_c_sum(t_complex c1, t_complex c2);
+t_complex	ft_c_square(t_complex c);
 
 #endif

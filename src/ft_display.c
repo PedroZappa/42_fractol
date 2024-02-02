@@ -95,7 +95,7 @@ void	ft_get_pixel(t_display *display, int x, int y)
 	c.i = ft_scale(y, HEIGHT, 2.0, -2.0);
 	while (++i < display->iter)
 	{
-		z = ft_complex_sum(ft_complex_square(z), c);
+		z = ft_c_sum(ft_c_square(z), c);
 		if ((z.r * z.r) + (z.i * z.i) > 4.0)
 		{
 			color = ft_scale(i, HEX_WHITE, 0, display->iter);
