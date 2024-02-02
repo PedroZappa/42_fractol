@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 16:57:38 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:21:12 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_display
 /*	ft_display.c : Display functions */
 void	ft_init_display(t_display *display);
 void	ft_render(t_display *display);
-void	ft_put_pixel(t_display *display, int x, int y);
+void	ft_pixel(t_display *display, int x, int y);
 
 /*	ft_sets.c : Fractal set renderers */
 void	render_mandelbrot(t_display *display);
@@ -114,7 +114,8 @@ void	ft_window_kill(t_display *display);
 void	ft_malloc_error(void);
 
 /* ft_math.c : Useful math functions */
-double	ft_scale(double unscaled_n, double scaled_min, double scaled_max, 
-				double min, double max);
+double	ft_scale(double unscaled_n, double min, double max,
+				double scaled_min, double scaled_max);
+t_complex	ft_complex_sum(t_complex c1, t_complex c2);
 
 #endif
