@@ -21,14 +21,10 @@ INC_PATH	= inc
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
-# SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
-# 			  ft_kill.c ft_display.c ft_math.c ft_mlx.c)
-SRC			= main.c ft_events.c ft_help.c ft_sets.c ft_kill.c ft_display.c \
-			ft_math.c ft_mlx.c
-SRC			:= $(SRC:%=$(SRC_PATH)/%)
+SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
+			  ft_kill.c ft_display.c ft_math.c ft_mlx.c)
 
 BUILD_PATH	= .build
-# OBJS		= $(SRC:.c=.o)
 OBJS		= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 DEPS		= $(OBJS:.o=.d)
 
