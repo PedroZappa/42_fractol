@@ -22,7 +22,7 @@ LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
 SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
-			  ft_kill.c ft_display.c ft_math.c)
+			  ft_kill.c ft_display.c ft_math.c ft_mlx.c)
 LIBINC		= -I$(LIBFT_PATH)
 MLXINC		= -I$(MLX_PATH)
 

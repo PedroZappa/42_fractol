@@ -94,9 +94,11 @@ typedef struct s_display
 //							Function Prototypes                                /
 //=============================================================================/
 
-/*	ft_display.c : Display functions */
+/* ft_mlx.c : MLX setup functions */
 void		ft_init_display(t_display *display);
 void		ft_init_data(t_display *display);
+
+/*	ft_display.c : Display functions */
 void		ft_render(t_display *display);
 void		ft_get_pixel(t_display *display, int x, int y);
 void		ft_put_pixel(t_img *img, int x, int y, int color);
