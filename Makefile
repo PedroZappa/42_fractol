@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/02/02 18:14:46 by passunca         ###   ########.fr        #
+#    Updated: 2024/02/02 21:39:15 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,19 +16,24 @@
 
 NAME		= fractol
 
-SRC_PATH	= ./src
-INC_PATH	= ./inc
+SRC_PATH	= src
+INC_PATH	= inc
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
-SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
-			  ft_kill.c ft_display.c ft_math.c ft_mlx.c)
+# SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
+# 			  ft_kill.c ft_display.c ft_math.c ft_mlx.c)
+SRC			= main.c ft_events.c ft_help.c ft_sets.c ft_kill.c ft_display.c \
+			ft_math.c ft_mlx.c
+SRC			:= $(SRC:%=$(SRC_PATH)/%)
+
+BUILD_PATH	= .build
+# OBJS		= $(SRC:.c=.o)
+OBJS		= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
+DEPS		= $(OBJS:.o=.d)
+
 LIBINC		= -I$(LIBFT_PATH)
 MLXINC		= -I$(MLX_PATH)
-
-BUILD_DIR	= .build
-OBJS		= $(SRC:.c=.o)
-DEPS		= $(OBJS:.o=.d)
 
 LIBFT_ARC	= $(LIBFT_PATH)/libft.a
 MLX_ARC		= $(MLX_PATH)/libmlx.a
@@ -51,6 +56,7 @@ INC			= -I
 
 AR			= ar rcs
 RM			= rm -rf
+MKDIR_P		= mkdir -p
 
 MAKE		= make -C
 
@@ -62,11 +68,14 @@ MAKE		= make -C
 
 all: $(NAME)		## Compile Fract'ol
 
-.o:.c
+$(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	@echo -n "$(MAG)█$(D)"
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
+$(BUILD_PATH):
+	$(MKDIR_P) $(BUILD_PATH)
+
+$(NAME): $(BUILD_PATH) $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) $(MLXFLAGS) -o $(NAME)
 
 $(LIBFT_ARC):
@@ -84,6 +93,8 @@ deps:			## Download/Update libft & mlx
 	@if test ! -d "$(MLX_PATH)"; then make get_mlx; \
 		else echo "$(YEL)[mlx]$(D) folder found"; fi
 	@make update_modules
+
+-include $(DEPS)
 
 .PHONY: get_mlx
 get_mlx: compile_mlx	## Get MLX module
@@ -124,8 +135,12 @@ leak: all			## Check for leaks w/ valgrind
 
 .PHONY: clean
 clean: 				## Remove object files
-	@echo "[$(RED)Cleaning objects 󰃢$(D)]"
+	@echo "[$(RED)Cleaning $(NAME) objects 󰃢$(D)]"
 	$(RM) $(OBJS)
+	@echo "[$(RED)Cleaning Libft objects 󰃢$(D)]"
+	$(MAKE) $(LIBFT_PATH) clean
+	@echo "[$(RED)Removing $(BUILD_PATH) 󰃢$(D)]"
+	$(RM) $(BUILD_PATH)
 	@echo "==> $(GRN)Object files successfully removed!$(D)\n"
 
 .PHONY: fclean
