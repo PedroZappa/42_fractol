@@ -6,22 +6,21 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:42:35 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 17:21:57 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:26:52 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/*	Rescale's a range of values by applying linear interpolation:
-*	       (b-a)(x - min)
-*	f(x) = --------------  + a
-*	          max - min
+/*	Scale's a range of values from 0 to max:
+*	       (b-a)(x)
+*	f(x) = -------- + a
+*			  max
 *	*/
-double	ft_scale(double unscaled_n, double min, double max,
+double	ft_scale(double unscaled_n, double max,
 				double scaled_min, double scaled_max)
 {
-	return (((scaled_max - scaled_min) * (unscaled_n - min) 
-				/ (max - min)) + scaled_min);
+	return (((scaled_max - scaled_min) * unscaled_n / max) + scaled_min);
 }
 
 /*	Sum two complex numbers
