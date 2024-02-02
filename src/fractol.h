@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 21:01:20 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:33:55 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_img
  *	mlx_win:	Stores pointer to the MLX window
  *	// Image variables
  *	name:		Fractal Name
- *	
+ *	img:		Pointer to image data
  *	iter:		Number of iterations; determines the depth of the fractal
  *	escape:		Escape radius (hypothenuse) to stop the iteration
  *	*/
@@ -81,9 +81,6 @@ typedef struct s_display
 	void		*mlx_win;
 	char 		*name;
 	t_img		*img;
-	int			size_x;
-	int			size_y;
-	int			type;
 	long		iter;
 	double		escape;
 	t_complex	c;
