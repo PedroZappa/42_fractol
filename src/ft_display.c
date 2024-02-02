@@ -46,13 +46,14 @@ void	ft_init_display(t_display *display)
 	ft_init_data(display);
 }
 
-/*	ft_init_data : Initializes the data
- *
+/*	ft_init_data : Initializes t_display's data
+ *		Set display->escape to 4.0, c² (See Pythagorean theorem)
+ *		Set display->iter to 420 iterations as a default
  *	*/
 void	ft_init_data(t_display *display)
 {
-	(void)display;
-	return ;
+	display->escape = 4.0;
+	display->iter = 420;
 }
 
 /*	ft_render : Renders the fractal
@@ -80,6 +81,10 @@ void	ft_render(t_display *display)
  *			Scale y from the range (0 to WIDTH) to (2.0 to -2.0) [top to bottom]
  *		Plug pixel coordinates into the Mandelbrot equation
  *			Compute z = z^2 + c
+ *			Loop for i iterations
+ *				Set z to the result of (z^2 + c)
+ *				Check if z is in the Mandelbrot set (Check Pythagorean theorem)
+ *					Scale the range (0 to HEX_WHITE) to (0 to i)
  *	*/
 void	ft_get_pixel(t_display *display, int x, int y)
 {
@@ -96,7 +101,7 @@ void	ft_get_pixel(t_display *display, int x, int y)
 	while (++i < display->iter)
 	{
 		z = ft_c_sum(ft_c_square(z), c);
-		if ((z.r * z.r) + (z.i * z.i) > 4.0)
+		if ((z.r * z.r) + (z.i * z.i) > display->escape)
 		{
 			color = ft_scale(i, HEX_WHITE, 0, display->iter);
 			ft_put_pixel(display, x, y, color);

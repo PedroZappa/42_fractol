@@ -72,6 +72,7 @@ typedef struct s_img
  *	// Image variables
  *	name:		Fractal Name
  *	
+ *	iter:		Number of iterations; determines the depth of the fractal
  *	escape:		Escape radius (hypothenuse) to stop the iteration
  *	*/
 typedef struct s_display
@@ -84,6 +85,7 @@ typedef struct s_display
 	int			size_y;
 	int			type;
 	long		iter;
+	double		escape;
 	t_complex	c;
 	t_complex	z;
 }				t_display;
