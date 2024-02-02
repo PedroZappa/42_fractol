@@ -99,7 +99,7 @@ void		ft_init_display(t_display *display);
 void		ft_init_data(t_display *display);
 void		ft_render(t_display *display);
 void		ft_get_pixel(t_display *display, int x, int y);
-void		ft_put_pixel(t_display *display, int x, int y, int color);
+void		ft_put_pixel(t_img *img, int x, int y, int color);
 
 /*	ft_sets.c : Fractal set renderers */
 void		render_mandelbrot(t_display *display);
