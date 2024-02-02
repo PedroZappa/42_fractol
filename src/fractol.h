@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 12:23:52 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:27:47 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,10 @@ int	handle_input(int key, t_env *display);
 int	ft_opts(void);
 int ft_no_args(void);
 int ft_has_hflag(int argc, char **argv);
+
+/* ft_sets.c */
+void	render_mandelbrot(t_env *env);
+void	render_julia(t_env *env);
+
 
 #endif
