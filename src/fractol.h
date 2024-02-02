@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 16:47:05 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:57:38 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	ft_window_kill(t_display *display);
 void	ft_malloc_error(void);
 
 /* ft_math.c : Useful math functions */
-double	ft_scale(double unscaled_n, double new_min, double new_max, 
-				double old_min, double old_max);
+double	ft_scale(double unscaled_n, double scaled_min, double scaled_max, 
+				double min, double max);
 
 #endif

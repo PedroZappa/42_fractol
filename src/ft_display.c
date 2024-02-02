@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:46:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 16:37:34 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:57:42 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void	ft_render(t_display *display)
 }
 
 /*	ft_put_pixel : Puts a pixel to the display
- *
- *	
+ *		Scale the pixel to the display
  *	*/
 void	ft_put_pixel(t_display *display, int x, int y)
 {
