@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 12:35:13 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:09:02 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 
 	if (ft_input_checker(argc, argv))
 	{
+		display.name = argv[1];
 		ft_init_display(&display);
 		ft_render(&display);
 		mlx_loop(display.mlx_conn);

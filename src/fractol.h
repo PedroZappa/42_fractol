@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 16:07:25 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:47:05 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ typedef struct s_complex
  *	img:		Pointer to image struct
  *	pix:		Pointer to image pixel data
  *	bpp:		Bytes per pixel
- *	endian:		Endian
  *	line_len:	Line length
+ *	endian:		Endian
  *	*/
 typedef struct s_img
 {
 	void	*img;
 	char	*pix;
 	int		bpp;
-	int		endian;
 	int		line_len;
+	int		endian;
 }				t_img;
 
 /* X Environment Structure
@@ -77,13 +77,13 @@ typedef struct s_display
 	void		*mlx_conn;
 	void		*mlx_win;
 	char 		*name;
+	t_img		*img;
 	int			size_x;
 	int			size_y;
 	int			type;
 	long		iter;
 	t_complex	c;
 	t_complex	z;
-	t_img		*img;
 }				t_display;
 
 //=============================================================================/
@@ -93,6 +93,7 @@ typedef struct s_display
 /*	ft_display.c : Display functions */
 void	ft_init_display(t_display *display);
 void	ft_render(t_display *display);
+void	ft_put_pixel(t_display *display, int x, int y);
 
 /*	ft_sets.c : Fractal set renderers */
 void	render_mandelbrot(t_display *display);
@@ -110,5 +111,10 @@ int		ft_has_hflag(int argc, char **argv);
 void	ft_clean_kill(t_display *display);
 void	ft_kill_werror(t_display *display);
 void	ft_window_kill(t_display *display);
+void	ft_malloc_error(void);
+
+/* ft_math.c : Useful math functions */
+double	ft_scale(double unscaled_n, double new_min, double new_max, 
+				double old_min, double old_max);
 
 #endif
