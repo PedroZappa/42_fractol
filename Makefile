@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/02/02 12:31:53 by passunca         ###   ########.fr        #
+#    Updated: 2024/02/02 18:14:46 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
 SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
-			  ft_kill.c)
+			  ft_kill.c ft_display.c ft_math.c)
 LIBINC		= -I$(LIBFT_PATH)
 MLXINC		= -I$(MLX_PATH)
 

@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 17:21:12 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:29:35 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 //								Variables                                      /
 //=============================================================================/
 
+// Display Dimensions
 # define HEIGHT	 800
 # define WIDTH	 800
 
@@ -70,7 +71,8 @@ typedef struct s_img
  *	mlx_win:	Stores pointer to the MLX window
  *	// Image variables
  *	name:		Fractal Name
- *
+ *	
+ *	escape:		Escape radius (hypothenuse) to stop the iteration
  *	*/
 typedef struct s_display
 {
@@ -91,31 +93,34 @@ typedef struct s_display
 //=============================================================================/
 
 /*	ft_display.c : Display functions */
-void	ft_init_display(t_display *display);
-void	ft_render(t_display *display);
-void	ft_pixel(t_display *display, int x, int y);
+void		ft_init_display(t_display *display);
+void		ft_init_data(t_display *display);
+void		ft_render(t_display *display);
+void		ft_get_pixel(t_display *display, int x, int y);
+void		ft_put_pixel(t_display *display, int x, int y, int color);
 
 /*	ft_sets.c : Fractal set renderers */
-void	render_mandelbrot(t_display *display);
-void	render_julia(t_display *display);
+void		render_mandelbrot(t_display *display);
+void		render_julia(t_display *display);
 
 /*	ft_events.c */
-int		handle_input(int key, t_display *display);
+int			handle_input(int key, t_display *display);
 
 /*	ft_help.c : Args handling & help functions */
-int		ft_usage(void);
-int		ft_no_args(void);
-int		ft_has_hflag(int argc, char **argv);
+int			ft_usage(void);
+int			ft_no_args(void);
+int			ft_has_hflag(int argc, char **argv);
 
 /*	ft_kill.c : exit functions */
-void	ft_clean_kill(t_display *display);
-void	ft_kill_werror(t_display *display);
-void	ft_window_kill(t_display *display);
-void	ft_malloc_error(void);
+void		ft_clean_kill(t_display *display);
+void		ft_kill_werror(t_display *display);
+void		ft_window_kill(t_display *display);
+void		ft_malloc_error(void);
 
 /* ft_math.c : Useful math functions */
-double	ft_scale(double unscaled_n, double min, double max,
-				double scaled_min, double scaled_max);
+double		ft_scale(double unscaled_n, double max,
+					double scaled_min, double scaled_max);
 t_complex	ft_complex_sum(t_complex c1, t_complex c2);
+t_complex	ft_complex_square(t_complex c);
 
 #endif
