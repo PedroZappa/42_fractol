@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 15:55:09 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:07:25 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,14 @@ typedef struct s_img
  *	mlx_conn:	Stores pointer to the MLX connection
  *	mlx_win:	Stores pointer to the MLX window
  *	// Image variables
+ *	name:		Fractal Name
  *
  *	*/
 typedef struct s_display
 {
 	void		*mlx_conn;
 	void		*mlx_win;
+	char 		*name;
 	int			size_x;
 	int			size_y;
 	int			type;
