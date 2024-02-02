@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/01 21:50:16 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:46:17 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,21 @@ int	main(int argc, char **argv)
 	}
 }
 
+/*	Checks if the input arguments are valid
+ *
+ *		Converts argv[1] to lowercase
+ *		Checks if the input is:
+ *				mandelbrot & has 2 arguments
+ *				julia & has 4 arguments
+ *
+ *	*/
 int	ft_input_checker(int argc, char **argv)
 {
 	char	*tolower;
 	int		i;
 
+	if (argc != 2 && argc != 4)
+		return (0);
 	i = -1;
 	tolower = argv[1];
 	while (tolower[++i])
@@ -41,6 +51,16 @@ int	ft_input_checker(int argc, char **argv)
 		|| ((argc == 4) && !ft_strncmp(tolower, "julia", 5)))
 		return (1);
 	return (0);
+}
+
+int ft_set_checker(t_env *env, char *input_set)
+{
+	if (ft_strncmp(input_set, "mandelbrot", 10) == 0)
+		render_mandelbrot(env);
+	else if (ft_strncmp(input_set, "julia", 5) == 0)
+		render_julia(env);
+	else
+		ft_exit_err(EXIT_FAILURE);
 }
 
 // int	main(int argc, char **argv)
