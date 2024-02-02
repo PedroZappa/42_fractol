@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_help.c                                          :+:      :+:    :+:   */
+/*   ft_kill.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:50:18 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 12:37:59 by passunca         ###   ########.fr       */
+/*   Created: 2024/02/02 12:29:52 by passunca          #+#    #+#             */
+/*   Updated: 2024/02/02 12:31:16 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_usage(void)
+void	ft_clean_kill(t_env *env)
 {
-	ft_perror_color("Usage: ./fractol [OPTION]\n", RED);
-	return (0);
+	(void)env;
+	return ;
 }
 
-int ft_no_args(void)
+void	ft_kill_werror(t_env *env)
 {
-	ft_perror("No arguments provided.\nHere are all the available options:\n");
-	ft_usage();
-	return (0);	
+	(void)env;
+	return ;
 }
 
-int ft_has_hflag(int argc, char **argv)
+void	ft_window_kill(t_env *env)
 {
-	int i;
-
-	i = -1;
-	while (++i < argc)
-		if (ft_strncmp(argv[i], "-h", 2) == 0)
-			return (1);
-	return (0);
+	(void)env;
+	return ;
 }

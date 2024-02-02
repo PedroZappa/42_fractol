@@ -6,13 +6,14 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:49:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 11:46:17 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:35:13 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 int	ft_input_checker(int argc, char **argv);
+void ft_set_checker(t_env *env, char *input_set);
 
 int	main(int argc, char **argv)
 {
@@ -53,14 +54,14 @@ int	ft_input_checker(int argc, char **argv)
 	return (0);
 }
 
-int ft_set_checker(t_env *env, char *input_set)
+void ft_set_checker(t_env *env, char *input_set)
 {
 	if (ft_strncmp(input_set, "mandelbrot", 10) == 0)
 		render_mandelbrot(env);
 	else if (ft_strncmp(input_set, "julia", 5) == 0)
 		render_julia(env);
 	else
-		ft_exit_err(EXIT_FAILURE);
+		ft_kill_werror(env);
 }
 
 // int	main(int argc, char **argv)

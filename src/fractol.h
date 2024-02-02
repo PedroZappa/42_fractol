@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 12:27:47 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:37:45 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct s_env
 int	handle_input(int key, t_env *display);
 
 /* ft_help.c */
-int	ft_opts(void);
+int	ft_usage(void);
 int ft_no_args(void);
 int ft_has_hflag(int argc, char **argv);
 
@@ -93,5 +93,9 @@ int ft_has_hflag(int argc, char **argv);
 void	render_mandelbrot(t_env *env);
 void	render_julia(t_env *env);
 
+/* ft_kill.c */
+void	ft_clean_kill(t_env *env);
+void	ft_kill_werror(t_env *env);
+void	ft_window_kill(t_env *env);
 
 #endif
