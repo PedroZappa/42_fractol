@@ -17,8 +17,14 @@ void ft_set_checker(t_env *env, char *input_set);
 
 int	main(int argc, char **argv)
 {
+	t_env	env;
+
+
 	if (ft_input_checker(argc, argv))
 	{
+		ft_init_env(&env);
+		ft_render(&env);
+		mlx_loop(env.mlx_conn);
 		exit(EXIT_SUCCESS);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:50:18 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 12:37:59 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:54:06 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_usage(void)
 {
-	ft_perror_color("Usage: ./fractol [OPTION]\n", RED);
+	ft_perror_color("Usage: ./fractol <set>\n", RED);
 	return (0);
 }
 

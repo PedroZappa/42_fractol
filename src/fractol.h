@@ -45,7 +45,7 @@ typedef struct s_complex
 
 /* Image Data Buffer Structure 
  * [ Stores image data coming from mlx_get_data_addr() ]
- *	img:		Pointer to image
+ *	img:		Pointer to image struct
  *	pix:		Pointer to image pixel data
  *	bpp:		Bytes per pixel
  *	endian:		Endian
@@ -61,8 +61,11 @@ typedef struct s_img
 }				t_img;
 
 /* X Environment Structure
+ *	// MLX variables
  *	mlx_conn:	Stores pointer to the MLX connection
  *	mlx_win:	Stores pointer to the MLX window
+ *	// Image variables
+ *
  *	*/
 typedef struct s_env
 {
