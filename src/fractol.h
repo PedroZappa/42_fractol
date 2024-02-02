@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 12:37:45 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:55:09 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,19 +88,23 @@ typedef struct s_display
 //							Function Prototypes                                /
 //=============================================================================/
 
-/* ft_events.c */
-int	handle_input(int key, t_display *display);
+/*	ft_display.c : Display functions */
+void	ft_init_display(t_display *display);
+void	ft_render(t_display *display);
 
-/* ft_help.c */
-int	ft_usage(void);
-int ft_no_args(void);
-int ft_has_hflag(int argc, char **argv);
-
-/* ft_sets.c */
+/*	ft_sets.c : Fractal set renderers */
 void	render_mandelbrot(t_display *display);
 void	render_julia(t_display *display);
 
-/* ft_kill.c */
+/*	ft_events.c */
+int		handle_input(int key, t_display *display);
+
+/*	ft_help.c : Args handling & help functions */
+int		ft_usage(void);
+int		ft_no_args(void);
+int		ft_has_hflag(int argc, char **argv);
+
+/*	ft_kill.c : exit functions */
 void	ft_clean_kill(t_display *display);
 void	ft_kill_werror(t_display *display);
 void	ft_window_kill(t_display *display);

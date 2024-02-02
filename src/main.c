@@ -13,12 +13,11 @@
 #include "fractol.h"
 
 int	ft_input_checker(int argc, char **argv);
-void ft_set_checker(t_env *display, char *input_set);
+void ft_set_checker(t_display *display, char *input_set);
 
 int	main(int argc, char **argv)
 {
 	t_display	display;
-
 
 	if (ft_input_checker(argc, argv))
 	{
@@ -27,11 +26,8 @@ int	main(int argc, char **argv)
 		mlx_loop(display.mlx_conn);
 		exit(EXIT_SUCCESS);
 	}
-	else
-	{
-		ft_putstr_fd("Error\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
 
 /*	Checks if the input arguments are valid
