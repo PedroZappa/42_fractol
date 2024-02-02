@@ -6,11 +6,11 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:42:35 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 16:56:34 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:02:05 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*	Rescale's a range of values by applying the function:
+/*	Rescale's a range of values by applying linear interpolation:
 *	       (b-a)(x - min)
 *	f(x) = --------------  + a
 *	          max - min
