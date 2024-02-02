@@ -13,6 +13,10 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+//=============================================================================/
+//								Variables                                      /
+//=============================================================================/
+
 # define HEIGHT	 800
 # define WIDTH	 800
 
@@ -20,13 +24,13 @@
 //								Librariy Headers                               /
 //=============================================================================/
 
-# include <stdio.h>				// EXIT_FAILURE, EXIT_SUCCESS
-# include <stdlib.h>			// malloc(), free(), exit()
-# include <unistd.h>			// write()
-# include <math.h>				// Math functions
-# include <X11/keysym.h>		// Keysym for event handling
+# include <stdio.h>						// EXIT_FAILURE, EXIT_SUCCESS
+# include <stdlib.h>					// malloc(), free(), exit()
+# include <unistd.h>					// write()
+# include <math.h>						// Math functions
+# include <X11/keysym.h>				// Keysym for event handling
 
-# include "../inc/mlx/mlx.h"	// MLX library
+# include "../inc/mlx/mlx.h"			// MLX library
 # include "../inc/libft/libft/libft.h"	// Libft library
 
 //=============================================================================/
@@ -67,7 +71,7 @@ typedef struct s_img
  *	// Image variables
  *
  *	*/
-typedef struct s_env
+typedef struct s_display
 {
 	void		*mlx_conn;
 	void		*mlx_win;
@@ -78,14 +82,14 @@ typedef struct s_env
 	t_complex	c;
 	t_complex	z;
 	t_img		*img;
-}				t_env;
+}				t_display;
 
 //=============================================================================/
 //							Function Prototypes                                /
 //=============================================================================/
 
 /* ft_events.c */
-int	handle_input(int key, t_env *display);
+int	handle_input(int key, t_display *display);
 
 /* ft_help.c */
 int	ft_usage(void);
@@ -93,12 +97,12 @@ int ft_no_args(void);
 int ft_has_hflag(int argc, char **argv);
 
 /* ft_sets.c */
-void	render_mandelbrot(t_env *env);
-void	render_julia(t_env *env);
+void	render_mandelbrot(t_display *display);
+void	render_julia(t_display *display);
 
 /* ft_kill.c */
-void	ft_clean_kill(t_env *env);
-void	ft_kill_werror(t_env *env);
-void	ft_window_kill(t_env *env);
+void	ft_clean_kill(t_display *display);
+void	ft_kill_werror(t_display *display);
+void	ft_window_kill(t_display *display);
 
 #endif

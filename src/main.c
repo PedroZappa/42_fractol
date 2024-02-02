@@ -13,18 +13,18 @@
 #include "fractol.h"
 
 int	ft_input_checker(int argc, char **argv);
-void ft_set_checker(t_env *env, char *input_set);
+void ft_set_checker(t_env *display, char *input_set);
 
 int	main(int argc, char **argv)
 {
-	t_env	env;
+	t_display	display;
 
 
 	if (ft_input_checker(argc, argv))
 	{
-		ft_init_env(&env);
-		ft_render(&env);
-		mlx_loop(env.mlx_conn);
+		ft_init_display(&display);
+		ft_render(&display);
+		mlx_loop(display.mlx_conn);
 		exit(EXIT_SUCCESS);
 	}
 	else
@@ -60,14 +60,14 @@ int	ft_input_checker(int argc, char **argv)
 	return (0);
 }
 
-void ft_set_checker(t_env *env, char *input_set)
+void ft_set_checker(t_display *display, char *input_set)
 {
 	if (ft_strncmp(input_set, "mandelbrot", 10) == 0)
-		render_mandelbrot(env);
+		render_mandelbrot(display);
 	else if (ft_strncmp(input_set, "julia", 5) == 0)
-		render_julia(env);
+		render_julia(display);
 	else
-		ft_kill_werror(env);
+		ft_kill_werror(display);
 }
 
 // int	main(int argc, char **argv)
