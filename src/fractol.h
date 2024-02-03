@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 21:33:55 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:54:39 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,20 @@ typedef struct s_img
 
 /* X Environment Structure
  *	// MLX variables
- *	mlx_conn:	Stores pointer to the MLX connection
- *	mlx_win:	Stores pointer to the MLX window
+ *	 mlx_conn:	Stores pointer to the MLX connection
+ * 	 mlx_win:	Stores pointer to the MLX window
  *	// Image variables
- *	name:		Fractal Name
- *	img:		Pointer to image data
- *	iter:		Number of iterations; determines the depth of the fractal
- *	escape:		Escape radius (hypothenuse) to stop the iteration
+ *	 name:		Fractal Name
+ * 	 img:		Pointer to image struct data
+ * 	 iter:		Number of iterations; determines the depth of the fractal
+ * 	 escape:		Escape radius (hypothenuse) to stop the iteration
  *	*/
 typedef struct s_display
 {
 	void		*mlx_conn;
 	void		*mlx_win;
 	char 		*name;
-	t_img		*img;
+	t_img		img;
 	long		iter;
 	double		escape;
 	t_complex	c;
@@ -98,7 +98,7 @@ void		ft_init_data(t_display *display);
 /*	ft_display.c : Display functions */
 void		ft_render(t_display *display);
 void		ft_get_pixel(t_display *display, int x, int y);
-void		ft_put_pixel(t_img *img, int x, int y, int color);
+void		ft_put_pixel(t_img img, int x, int y, int color);
 
 /*	ft_sets.c : Fractal set renderers */
 void		render_mandelbrot(t_display *display);

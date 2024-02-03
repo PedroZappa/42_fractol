@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:46:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 18:44:51 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:55:21 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_render(t_display *display)
 			ft_get_pixel(display, x, y);
 	}
 	mlx_put_image_to_window(display->mlx_conn, display->mlx_win,
-		display->img->img, 0, 0);
+		display->img.img, 0, 0);
 	return ;
 }
 
@@ -78,10 +78,10 @@ void	ft_get_pixel(t_display *display, int x, int y)
  *		summing it to the value of x  multiplied by the number of bytes per
  *		pixel divided by 8.
  *	*/
-void	ft_put_pixel(t_img *img, int x, int y, int color)
+void	ft_put_pixel(t_img img, int x, int y, int color)
 {
 	int		offset;
 
-	offset = (y * img->line_len) + (x * (img->bpp / 8));
-	*(unsigned int *)(img->pix + offset) = color;
+	offset = (y * img.line_len) + (x * (img.bpp / 8));
+	*(unsigned int *)(img.pix + offset) = color;
 }

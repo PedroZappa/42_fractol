@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 21:34:27 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:50:21 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
  *	*/
 void	ft_init_display(t_display *display)
 {
+
 	display->mlx_conn = mlx_init();
 	if (!display->mlx_conn)
 		ft_error();
@@ -31,19 +32,19 @@ void	ft_init_display(t_display *display)
 		free(display->mlx_conn);
 		ft_error();
 	}
-	// display->img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
-	// if (!display->img)
-	// {
-	// 	mlx_destroy_window(display->mlx_conn, display->mlx_win);
-	// 	mlx_destroy_display(display->mlx_conn);
-	// 	free(display->mlx_conn);
-	// 	ft_error();
-	// }
-	// display->img->img = mlx_get_data_addr
-	// 	(display->img->img, &display->img->bpp, &display->img->line_len,
-	// 		&display->img->endian);
+	display->img.img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
+	if (!display->img.img)
+	{
+		mlx_destroy_window(display->mlx_conn, display->mlx_win);
+		mlx_destroy_display(display->mlx_conn);
+		free(display->mlx_conn);
+		ft_error();
+	}
+	display->img.pix = mlx_get_data_addr
+		(display->img.img, &display->img.bpp, &display->img.line_len,
+		&display->img.endian);
 	//	ft_events_init()
-	ft_init_data(display);
+	// ft_init_data(display);
 }
 
 /*	ft_init_data : Initializes t_display's data
