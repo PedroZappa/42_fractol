@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 18:06:07 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 20:53:06 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include <unistd.h>					// write()
 # include <math.h>						// Math functions
 # include <X11/keysym.h>				// Keysym for event handling
+# include <X11/X.h>						// Event Codes
 
 # include "../inc/mlx/mlx.h"			// MLX library
 # include "../inc/libft/libft/libft.h"	// Libft library
@@ -117,7 +118,8 @@ void		render_mandelbrot(t_display *display);
 void		render_julia(t_display *display);
 
 /*	ft_events.c */
-int			handle_input(int key, t_display *display);
+void		ft_events_init(t_display *display);
+int			ft_handle_keys(int key, t_display *display);
 
 /*	ft_help.c : Args handling & help functions */
 int			ft_usage(void);
@@ -127,7 +129,8 @@ int			ft_has_hflag(int argc, char **argv);
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);
 void		ft_kill_werror(t_display *display);
-void		ft_window_kill(t_display *display);
+void		ft_kill_window(t_display *display);
+void		ft_kill_handle(t_display *display);
 void		ft_error(void);
 
 /* ft_math.c : Useful math functions */

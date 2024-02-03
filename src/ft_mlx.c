@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 19:05:30 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 20:47:56 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_init_display(t_display *display)
 	display->img.pix = mlx_get_data_addr
 		(display->img.img, &display->img.bpp, &display->img.line_len,
 		&display->img.endian);
-	//	ft_events_init()
+	ft_events_init(display);
 	ft_init_data(display);
 }
 
