@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:28:05 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 12:28:10 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:31:10 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int main(int argc, char **argv)
 	int i;
 
 	f.iter = MAX_ITER;
+	f.escape_val = 2.0;
+	f.oldz_r = 0.0;
+	f.oldz_i = 0.0;
 
 	if (argc == 3)
 	{
@@ -33,8 +36,6 @@ int main(int argc, char **argv)
 		f.iter = atof(argv[3]);
 	}
 	i = -1;
-	f.z_r = 0.0;
-	f.z_i = 0.0;
 	while(++i < f.iter) 
 	{
 		// Store values from previous iteration
@@ -44,7 +45,7 @@ int main(int argc, char **argv)
 		f.c_r = ((f.oldz_r * f.oldz_r) - (f.oldz_i * f.oldz_i)) + f.c_r;
 		f.c_i = (2.0 * f.oldz_r * f.oldz_i) + f.c_i;
 		printf("%d : (%Lf\t,  %Lf)\n", (i+1), f.c_r, f.c_i);
-		if ((ft_abs(f.c_r) > 4.0) || (ft_abs(f.c_i) > 4.0))
+		if ((ft_abs(f.c_r) > f.escape_val) || (ft_abs(f.c_i) > f.escape_val))
 			break;
 	}
 	return (0);

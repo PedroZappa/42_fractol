@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 11:09:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 12:03:01 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:29:21 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_fractal
 	long double c_r;
 	long double c_i;
 	int			iter;
+	int			escape_val;
 }				t_fractal;
 
 #endif
