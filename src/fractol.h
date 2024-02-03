@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 17:35:22 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:06:07 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_display
 	long		iter;
 	double		escape;
 	t_complex	z;
+	t_complex	z_old;
 	t_complex	c;
 }				t_display;
 

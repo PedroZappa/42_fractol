@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 17:08:42 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:09:46 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,10 @@ void	ft_init_data(t_display *display)
 {
 	display->escape = 4.0;
 	display->iter = 420;
+	display->z.r = 0;
+	display->z.i = 0;
+	display->z_old.r = 0;
+	display->z_old.i = 0;
+	display->c.r = 0;
+	display->c.i = 0;
 }
