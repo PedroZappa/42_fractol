@@ -31,17 +31,17 @@ void	ft_init_display(t_display *display)
 		free(display->mlx_conn);
 		ft_error();
 	}
-	display->img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
-	if (!display->img)
-	{
-		mlx_destroy_window(display->mlx_conn, display->mlx_win);
-		mlx_destroy_display(display->mlx_conn);
-		free(display->mlx_conn);
-		ft_error();
-	}
-	display->img->img = mlx_get_data_addr
-		(display->img->img, &display->img->bpp, &display->img->line_len,
-			&display->img->endian);
+	// display->img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
+	// if (!display->img)
+	// {
+	// 	mlx_destroy_window(display->mlx_conn, display->mlx_win);
+	// 	mlx_destroy_display(display->mlx_conn);
+	// 	free(display->mlx_conn);
+	// 	ft_error();
+	// }
+	// display->img->img = mlx_get_data_addr
+	// 	(display->img->img, &display->img->bpp, &display->img->line_len,
+	// 		&display->img->endian);
 	//	ft_events_init()
 	ft_init_data(display);
 }

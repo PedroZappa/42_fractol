@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-/*	Scale's a range of values from 0 to max:
+/*	Scale's a range of values from (0 to max) to (a to b):
 *	       (b-a)(x)
 *	f(x) = -------- + a
 *			  max
