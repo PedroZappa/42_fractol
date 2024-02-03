@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 21:51:39 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:44:47 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct s_display
 	t_complex	z;
 	t_complex	z_old;
 	t_complex	c;
+	t_complex	c_julia;
 }				t_display;
 
 /*	Struct for passing a range into scaling function
