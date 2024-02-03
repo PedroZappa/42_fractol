@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 21:04:59 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:24:59 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ int			ft_has_hflag(int argc, char **argv);
 void		ft_clean_kill(t_display *display);
 void		ft_kill_werror(t_display *display);
 void		ft_kill_window(t_display *display);
-void		ft_kill_handle(t_display *display);
+int			ft_kill_handle(t_display *display);
 void		ft_error(void);
 
 /* ft_math.c : Useful math functions */

@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 21:13:57 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:26:33 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_init_display(t_display *display)
 void	ft_init_data(t_display *display)
 {
 	display->escape = 4.0;
-	display->iter = 420;
+	display->iter = 222;
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;
 	display->z.r = 0;
