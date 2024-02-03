@@ -6,15 +6,15 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:46:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 20:25:06 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:15:52 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /*	ft_render : Renders the fractal
- *		Render the image
- *		Push into the window
+ *		Get all the pixels
+ *		Pushes image into the window
  *	*/
 void	ft_render(t_display *display)
 {
@@ -65,10 +65,10 @@ void	ft_get_pixel(t_display *display, int x, int y)
 	color_range.max = HEX_WHITE;
 	fract_range.min = -2.0;
 	fract_range.max = 2.0;
-	display->c.r = ft_map(x, win_size, fract_range);
+	display->c.r = ft_map(x, win_size, fract_range) + display->x_offset;
 	fract_range.min = 2.0;
 	fract_range.max = -2.0;
-	display->c.i = ft_map(y, win_size, fract_range);
+	display->c.i = ft_map(y, win_size, fract_range) + display->y_offset;
 	while (++i < display->iter)
 	{
 		display->z = ft_c_sum(ft_c_square(display->z), display->c);

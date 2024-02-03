@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 20:53:06 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:04:59 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ typedef struct s_img
  *		name:		Fractal Name
  * 		img:		Pointer to image struct data
  * 		iter:		Number of iterations; determines the depth of the fractal
- * 	 escape:		Escape radius (hypothenuse) to stop the iteration
+ *		escape:		Escape radius (hypothenuse) to stop the iteration
+ *		x_offset:	Sets how much to shift on x-axis
+ *		y_offset:	Sets how much to shift on y-axis
  * 	// Math Vars
  *		z:			Complex number z
  *		c:			Complex number c
@@ -87,6 +89,8 @@ typedef struct s_display
 	t_img		img;
 	long		iter;
 	double		escape;
+	double		x_offset;
+	double		y_offset;
 	t_complex	z;
 	t_complex	z_old;
 	t_complex	c;
