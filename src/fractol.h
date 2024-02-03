@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 21:24:59 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:51:39 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct s_display
 	double		escape;
 	double		x_offset;
 	double		y_offset;
+	double		zoom;
 	t_complex	z;
 	t_complex	z_old;
 	t_complex	c;
@@ -124,6 +125,7 @@ void		render_julia(t_display *display);
 /*	ft_events.c */
 void		ft_events_init(t_display *display);
 int			ft_handle_keys(int key, t_display *display);
+int			ft_handle_mouse(int button, int x, int y, t_display *display);
 
 /*	ft_help.c : Args handling & help functions */
 int			ft_usage(void);
