@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:46:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 19:28:44 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:33:17 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ft_get_pixel(t_display *display, int x, int y)
 		if (((display->z.r * display->z.r) + (display->z.i * display->z.i))
 				> display->escape)
 		{
-			color = ft_map(i, color_range, color_iter);
+			color = ft_map(i, color_iter, color_range);
 			ft_put_pixel(display->img, x, y, color);
 			return ;
 		}
