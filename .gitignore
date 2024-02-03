@@ -42,6 +42,7 @@ fractol
 *.su
 *.idb
 *.pdb
+gdb.txt
 
 # Kernel Module Compile Results
 *.mod*
