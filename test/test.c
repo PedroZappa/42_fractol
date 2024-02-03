@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:28:05 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 12:31:10 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 15:55:03 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main(int argc, char **argv)
 		f.iter = atof(argv[3]);
 	}
 	i = -1;
+	printf("i : Real\t|  Imaginary\n");
 	while(++i < f.iter) 
 	{
 		// Store values from previous iteration
