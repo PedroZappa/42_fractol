@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 21:27:41 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:37:42 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_events_init(t_display *display)
 		  ft_kill_handle, display);
 }
 
-/*	Handle key input
+/*	Handle key input: int (*f)(int keycode, void *param)
  *		If `XK_Escape` keysym is received, 
  *		Handle Left and right offset
  *		Handle Up and down offset
@@ -48,9 +48,9 @@ int	ft_handle_keys(int keysym, t_display *display)
 		display->y_offset -= .3;
 	else if (keysym == XK_Down)
 		display->y_offset += .3;
-	else if (keysym == XK_plus)
+	else if (keysym == XK_KP_Add)
 		display->iter += 64;
-	else if (keysym == XK_minus)
+	else if (keysym == XK_KP_Subtract)
 		display->iter -= 64;
 
 	ft_render(display);
