@@ -1,33 +1,44 @@
 #include "test.h"
 
+int ft_abs(int n);
+
 int main(int argc, char **argv)
 {
-	t_fractal test;
-	int i = 0;
-	long double xtemp;
-	long double c;
-	long double y;
+	t_fractal f;
+	int i;
 
-	if (argc > 1)
+	f.iter = MAX_ITER;
+
+	if (argc == 3)
 	{
-		c = atof(argv[1]);
+		f.c_r = atof(argv[1]);
+		f.c_i = atof(argv[2]);
 	}
-	else
+	else if (argc == 4)
 	{
-		c = 0.0;
-		y = 0.0;
-		test.c_x = -1;
-		test.c_y = 0.1;
-		test.z_old = 0;
-		test.z_new = 0;
+		f.c_r = atof(argv[1]);
+		f.c_i = atof(argv[2]);
+		f.iter = atof(argv[3]);
 	}
-	while(i < 10) {
-		xtemp = (test.c_x * test.c_x) - (test.c_y * test.c_y) + c;
-		test.c_y = (2 * test.c_x * test.c_y) + y;
-		test.c_x = xtemp;
-		printf("%d : (%Lf\t,  %Lf)\n", i, test.c_x,test.c_y);
-		i++;
+	i = -1;
+	f.z_r = 0.0;
+	f.z_i = 0.0;
+	while(++i < f.iter) 
+	{
+		// Store values from previous iteration
+		f.oldz_r = f.c_r;
+		f.oldz_i = f.c_i;
+		// Calculate current iteration
+		f.c_r = ((f.oldz_r * f.oldz_r) - (f.oldz_i * f.oldz_i)) + f.c_r;
+		f.c_i = (2.0 * f.oldz_r * f.oldz_i) + f.c_i;
+		printf("%d : (%Lf\t,  %Lf)\n", (i+1), f.c_r, f.c_i);
+		if ((ft_abs(f.c_r) > 4.0) || (ft_abs(f.c_i) > 4.0))
+			break;
 	}
 	return (0);
 }
 
+int ft_abs(int n)
+{
+	return ((n < 0) ? -n : n);
+}

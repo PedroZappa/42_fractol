@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 11:09:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 11:09:38 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:03:01 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@
 # include <stdlib.h>
 # include <math.h>
 
-#define MAX_ITER 90
+#define MAX_ITER 10
 
 typedef struct s_fractal
 {
-	long double c_x;
-	long double c_y;
-	long double z_old;
-	long double z_new;
-	long double x_real;
-	long double y_imagi;
+	long double z_r;
+	long double z_i;
+	long double oldz_r;
+	long double oldz_i;
+	long double c_r;
+	long double c_i;
+	int			iter;
 }				t_fractal;
 
 #endif
