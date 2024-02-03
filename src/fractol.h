@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 16:54:39 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:35:22 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,16 @@ typedef struct s_img
 
 /* X Environment Structure
  *	// MLX variables
- *	 mlx_conn:	Stores pointer to the MLX connection
- * 	 mlx_win:	Stores pointer to the MLX window
+ *		mlx_conn:	Stores pointer to the MLX connection
+ * 		mlx_win:	Stores pointer to the MLX window
  *	// Image variables
- *	 name:		Fractal Name
- * 	 img:		Pointer to image struct data
- * 	 iter:		Number of iterations; determines the depth of the fractal
+ *		name:		Fractal Name
+ * 		img:		Pointer to image struct data
+ * 		iter:		Number of iterations; determines the depth of the fractal
  * 	 escape:		Escape radius (hypothenuse) to stop the iteration
+ * 	// Math Vars
+ *		z:			Complex number z
+ *		c:			Complex number c
  *	*/
 typedef struct s_display
 {
@@ -83,9 +86,17 @@ typedef struct s_display
 	t_img		img;
 	long		iter;
 	double		escape;
-	t_complex	c;
 	t_complex	z;
+	t_complex	c;
 }				t_display;
+
+/*	Struct for passing a range into scaling function
+ *	*/
+typedef struct s_range
+{
+	double		min;
+	double		max;
+}				t_range;
 
 //=============================================================================/
 //							Function Prototypes                                /
@@ -119,8 +130,7 @@ void		ft_window_kill(t_display *display);
 void		ft_error(void);
 
 /* ft_math.c : Useful math functions */
-double		ft_scale(double unscaled_n, double max,
-					double scaled_min, double scaled_max);
+double		ft_map(double n, t_range to_scale, t_range scaled);
 t_complex	ft_c_sum(t_complex c1, t_complex c2);
 t_complex	ft_c_square(t_complex c);
 

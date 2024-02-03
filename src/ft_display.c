@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:46:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 16:55:21 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:35:16 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,35 @@ void	ft_get_pixel(t_display *display, int x, int y)
 	t_complex	c;
 	int			color;
 	int			i;
+	t_range		fract_range;
+	t_range		win_size;
+	t_range		color_iter;
+	t_range		color_range;
 
 	i = -1;
 	z.r = 0.0;
 	z.i = 0.0;
-	c.r = ft_scale(x, WIDTH, -2.0, 2.0);
-	c.i = ft_scale(y, HEIGHT, 2.0, -2.0);
+	fract_range.min = -2.0;
+	fract_range.max = 2.0;
+	win_size.min = 0;
+	win_size.max = WIDTH;
+	color_iter.min = HEX_BLACK;
+	color_iter.max = display->iter;
+	color_range.min = HEX_BLACK;
+	color_range.max = HEX_WHITE;
+	c.r = ft_map(x, win_size, fract_range);
+	c.i = ft_map(y, win_size, fract_range);
 	while (++i < display->iter)
 	{
 		z = ft_c_sum(ft_c_square(z), c);
 		if ((z.r * z.r) + (z.i * z.i) > display->escape)
 		{
-			color = ft_scale(i, HEX_WHITE, 0, display->iter);
+			color = ft_map(i, color_iter, color_range);
 			ft_put_pixel(display->img, x, y, color);
 			return ;
 		}
 	}
-	ft_put_pixel(display->img, x, y, HEX_PURPLE);
+	ft_put_pixel(display->img, x, y, HEX_RED);
 }
 
 /*	ft_put_pixel : Puts a pixel to the display
