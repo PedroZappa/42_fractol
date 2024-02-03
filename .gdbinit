@@ -26,10 +26,12 @@ end
 
 define ft_get_pixel
 	display *display
-	display z.r
-	display z.i
-	display c.r
-	display c.i
+	display display->z
+	display display->z.r
+	display display->z.i
+	display display->c.r
+	display display->c.i
+
 	display x
 	display y
 	display color
@@ -54,6 +56,7 @@ define ft_put_pixel
 	display offset
 end
 
+set logging enabled on
 
 ## Start @ main
 # fs cmd
@@ -69,10 +72,8 @@ end
 
 # Start @ ft_render
 # fs cmd
-# break 26
+# break ft_render
 # run "mandelbrot"
-# main
-# step
 # ft_render
 # rfr
 
