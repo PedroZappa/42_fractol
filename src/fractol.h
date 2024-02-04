@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 11:57:54 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:05:30 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include <stdio.h>						// EXIT_FAILURE, EXIT_SUCCESS
 # include <stdlib.h>					// malloc(), free(), exit()
 # include <unistd.h>					// write()
+# include <X11/X.h>						// MLX library for Event codes
 # include <X11/keysym.h>				// Keysym for event handling
 
 # include "../inc/libft/libft/libft.h"	// Libft library
