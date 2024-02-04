@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 12:05:30 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:10:15 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 # define INIT_ITER	42
 # define INIT_C_R	-0.7
 # define INIT_C_I	0.27015
+# define INIT_C_I	0.27015
+# define MIN_R		-2.0
+# define MAX_R		2.0
+# define MIN_I		-2.0
+# define MAX_I		2.0
+
 
 //=============================================================================/
 //								Librariy Headers                               /
