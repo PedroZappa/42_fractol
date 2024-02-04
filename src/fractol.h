@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 11:44:00 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:57:54 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 //=============================================================================/
 
 // Display Dimensions
-# define HEIGHT	 800
-# define WIDTH	 800
+# define HEIGHT		800
+# define WIDTH		800
 
 // Complex Math Inits
-# define INIT_C_R	 -0.7
-# define INIT_C_I	 0.27015
+# define INIT_ITER	42
+# define INIT_C_R	-0.7
+# define INIT_C_I	0.27015
 
 //=============================================================================/
 //								Librariy Headers                               /

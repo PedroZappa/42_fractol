@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:58:49 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 11:35:44 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:01:48 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,21 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 {
 	display->c_julia.r = INIT_C_R;
 	display->c_julia.i = INIT_C_I;
-
+	if ((argc > 2) && !ft_is_argint(argv[2]))
+		return (ft_perror("Invalid argument type\n"));
+	else if (argc > 2)
+	{
+		display->iter = ft_atoi(argv[2]);
+		if (display->iter <= 0)
+			display->iter = INIT_ITER;
+	}
+	if ((argc >= 5) && ((!ft_is_argint(argv[3])) || (!ft_is_argint(argv[4]))))
+		return (ft_perror("Invalid argument type\n"));
+	else if (argc >= 5)
+	{
+		display->c_julia.r = ft_atod(argv[3]);
+		display->c_julia.i = ft_atod(argv[4]);
+	}
 	return (1);
 }
 
