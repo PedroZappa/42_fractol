@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:58:49 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 11:24:14 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:35:44 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	ft_select_fractal(t_display *display, char **argv)
 
 int	ft_set_complex(t_display *display, int argc, char **argv)
 {
-	(void)display;
-	(void)argc;
-	(void)argv;
+	display->c_julia.r = INIT_C_R;
+	display->c_julia.i = INIT_C_I;
+
 	return (1);
 }
 
