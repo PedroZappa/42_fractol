@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 22:44:47 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 10:31:00 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,18 @@ typedef struct s_range
 //							Function Prototypes                                /
 //=============================================================================/
 
+/* ft_args.c */
+int			ft_args(t_display *display, int argc, char **argv);
+int			ft_select_fractal(t_display *display, char **argv);
+int			ft_set_complex(t_display *display, int argc, char **argv);
+int			ft_invalid_args(char *name);
+int			ft_no_args(void);
+
+/*	ft_help.c : Args handling & help functions */
+int			ft_usage(void);
+int			ft_no_args(void);
+int			ft_help_flag(int argc, char **argv);
+
 /* ft_mlx.c : MLX setup functions */
 void		ft_init_display(t_display *display);
 void		ft_init_data(t_display *display);
@@ -127,11 +139,6 @@ void		render_julia(t_display *display);
 void		ft_events_init(t_display *display);
 int			ft_handle_keys(int key, t_display *display);
 int			ft_handle_mouse(int button, int x, int y, t_display *display);
-
-/*	ft_help.c : Args handling & help functions */
-int			ft_usage(void);
-int			ft_no_args(void);
-int			ft_has_hflag(int argc, char **argv);
 
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);

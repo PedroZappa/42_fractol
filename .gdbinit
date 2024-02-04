@@ -7,6 +7,18 @@ define main
 	display display
 end
 
+define ft_args
+	display display
+	display argc
+	display argv
+end
+
+define ft_help_flag
+	display argc
+	display argv
+	display i
+end
+
 define ft_init_display
 	display *display
 	display *display->escape 
@@ -64,6 +76,12 @@ set logging enabled on
 # run "mandelbrot"
 # main
 
+## Start @ ft_args
+fs cmd
+break ft_args
+run "mandelbrot"
+ft_args
+
 ## Start in ft_init_display
 # fs cmd
 # break ft_init_display
@@ -78,12 +96,12 @@ set logging enabled on
 # rfr
 
 # Start @ ft_get_pixel
-fs cmd
-break ft_get_pixel
-run "mandelbrot"
-ft_get_pixel
-next
-rfr
+# fs cmd
+# break ft_get_pixel
+# run "mandelbrot"
+# ft_get_pixel
+# next
+# rfr
 
 # Start @ ft_put_pixel
 # fs cmd
