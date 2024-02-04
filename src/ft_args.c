@@ -6,12 +6,11 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 09:58:49 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 10:48:11 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:24:14 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdlib.h>
 
 /*	Command line arguments checker
  *	*/
@@ -28,9 +27,12 @@ int	ft_args(t_display *display, int argc, char **argv)
 
 int	ft_select_fractal(t_display *display, char **argv)
 {
-	if (!ft_strcmp(argv[1], "mandelbrot"))
+	char *name;
+	name = ft_stolower(argv[1]);
+	name = argv[1];
+	if (!ft_strcmp(name, "mandelbrot"))
 		display->name = "mandelbrot";
-	else if (!ft_strcmp(argv[1], "julia"))
+	else if (!ft_strcmp(name, "julia"))
 		display->name = "julia";
 	else
 		return (0);
