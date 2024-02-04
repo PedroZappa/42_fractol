@@ -15,6 +15,7 @@
 #==============================================================================#
 
 NAME		= fractol
+UNAME 		= $(shell uname)
 
 SRC_PATH	= src
 INC_PATH	= inc
@@ -46,7 +47,14 @@ CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
 CFLAGS 		+= -O3
 MLXFLAGS	= -lX11 -lXext -lm
-MLXFLAGS	+= -L/usr/X11R6/lib
+# MLXFLAGS	+= -L/usr/X11R6/lib
+
+# GRAPHICAL LFGLAGS (for linux):
+ifeq ($(shell uname), Linux)
+	MLXFLAGS		+= -lXext -lX11
+else
+	MLXFLAGS		+= -L./inc/mlx -framework OpenGL -framework AppKit
+endif
 
 INC			= -I
 
