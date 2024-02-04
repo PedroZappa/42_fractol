@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 11:37:55 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 11:47:18 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:06:20 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_is_argdbl(char *arg)
 	{
 		if (!ft_isdigit(*arg) && (*arg != '.') && (*arg != ','))
 			return (0);
-		if ((*arg == '.') || (*arg == ',') && (found = 1))
+		if ((*arg == '.') || ((*arg == ',') && (found = 1)))
 			return (0);
 		if ((*arg == '.') || (*arg == ','))
 			found = 1;
