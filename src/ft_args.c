@@ -29,7 +29,6 @@ int	ft_select_fractal(t_display *display, char **argv)
 {
 	char *name;
 	name = ft_stolower(argv[1]);
-	name = argv[1];
 	if (!ft_strcmp(name, "mandelbrot"))
 		display->name = "mandelbrot";
 	else if (!ft_strcmp(name, "julia"))
