@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 19:42:10 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:12:00 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 // Complex Math Inits
 # define INIT_ITER	42
 # define INIT_C_R	-0.7
-# define INIT_C_I	0.27015
 # define INIT_C_I	0.27015
 # define MIN_R		-2.0
 # define MAX_R		2.0
@@ -111,6 +110,8 @@ typedef struct s_display
 	t_complex	z_old;
 	t_complex	c;
 	t_complex	c_julia;
+	t_complex	min;
+	t_complex	max;
 }				t_display;
 
 /*	Struct for passing a range into scaling function
@@ -140,6 +141,7 @@ int			ft_help_flag(int argc, char **argv);
 /* ft_mlx.c : MLX setup functions */
 void		ft_init_display(t_display *display);
 void		ft_init_data(t_display *display);
+t_complex	ft_init_complex(double r, double i);
 
 /*	ft_display.c : Display functions */
 void		ft_render(t_display *display);

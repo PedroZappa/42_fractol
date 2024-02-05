@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 19:45:35 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:48:14 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_handle_mouse(int button, int x, int y, t_display *display)
 	else if (button == Button5)
 		display->zoom *= 1.05;
 	else
-		ft_printf("Unknown key: %d\n", button);
+		ft_printf("Unknown mouse: %d\n", button);
 	ft_render(display);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 12:08:46 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:13:07 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,18 @@ void	ft_init_data(t_display *display)
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;
 	display->zoom = 1.5;
-	display->z.r = 0;
-	display->z.i = 0;
-	display->z_old.r = 0;
-	display->z_old.i = 0;
-	display->c.r = 0;
-	display->c.i = 0;
+	display->z = ft_init_complex(0.0, 0.0);
+	display->z_old = ft_init_complex(0.0, 0.0);
+	display->c = ft_init_complex(0.0, 0.0);
+	display->min = ft_init_complex(MIN_R, MIN_I);
+	display->max = ft_init_complex(MAX_R, MAX_I);
+}
+
+t_complex	ft_init_complex(double r, double i)
+{
+	t_complex	c;
+
+	c.r = r;
+	c.i = i;
+	return (c);
 }
