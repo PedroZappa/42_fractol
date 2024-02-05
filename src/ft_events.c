@@ -33,7 +33,6 @@ void	ft_events_init(t_display *display)
  *	*/
 int	ft_handle_keys(int keysym, t_display *display)
 {
-	ft_printf("%d\n", keysym);
 	if (keysym == XK_Escape)
 		ft_kill_handle(display);
 	else if (keysym == XK_Left || keysym == XK_KP_Left)
@@ -48,6 +47,9 @@ int	ft_handle_keys(int keysym, t_display *display)
 		display->iter += 21;
 	else if (keysym == 65366)
 		display->iter -= 21;
+	else
+		ft_printf("Unknown key: %d\n", keysym);
+
 
 	ft_render(display);
 	return (0);
