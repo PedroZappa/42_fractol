@@ -95,14 +95,14 @@ void	ft_get_pixel(t_display *display, int x, int y)
  *										 img->bpp
  *	offset = (y * img->line_len) + ( x * -------- )
  *										    8
- *		The offset is calculated by multiplying y by the line length, then
- *		summing it to the value of x  multiplied by the number of bytes per
- *		pixel divided by 8.
+ *		offset : stores the byte offset within the image data array where the 
+ *		information should be placed;, accounting for the possibility of 
+ *		padding bytes at the end of each row;
  *	*/
 void	ft_put_pixel(t_img img, int x, int y, int color)
 {
 	int		offset;
 
 	offset = (y * img.line_len) + (x * (img.bpp / 8));
-	*(unsigned int *)(img.pix + offset) = color;
+	*(unsigned *)(img.pix + offset) = color;
 }

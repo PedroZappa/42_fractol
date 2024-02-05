@@ -63,7 +63,7 @@ typedef struct s_complex
  * [ Stores image data coming from mlx_get_data_addr() ]
  *	img:		Pointer to image struct
  *	pix:		Pointer to image pixel data
- *	bpp:		Bytes per pixel
+ *	bpp:		Bits per pixel
  *	line_len:	Line length
  *	endian:		Endian
  *	*/

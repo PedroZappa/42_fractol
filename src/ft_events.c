@@ -40,13 +40,13 @@ int	ft_handle_keys(int keysym, t_display *display)
 		ft_printf("Exiting Fract'ol...bubye!\n");
 		ft_kill_handle(display);
 	}
-	else if (keysym == XK_Left)
+	else if (keysym == XK_Left || keysym == XK_KP_Left)
 		display->x_offset += (0.3 * display->zoom);
-	else if (keysym == XK_Right)
+	else if (keysym == XK_Right || keysym == XK_KP_Right)
 		display->x_offset -= (0.3 * display->zoom);
-	else if (keysym == XK_Up)
+	else if (keysym == XK_Up || keysym == XK_KP_Up)
 		display->y_offset -= .3;
-	else if (keysym == XK_Down)
+	else if (keysym == XK_Down || keysym == XK_KP_Down)
 		display->y_offset += .3;
 	else if (keysym == XK_KP_Add)
 		display->iter += 21;

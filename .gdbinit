@@ -77,10 +77,10 @@ set logging enabled on
 # main
 
 ## Start @ ft_args
-fs cmd
-break ft_args
-run "mandelbrot"
-ft_args
+# fs cmd
+# break ft_args
+# run "mandelbrot"
+# ft_args
 
 ## Start in ft_init_display
 # fs cmd
@@ -104,7 +104,7 @@ ft_args
 # rfr
 
 # Start @ ft_put_pixel
-# fs cmd
-# break ft_put_pixel
-# run "mandelbrot"
-# ft_put_pixel
+fs cmd
+break ft_put_pixel
+run "mandelbrot"
+ft_put_pixel
