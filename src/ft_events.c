@@ -45,9 +45,9 @@ int	ft_handle_keys(int keysym, t_display *display)
 	else if (keysym == XK_Right || keysym == XK_KP_Right)
 		display->x_offset -= (0.3 * display->zoom);
 	else if (keysym == XK_Up || keysym == XK_KP_Up)
-		display->y_offset -= .3;
+		display->y_offset -= (0.3 * display->zoom);
 	else if (keysym == XK_Down || keysym == XK_KP_Down)
-		display->y_offset += .3;
+		display->y_offset += (0.3 * display->zoom);
 	else if (keysym == 65365)
 		display->iter += 21;
 	else if (keysym == 65366)

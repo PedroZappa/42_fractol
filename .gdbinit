@@ -57,7 +57,6 @@ define ft_scale
 	display (((scaled_max - scaled_min) * unscaled_n / max) + scaled_min)
 end
 
-
 define ft_put_pixel
 	display *img
 	display *img->line_len
@@ -68,13 +67,17 @@ define ft_put_pixel
 	display offset
 end
 
+define ft_kill_handle
+	display *display
+end
+
 set logging enabled on
 
 ## Start @ main
-# fs cmd
-# break main
-# run "mandelbrot"
-# main
+fs cmd
+break main
+run "mandelbrot"
+main
 
 ## Start @ ft_args
 # fs cmd
@@ -82,7 +85,7 @@ set logging enabled on
 # run "mandelbrot"
 # ft_args
 
-## Start in ft_init_display
+## Start @ ft_init_display
 # fs cmd
 # break ft_init_display
 # run "mandelbrot"
@@ -104,7 +107,7 @@ set logging enabled on
 # rfr
 
 # Start @ ft_put_pixel
-fs cmd
-break ft_put_pixel
-run "mandelbrot"
-ft_put_pixel
+# fs cmd
+# break ft_put_pixel
+# run "mandelbrot"
+# ft_put_pixel

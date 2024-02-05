@@ -56,6 +56,8 @@ void	ft_init_data(t_display *display)
 {
 	display->escape = 4.0;
 	display->iter = INIT_ITER;
+	display->height = HEIGHT;
+	display->width = WIDTH;
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;
 	display->zoom = 1.0;

@@ -95,6 +95,8 @@ typedef struct s_display
 {
 	void		*mlx_conn;
 	void		*mlx_win;
+	int			width;
+	int			height;
 	char 		*name;
 	t_img		img;
 	long		iter;
