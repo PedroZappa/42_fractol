@@ -20,8 +20,6 @@ int	main(int argc, char **argv)
 		return (ft_no_args());
 	if (!ft_args(&display, argc, argv))
 		return (EXIT_FAILURE);
-	// display.c_julia.r = ft_atod(argv[2]);
-	// display.c_julia.i = ft_atod(argv[3]);
 	ft_init_display(&display);
 	ft_render(&display);
 	mlx_loop(display.mlx_conn);

@@ -21,6 +21,7 @@ void	ft_clean_kill(t_display *display)
 
 int		ft_kill_werror(char *str)
 {
+	ft_sep_color('#', '=', 40, GRN);
 	ft_perror_color(str, RED);
 	ft_usage();
 	ft_printf(MSG_KILL);
@@ -39,6 +40,7 @@ void	ft_kill_window(t_display *display)
  *	*/
 int		ft_kill_handle(t_display *display)
 {
+	ft_sep_color('#', '=', 40, GRN);
 	ft_printf(MSG_KILL);
 	// mlx_destroy_image(display->mlx_conn, display->img.img);
 	mlx_destroy_window(display->mlx_conn, display->mlx_win);
