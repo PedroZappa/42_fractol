@@ -26,20 +26,16 @@ void	ft_events_init(t_display *display)
 }
 
 /*	Handle key input: int (*f)(int keycode, void *param)
- *		If `XK_Escape` keysym is received, 
+ *		If `XK_Escape` keysym is received, destroy window and exit.
  *		Handle Left and right offset, scale it with zoom
  *		Handle Up and down offset, scale it with zoom
  *		Handle change of iterations (PageUp PageDown);
- *		destroy the window and exit.
  *	*/
 int	ft_handle_keys(int keysym, t_display *display)
 {
 	ft_printf("%d\n", keysym);
 	if (keysym == XK_Escape)
-	{
-		ft_printf("Exiting Fract'ol...bubye!\n");
 		ft_kill_handle(display);
-	}
 	else if (keysym == XK_Left || keysym == XK_KP_Left)
 		display->x_offset += (0.3 * display->zoom);
 	else if (keysym == XK_Right || keysym == XK_KP_Right)

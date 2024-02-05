@@ -36,6 +36,7 @@ void	ft_kill_window(t_display *display)
  *	*/
 int		ft_kill_handle(t_display *display)
 {
+	ft_printf(MSG_KILL);
 	// mlx_destroy_image(display->mlx_conn, display->img.img);
 	mlx_destroy_window(display->mlx_conn, display->mlx_win);
 	mlx_destroy_display(display->mlx_conn);

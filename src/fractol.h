@@ -17,6 +17,9 @@
 //								Variables                                      /
 //=============================================================================/
 
+// Messages
+# define MSG_KILL	"Thanks for playing with Fract\'ol...\n\tBuBye!\n"
+
 // Display Dimensions
 # define HEIGHT		800
 # define WIDTH		800
