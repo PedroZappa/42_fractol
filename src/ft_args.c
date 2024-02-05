@@ -18,9 +18,9 @@ int	ft_args(t_display *display, int argc, char **argv)
 {
 	if (ft_help_flag(argc, argv) == 1)
 		return (ft_usage());
-	if (ft_select_fractal(display, argv) == 0)
+	if (!ft_select_fractal(display, argv))
 		return (ft_invalid_args(argv[1]));
-	if (ft_set_complex(display, argc, argv) == 0)
+	if (!ft_set_complex(display, argc, argv))
 		return (0);
 	return (1);
 }
