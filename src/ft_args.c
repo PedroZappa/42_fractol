@@ -44,7 +44,7 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 	display->c_julia.r = INIT_C_R;
 	display->c_julia.i = INIT_C_I;
 	if ((argc > 2) && !ft_is_argint(argv[2]))
-		return (ft_perror("Invalid argument type\n"));
+		return (ft_perror_color("Invalid argument type\n", RED));
 	else if (argc > 2)
 	{
 		display->iter = ft_atoi(argv[2]);
@@ -52,7 +52,7 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 			display->iter = INIT_ITER;
 	}
 	if ((argc >= 5) && ((!ft_is_argint(argv[3])) || (!ft_is_argint(argv[4]))))
-		return (ft_perror("Invalid argument type\n"));
+		return (ft_perror_color("Invalid argument type\n", RED));
 	else if (argc >= 5)
 	{
 		display->c_julia.r = ft_atod(argv[3]);
@@ -64,15 +64,14 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 int	ft_invalid_args(char *name)
 {
 	ft_perror_color("Invalid argument: ", RED);
-	ft_perror(name);
-	ft_perror_color("\nHere are all the available options:\n", RED);
+	ft_printf("%s\n", name);
 	ft_usage();
 	return (0);
 }
 
 int	ft_no_args(void)
 {
-	ft_perror("No arguments provided.\nHere are all the available options:\n");
+	ft_perror_color("No arguments provided.\n", RED);
 	ft_usage();
 	return (0);	
 }

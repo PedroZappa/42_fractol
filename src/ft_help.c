@@ -14,7 +14,9 @@
 
 int	ft_usage(void)
 {
-	ft_perror_color("Usage: ./fractol <set>\n", RED);
+	ft_printf("Usage:\n");
+	ft_printf("\t./fractol <set> <iterations> <c.r> <c.i>\n");
+	ft_printf("%s");
 	return (0);
 }
 
