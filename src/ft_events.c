@@ -29,7 +29,7 @@ void	ft_events_init(t_display *display)
  *		If `XK_Escape` keysym is received, 
  *		Handle Left and right offset, scale it with zoom
  *		Handle Up and down offset, scale it with zoom
- *		Handle change of iterations;
+ *		Handle change of iterations (PageUp PageDown);
  *		destroy the window and exit.
  *	*/
 int	ft_handle_keys(int keysym, t_display *display)
@@ -48,9 +48,9 @@ int	ft_handle_keys(int keysym, t_display *display)
 		display->y_offset -= .3;
 	else if (keysym == XK_Down || keysym == XK_KP_Down)
 		display->y_offset += .3;
-	else if (keysym == XK_KP_Add)
+	else if (keysym == 65365)
 		display->iter += 21;
-	else if (keysym == XK_KP_Subtract)
+	else if (keysym == 65366)
 		display->iter -= 21;
 
 	ft_render(display);
