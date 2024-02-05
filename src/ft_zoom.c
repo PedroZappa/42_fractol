@@ -6,24 +6,29 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:30:08 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:30:38 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:48:25 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static double	ft_interpolate(double inter, double min, double max);
+static double	ft_interpolate(double factor, double min, double max);
 
 /*	Handles zooming with the mouse
  *		When a mouse scroll even occurs
  *			Calculates mouse position (r, i) relative to current zoom level
  *			(This is done by normalizing the mouse position to a range)
- *
+ *			If the scroll event was a scroll up or down
+ *					Zoom in or out
+ *			Set the factor to use for interpolation
+ *			Adjust the min and max boundaries of the display, interpolating 
+ *			between the current and the target boundaries based on the factor;
+ *		Render the new image;
  *	*/
 int	ft_zoom(int keycode , int x, int y, t_display *display)
 {
 	t_complex	mouse;
-	double		inter;
+	double		factor;
 
 	if (keycode == Button4 || keycode == Button5)
 	{
@@ -35,11 +40,11 @@ int	ft_zoom(int keycode , int x, int y, t_display *display)
 			display->zoom *= 0.95;
 		else
 			display->zoom *= 1.05;
-		inter = (1.0 / display->zoom);
-		display->min.r = ft_interpolate(mouse.r, display->min.r, inter);
-		display->min.i = ft_interpolate(mouse.i, display->min.i, inter);
-		display->max.r = ft_interpolate(mouse.r, display->max.r, inter);
-		display->max.i = ft_interpolate(mouse.i, display->max.i, inter);
+		factor = (1.0 / display->zoom);
+		display->min.r = ft_interpolate(mouse.r, display->min.r, factor);
+		display->min.i = ft_interpolate(mouse.i, display->min.i, factor);
+		display->max.r = ft_interpolate(mouse.r, display->max.r, factor);
+		display->max.i = ft_interpolate(mouse.i, display->max.i, factor);
 		ft_render(display);
 	}
 	else
@@ -47,8 +52,8 @@ int	ft_zoom(int keycode , int x, int y, t_display *display)
 	return (0);
 }
 
-static double	ft_interpolate(double inter, double min, double max)
+static double	ft_interpolate(double factor, double min, double max)
 {
-	return (min + ((max - min) * inter));
+	return (min + ((max - min) * factor));
 }
 
