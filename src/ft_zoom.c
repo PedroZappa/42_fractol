@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:30:08 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:05:01 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:30:38 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,27 @@ static double	ft_interpolate(double inter, double min, double max);
  *			(This is done by normalizing the mouse position to a range)
  *
  *	*/
-int	ft_zoom(t_display *display, int x, int y, int keycode)
+int	ft_zoom(int keycode , int x, int y, t_display *display)
 {
 	t_complex	mouse;
-	double		zoom;
 	double		inter;
 
-	if (keycode  == Button4 || keycode == Button5)
+	if (keycode == Button4 || keycode == Button5)
 	{
-		/**/
+		mouse.r = (double)x / (display->width / 
+			(display->max.r - display->min.r));
+		mouse.i = (double)y / (display->height /
+			(display->max.i - display->min.i));
 		if (keycode == Button4)
-			zoom = 1.1;
+			display->zoom *= 0.95;
 		else
-			zoom = 0.9;
-		inter = (1.0 / zoom);
-		display->
+			display->zoom *= 1.05;
+		inter = (1.0 / display->zoom);
+		display->min.r = ft_interpolate(mouse.r, display->min.r, inter);
+		display->min.i = ft_interpolate(mouse.i, display->min.i, inter);
+		display->max.r = ft_interpolate(mouse.r, display->max.r, inter);
+		display->max.i = ft_interpolate(mouse.i, display->max.i, inter);
+		ft_render(display);
 	}
 	else
 		ft_printf("Unkown mouse input = %d\n", keycode);

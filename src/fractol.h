@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:12:00 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:31:08 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ int			ft_handle_keys(int key, t_display *display);
 int			ft_handle_mouse(int button, int x, int y, t_display *display);
 
 /*	ft_zoom.c */
-int			ft_zoom(t_display *display, int x, int y, int keycode);
+int			ft_zoom(int keycode, int x, int y, t_display *display);
 
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);
