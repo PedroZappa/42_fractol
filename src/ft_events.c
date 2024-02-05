@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:32:59 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:38:23 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	ft_handle_keys(int keysym, t_display *display)
 		display->y_offset -= (0.3 * display->zoom);
 	else if (keysym == XK_Down || keysym == XK_KP_Down)
 		display->y_offset += (0.3 * display->zoom);
-	else if (keysym == 65365)
+	else if (keysym == XK_Page_Up)
 		display->iter += 21;
-	else if (keysym == 65366)
+	else if (keysym == XK_Page_Down)
 		display->iter -= 21;
 	else
 		ft_printf("Unknown key: %d\n", keysym);
