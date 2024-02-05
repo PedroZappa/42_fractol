@@ -16,7 +16,11 @@ int	ft_usage(void)
 {
 	ft_printf("Usage:\n");
 	ft_printf("\t./fractol <set> <iterations> <c.r> <c.i>\n");
-	ft_printf("%s");
+	ft_sep_color('#', '=', 60, GRN);
+	ft_printf("Controls:\n");
+	ft_printf("Move around the fractal with\n");
+	ft_printf("\t> Arrow keys\n");
+	ft_printf("\t> Numpad keys\n");
 	return (0);
 }
 
