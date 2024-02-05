@@ -68,7 +68,8 @@ int	ft_handle_mouse(int button, int x, int y, t_display *display)
 		display->zoom *= 0.95;
 	else if (button == Button5)
 		display->zoom *= 1.05;
-	printf("%d\n", button);
+	else
+		ft_printf("Unknown key: %d\n", button);
 	ft_render(display);
 	return (0);
 }
