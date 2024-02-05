@@ -60,7 +60,7 @@ void	ft_init_data(t_display *display)
 	display->width = WIDTH;
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;
-	display->zoom = 1.0;
+	display->zoom = 1.5;
 	display->z.r = 0;
 	display->z.i = 0;
 	display->z_old.r = 0;

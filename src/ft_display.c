@@ -27,8 +27,9 @@ void	ft_render(t_display *display)
 		x = -1;
 		while (++x < WIDTH)
 			ft_get_pixel(display, x, y);
-		// ft_printf("\rRender: [%d%%]", (y * 100) / display->height);
+		ft_printf("\rRendering: [%d%%]", (y * 100) / display->height);
 	}
+	ft_pout_color("\tComplete!\n", MAG);
 	mlx_put_image_to_window(display->mlx_conn, display->mlx_win,
 		display->img.img, 0, 0);
 	return ;
