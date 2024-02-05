@@ -51,7 +51,7 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 		if (display->iter <= 0)
 			display->iter = INIT_ITER;
 	}
-	if ((argc >= 5) && ((!ft_is_argint(argv[3])) || (!ft_is_argint(argv[4]))))
+	if ((argc >= 5) && ((!ft_is_argdbl(argv[3])) || (!ft_is_argdbl(argv[4]))))
 		return (ft_perror_color("Invalid argument type\n", RED));
 	else if (argc >= 5)
 	{
