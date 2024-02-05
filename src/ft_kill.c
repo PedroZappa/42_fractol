@@ -19,10 +19,12 @@ void	ft_clean_kill(t_display *display)
 	return ;
 }
 
-void	ft_kill_werror(t_display *display)
+int		ft_kill_werror(char *str)
 {
-	(void)display;
-	return ;
+	ft_perror_color(str, RED);
+	ft_usage();
+	ft_printf(MSG_KILL);
+	exit(EXIT_FAILURE);
 }
 
 void	ft_kill_window(t_display *display)
@@ -30,6 +32,7 @@ void	ft_kill_window(t_display *display)
 	(void)display;
 	return ;
 }
+
 /*	Handles pressing of ESC key or the X on the GUI
  *	Needs to have the following prototype:
  *		int (*f)(void *param)

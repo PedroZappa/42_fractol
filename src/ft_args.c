@@ -16,8 +16,6 @@
  *	*/
 int	ft_args(t_display *display, int argc, char **argv)
 {
-	if (ft_help_flag(argc, argv) == 1)
-		return (ft_usage());
 	if (!ft_select_fractal(display, argv))
 		return (ft_invalid_args(argv[1]));
 	if (!ft_set_complex(display, argc, argv))
@@ -43,7 +41,7 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 	display->c_julia.r = INIT_C_R;
 	display->c_julia.i = INIT_C_I;
 	if ((argc > 2) && !ft_is_argint(argv[2]))
-		return (ft_perror_color("Invalid argument type\n", RED));
+		return (ft_kill_werror("Invalid argument type\n"));
 	else if (argc > 2)
 	{
 		display->iter = ft_atoi(argv[2]);
@@ -51,7 +49,7 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 			display->iter = INIT_ITER;
 	}
 	if ((argc >= 5) && ((!ft_is_argdbl(argv[3])) || (!ft_is_argdbl(argv[4]))))
-		return (ft_perror_color("Invalid argument type\n", RED));
+		return (ft_kill_werror("Invalid argument type\n"));
 	else if (argc >= 5)
 	{
 		display->c_julia.r = ft_atod(argv[3]);

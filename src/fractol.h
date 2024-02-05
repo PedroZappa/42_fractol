@@ -18,7 +18,7 @@
 //=============================================================================/
 
 // Messages
-# define MSG_KILL	"Thanks for playing with Fract\'ol...\n\tBuBye!\n"
+# define MSG_KILL	"Thanks for playing with Fract\'ol!\n\tBuBye...\n"
 
 // Display Dimensions
 # define HEIGHT		800
@@ -157,7 +157,7 @@ int			ft_handle_mouse(int button, int x, int y, t_display *display);
 
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);
-void		ft_kill_werror(t_display *display);
+int			ft_kill_werror(char *str);
 void		ft_kill_window(t_display *display);
 int			ft_kill_handle(t_display *display);
 void		ft_error(void);
