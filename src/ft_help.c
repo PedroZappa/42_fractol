@@ -27,7 +27,7 @@ int	ft_usage(void)
 	ft_printf(":Switch between Sets with:\n");
 	ft_printf("\t> 1, 2, 3\n");
 	ft_printf(":To Exit press:\n");
-	ft_printf("\t> ESC\n");
+	ft_printf("\t> ESC\n\t> Window's X button\n");
 	ft_sep_color('#', '=', 30, GRN);
 	ft_pout_color("Available Sets:\n", YEL);
 	ft_printf("\t> Mandelbrot\n\t> Julia\n\t> Newton\n");
