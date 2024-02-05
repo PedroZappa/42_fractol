@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (ft_no_args());
-	if (ft_args(&display, argc, argv) == 0)
+	if (!ft_args(&display, argc, argv))
 		return (EXIT_FAILURE);
 	// display.c_julia.r = ft_atod(argv[2]);
 	// display.c_julia.i = ft_atod(argv[3]);
@@ -27,36 +27,3 @@ int	main(int argc, char **argv)
 	mlx_loop(display.mlx_conn);
 	exit(EXIT_SUCCESS);
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	(void)argc;
-// 	(void)argv;
-// 	t_display	display;
-// 	t_img		img;
-//
-// 	display.mlx_conn = mlx_init();
-// 	if (!display.mlx_conn)
-// 		exit (1);
-//
-// 	display.mlx_win = mlx_new_window(display.mlx_conn,
-// 						WIDTH, HEIGHT, "Fractol");
-// 	if (!display.mlx_win)
-// 	{
-// 		mlx_destroy_display(display.mlx_conn);
-// 		free(display.mlx_conn);
-// 		exit (1);
-// 	}
-// 	img.img = mlx_new_image(display.mlx_conn, WIDTH, HEIGHT);
-// 	img.pix = mlx_get_data_addr(img.img,
-// 	 					&img.bpp, &img.line_len, &img.endian);
-//
-// 	mlx_key_hook(display.mlx_win, handle_input, &display);
-//
-// 	mlx_loop(display.mlx_conn);
-//
-// 	mlx_destroy_window(display.mlx_conn, display.mlx_win);
-// 	mlx_destroy_display(display.mlx_conn);
-// 	free(display.mlx_conn);
-// 	exit(0);
-// }
