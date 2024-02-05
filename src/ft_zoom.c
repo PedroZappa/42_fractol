@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:30:08 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:48:25 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 21:06:05 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	ft_zoom(int keycode , int x, int y, t_display *display)
 		else
 			display->zoom *= 1.05;
 		factor = (1.0 / display->zoom);
-		display->min.r = ft_interpolate(mouse.r, display->min.r, factor);
-		display->min.i = ft_interpolate(mouse.i, display->min.i, factor);
-		display->max.r = ft_interpolate(mouse.r, display->max.r, factor);
-		display->max.i = ft_interpolate(mouse.i, display->max.i, factor);
+		display->min.r = ft_interpolate(factor, mouse.r, display->min.r);
+		display->min.i = ft_interpolate(factor, mouse.i, display->min.i);
+		display->max.r = ft_interpolate(factor, mouse.r, display->max.r);
+		display->max.i = ft_interpolate(factor, mouse.i, display->max.i);
 		ft_render(display);
 	}
 	else
