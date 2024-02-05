@@ -18,6 +18,8 @@ int	ft_usage(void)
 	return (0);
 }
 
+/*	Check if help flag is present in the command line arguments.
+ *	*/
 int ft_help_flag(int argc, char **argv)
 {
 	int i;
