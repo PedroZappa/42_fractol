@@ -22,6 +22,8 @@ int	ft_usage(void)
 	ft_printf("\t> Arrow keys\n\t> Numpad keys\n");
 	ft_printf(":Zoom in and out with:\n");
 	ft_printf("\t> Mouse wheel\n");
+	ft_printf(":Change n iterations with:\n");
+	ft_printf("\t> PageUp & PageDown\n");
 	ft_printf(":Change color scheme with:\n");
 	ft_printf("\t> Spacebar\n");
 	ft_printf(":Switch between Sets with:\n");
@@ -32,7 +34,6 @@ int	ft_usage(void)
 	ft_pout_color("Available Sets:\n", YEL);
 	ft_printf("\t> Mandelbrot\n\t> Julia\n\t> Newton\n");
 	ft_sep_color('#', '=', 30, GRN);
-
 	return (0);
 }
 
