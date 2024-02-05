@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 12:10:15 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:42:10 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,9 @@ void		render_julia(t_display *display);
 void		ft_events_init(t_display *display);
 int			ft_handle_keys(int key, t_display *display);
 int			ft_handle_mouse(int button, int x, int y, t_display *display);
+
+/*	ft_zoom.c */
+int			ft_zoom(t_display *display, int x, int y, int keycode);
 
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);

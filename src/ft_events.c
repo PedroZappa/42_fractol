@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/03 22:06:42 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:45:35 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_events_init(t_display *display)
 		  display);
 	mlx_hook(display->mlx_win, DestroyNotify, StructureNotifyMask, 
 		  ft_kill_handle, display);
+	// mlx_hook(display->mlx_win, ButtonPress, ButtonPressMask, ft_zoom, display);
 }
 
 /*	Handle key input: int (*f)(int keycode, void *param)
@@ -49,8 +50,6 @@ int	ft_handle_keys(int keysym, t_display *display)
 		display->iter -= 21;
 	else
 		ft_printf("Unknown key: %d\n", keysym);
-
-
 	ft_render(display);
 	return (0);
 }
