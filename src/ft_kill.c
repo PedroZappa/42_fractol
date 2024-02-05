@@ -15,8 +15,10 @@
 
 void	ft_clean_kill(t_display *display)
 {
-	(void)display;
-	return ;
+	ft_sep_color('#', '=', 40, GRN);
+	mlx_destroy_display(display->mlx_conn);
+	free(display->mlx_conn);
+	ft_error();
 }
 
 int		ft_kill_werror(char *str)
@@ -25,13 +27,16 @@ int		ft_kill_werror(char *str)
 	ft_perror_color(str, RED);
 	ft_usage();
 	ft_printf(MSG_KILL);
-	exit(EXIT_FAILURE);
+	return (0);
+
 }
 
 void	ft_kill_window(t_display *display)
 {
-	(void)display;
-	return ;
+	mlx_destroy_window(display->mlx_conn, display->mlx_win);
+	mlx_destroy_display(display->mlx_conn);
+	free(display->mlx_conn);
+	ft_error();
 }
 
 /*	Handles pressing of ESC key or the X on the GUI

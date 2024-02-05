@@ -26,24 +26,16 @@ void	ft_init_display(t_display *display)
 	display->mlx_win = mlx_new_window
 		(display->mlx_conn, WIDTH, HEIGHT, display->name);
 	if (!display->mlx_win)
-	{
-		mlx_destroy_display(display->mlx_conn);
-		free(display->mlx_conn);
-		ft_error();
-	}
+		ft_clean_kill(display);
 	display->img.img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
 	if (!display->img.img)
-	{
-		mlx_destroy_window(display->mlx_conn, display->mlx_win);
-		mlx_destroy_display(display->mlx_conn);
-		free(display->mlx_conn);
-		ft_error();
-	}
+		ft_kill_window(display);
 	display->img.pix = mlx_get_data_addr
 		(display->img.img, &display->img.bpp, &display->img.line_len,
 		&display->img.endian);
 	ft_events_init(display);
 	ft_init_data(display);
+	ft_sep_color('#', '=', 40, GRN);
 }
 
 /*	ft_init_data : Initializes t_display's data

@@ -21,7 +21,6 @@ void	ft_render(t_display *display)
 	int	x;
 	int	y;
 
-	ft_sep_color('#', '=', 40, GRN);
 	y = -1;
 	while (++y < HEIGHT)
 	{
