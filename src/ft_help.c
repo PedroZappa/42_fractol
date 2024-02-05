@@ -14,13 +14,25 @@
 
 int	ft_usage(void)
 {
-	ft_printf("Usage:\n");
+	ft_pout_color("Fract'ol Usage:\n", YEL);
 	ft_printf("\t./fractol <set> <iterations> <c.r> <c.i>\n");
-	ft_sep_color('#', '=', 60, GRN);
-	ft_printf("Controls:\n");
-	ft_printf("Move around the fractal with\n");
-	ft_printf("\t> Arrow keys\n");
-	ft_printf("\t> Numpad keys\n");
+	ft_sep_color('#', '=', 50, GRN);
+	ft_pout_color("Controls:\n", YEL);
+	ft_printf(":Move around with:\n");
+	ft_printf("\t> Arrow keys\n\t> Numpad keys\n");
+	ft_printf(":Zoom in and out with:\n");
+	ft_printf("\t> Mouse wheel\n");
+	ft_printf(":Change color scheme with:\n");
+	ft_printf("\t> Spacebar\n");
+	ft_printf(":Switch between Sets with:\n");
+	ft_printf("\t> 1, 2, 3\n");
+	ft_printf(":To Exit press:\n");
+	ft_printf("\t> ESC\n");
+	ft_sep_color('#', '=', 30, GRN);
+	ft_pout_color("Available Sets:\n", YEL);
+	ft_printf("\t> Mandelbrot\n\t> Julia\n\t> Newton\n");
+	ft_sep_color('#', '=', 30, GRN);
+
 	return (0);
 }
 
