@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/02/05 19:43:45 by passunca         ###   ########.fr        #
+#    Updated: 2024/02/07 14:44:58 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,6 @@ $(MLX_ARC):
 	$(MAKE) $(MLX_PATH)
 	@printf "$(D)$(B)$(BLU)\nmlx compiled\n\n$(D)"
 
-.PHONY: deps
 deps:			## Download/Update libft & mlx
 	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; \
 		else echo "$(YEL)[libft]$(D) folder found"; fi
@@ -101,24 +100,20 @@ deps:			## Download/Update libft & mlx
 
 -include $(DEPS)
 
-.PHONY: get_mlx
 get_mlx: compile_mlx	## Get MLX module
 	@echo "[$(CYA)Getting MLX submodule$(D)]"
 	git clone git@github.com:42Paris/minilibx-linux.git $(MLX_PATH)
 	@echo "[$(GRN)MLX submodule successfully downloaded$(D)]"
 
-.PHONY: compile_mlx
 compile_mlx:	## Compile MLX module
 	$(MAKE) $(MLX_PATH) > /dev/null 2>&1 || true
 	@printf "[$(B)$(CYA)$(MLX_ARC) successfully compiled$(D)]\n"
 
-.PHONY: get_libft
 get_libft:		## Get Libft module
 	@echo "[$(CYA)Getting Libft submodule$(D)]"
 	git clone git@github.com:PedroZappa/libft.git $(LIBFT_PATH)
 	@echo "[$(GRN)Libft submodule successfully downloaded$(D)]"
 
-.PHONY: update_modules
 update_modules:	## Update modules
 	@echo "[$(CYA)Updating submodules$(D)]"
 	git submodule init
@@ -127,14 +122,12 @@ update_modules:	## Update modules
 
 ##@ Debug & Leak Check Rules 󰃢
 
-.PHONY: leak
 leak: all			## Check for leaks w/ valgrind
 	@valgrind -q --leak-check=full --show-leak-kinds=all \
 		--suppressions=readline_supression ./$(NAME)
 
 ##@ Clean-up Rules 󰃢
 
-.PHONY: clean
 clean: 				## Remove object files
 	@echo "[$(RED)Cleaning $(NAME) objects 󰃢$(D)]"
 	$(RM) $(OBJS)
@@ -144,14 +137,12 @@ clean: 				## Remove object files
 	$(RM) $(BUILD_PATH)
 	@echo "==> $(GRN)Object files successfully removed!$(D)\n"
 
-.PHONY: fclean
 fclean: clean	## Remove archives & executables
 	@echo "[$(RED)Cleaning executable 󰃢$(D)]"
 	$(RM) $(NAME)
 	$(MAKE) $(LIBFT_PATH) fclean
 	@echo "==> $(GRN)$(NAME) Successfully removed!$(D)\n"
 
-.PHONY: libclean
 libclean: fclean	## Remove libft & mlx
 	@echo "[$(RED)Cleaning libft 󰃢$(D)]"
 	$(RM) $(LIBFT_PATH)
@@ -159,10 +150,7 @@ libclean: fclean	## Remove libft & mlx
 	$(RM) $(MLX_PATH)
 	@echo "==> $(GRN)mlx successfully removed!$(D)\n"
 
-
-.PHONY: re
 re: fclean all	## Purge and Recompile
-
 
 ##@ Help 󰛵
 
@@ -174,6 +162,9 @@ help: 			## Display this help page
 			printf "\t$(GRN)%-15s$(D) %s\n", $$1, $$2 } \
 		/^##@/ { \
 			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
+
+.PHONY: deps get_mlx compile_mlx get_libft update_modules leak clean fclean \
+	libclean re
 
 #==============================================================================#
 #                                  UTILS                                       #
