@@ -53,4 +53,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-
+# Library folders
+inc/
