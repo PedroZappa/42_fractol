@@ -65,7 +65,6 @@ static int	ft_set_args(t_display *display, int argc, char **argv)
 		display->c_julia.r = ft_atod(argv[3]);
 		display->c_julia.i = ft_atod(argv[4]);
 	}
-	printf("c_julia.r = %f, c_julia.i = %f", display->c_julia.r, display->c_julia.i);
 	return (1);
 }
 
