@@ -149,6 +149,8 @@ libclean: fclean	## Remove libft & mlx
 	@echo "==> $(GRN)libft successfully removed!$(D)\n"
 	$(RM) $(MLX_PATH)
 	@echo "==> $(GRN)mlx successfully removed!$(D)\n"
+	$(RM) $(INC_PATH)
+	@echo "==> $(GRN)inc folder successfully removed!$(D)\n"
 
 re: fclean all	## Purge and Recompile
 
