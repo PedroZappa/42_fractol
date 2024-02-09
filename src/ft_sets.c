@@ -38,7 +38,6 @@ void	render_mandelbrot(t_display *d, int x, int y)
 		}
 	}
 	ft_put_pixel(d->img, x, y, HEX_BLACK);
-	return ;
 }
 
 void	render_julia(t_display *d, int x, int y)
@@ -66,7 +65,6 @@ void	render_julia(t_display *d, int x, int y)
 		}
 	}
 	ft_put_pixel(d->img, x, y, HEX_BLACK);
-	return ;
 }
 
 void	render_newton(t_display *d, int x, int y)
