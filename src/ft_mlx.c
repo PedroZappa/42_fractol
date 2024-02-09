@@ -54,11 +54,8 @@ void	ft_init_data(t_display *display)
 	display->y_offset = 0.0;
 	display->zoom = -SCALE_FACTOR;
 	display->z = ft_init_complex(0.0, 0.0);
-	display->z_old = ft_init_complex(0.0, 0.0);
 	display->c = ft_init_complex(0.0, 0.0);
 	display->c_julia = ft_init_complex(INIT_C_R, INIT_C_I);
-	display->min = ft_init_complex(MIN_R, MIN_I);
-	display->max = ft_init_complex(MAX_R, MAX_I);
 	display->win_size = ft_init_range(0, WIDTH);
 	display->frac_range = ft_init_range(MIN_R, MAX_R);
 	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);

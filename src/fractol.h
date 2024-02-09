@@ -124,7 +124,6 @@ typedef struct s_display
 	double		y_offset;
 	double		zoom;
 	t_complex	z;
-	t_complex	z_old;
 	t_complex	c;
 	t_complex	c_julia;
 	t_complex	min;
