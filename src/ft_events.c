@@ -66,7 +66,7 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 	(void)x;
 	(void)y;
 	if (button == Button4)
-		d->zoom *= 0.95;
+		d->zoom /= 1.05;
 	else if (button == Button5)
 		d->zoom *= 1.05;
 	else

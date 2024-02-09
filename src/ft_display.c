@@ -35,16 +35,6 @@ void	ft_render(t_display *d)
 }
 
 /*	ft_put_pixel : Puts a pixel to the d
- *		Initialize z.r and z.i to 0.0
- *		Scale pixel coordinates to fit the mandelbrot range:
- *			Scale x from the range (0 to WIDTH) to (-2.0 to 2.0) [left to right]
- *			Scale y from the range (0 to WIDTH) to (2.0 to -2.0) [top to bottom]
- *		Plug pixel coordinates into the Mandelbrot equation
- *			Compute z = z^2 + c
- *			Loop for i iterations
- *				Set z to the result of (z^2 + c)
- *				Check if z is in the Mandelbrot set (Check Pythagorean theorem)
- *					Scale the range (0 to HEX_WHITE) to (0 to i)
  *	*/
 void	ft_get_pixel(t_display *d, int x, int y)
 {

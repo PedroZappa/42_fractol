@@ -20,6 +20,8 @@ void	ft_select_set(t_display *d, int x, int y)
 		render_julia(d);
 	else if (d->set == NEWTON)
 		render_newton(d);
+	else
+		ft_kill_handle(d);
 	return ;
 }
 
