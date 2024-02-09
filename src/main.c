@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (ft_no_args());
 	else if (!ft_args(&display, argc, argv))
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	ft_init_display(&display);
 	ft_render(&display);
 	mlx_loop(display.mlx_conn);

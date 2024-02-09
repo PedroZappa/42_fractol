@@ -128,7 +128,7 @@ typedef struct s_range
 
 /* ft_args.c */
 int			ft_args(t_display *display, int argc, char **argv);
-int			ft_select_fractal(t_display *display, char **argv);
+int			ft_select_fractal(t_display *display, int argc, char **argv);
 int			ft_set_complex(t_display *display, int argc, char **argv);
 int			ft_invalid_args(char *name);
 int			ft_no_args(void);

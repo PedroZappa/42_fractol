@@ -16,20 +16,20 @@
  *	*/
 int	ft_args(t_display *display, int argc, char **argv)
 {
-	if (!ft_select_fractal(display, argv))
+	if (!ft_select_fractal(display, argc, argv))
 		return (ft_invalid_args(argv[1]));
 	if (!ft_set_complex(display, argc, argv))
 		return (0);
 	return (1);
 }
 
-int	ft_select_fractal(t_display *display, char **argv)
+int	ft_select_fractal(t_display *display, int argc, char **argv)
 {
 	char *name;
 	name = ft_stolower(argv[1]);
 	if (!ft_strcmp(name, "mandelbrot"))
 		display->name = "mandelbrot";
-	else if (!ft_strcmp(name, "julia"))
+	else if (!ft_strcmp(name, "julia") && (argc >= 5))
 		display->name = "julia";
 	else
 		return (0);
