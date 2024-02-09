@@ -16,7 +16,7 @@
  *		Get all the pixels
  *		Pushes image into the window
  *	*/
-void	ft_render(t_display *display)
+void	ft_render(t_display *d)
 {
 	int	x;
 	int	y;
@@ -26,16 +26,15 @@ void	ft_render(t_display *display)
 	{
 		x = -1;
 		while (++x < WIDTH)
-			ft_get_pixel(display, x, y);
-		ft_printf("\rRendering: [%d%%]", ((y * 100) / display->height) + 1);
+			ft_get_pixel(d, x, y);
+		ft_printf("\rRendering: [%d%%]", ((y * 100) / d->height) + 1);
 	}
 	ft_pout_color("\tComplete!\n", MAG);
-	mlx_put_image_to_window(display->mlx_conn, display->mlx_win,
-		display->img.img, 0, 0);
+	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
 	return ;
 }
 
-/*	ft_put_pixel : Puts a pixel to the display
+/*	ft_put_pixel : Puts a pixel to the d
  *		Initialize z.r and z.i to 0.0
  *		Scale pixel coordinates to fit the mandelbrot range:
  *			Scale x from the range (0 to WIDTH) to (-2.0 to 2.0) [left to right]
@@ -76,7 +75,7 @@ void	ft_get_pixel(t_display *d, int x, int y)
 	ft_put_pixel(d->img, x, y, HEX_GREEN);
 }
 
-/*	ft_put_pixel : Puts a pixel to the display
+/*	ft_put_pixel : Puts a pixel to the d
  *										 img->bpp
  *	offset = (y * img->line_len) + ( x * -------- )
  *										    8
