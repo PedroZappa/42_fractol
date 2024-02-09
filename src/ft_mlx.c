@@ -48,8 +48,6 @@ void	ft_init_data(t_display *display)
 {
 	display->height = HEIGHT;
 	display->width = WIDTH;
-	display->iter = INIT_ITER;
-	display->set = MANDELBROT;
 	display->name = display->name;
 	display->escape = 4.0;
 	display->x_offset = 0.0;

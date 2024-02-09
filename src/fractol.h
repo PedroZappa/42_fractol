@@ -25,7 +25,7 @@
 # define WIDTH			800
 # define OFFSET_X		0.3
 # define OFFSET_Y		0.3
-# define SCALE_FACTOR	1.01
+# define SCALE_FACTOR	1.03
 
 // Complex Math Inits
 # define INIT_ITER	42

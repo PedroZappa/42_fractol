@@ -44,9 +44,9 @@ int	ft_handle_keys(int keysym, t_display *d)
 	else if (keysym == XK_Down || keysym == XK_KP_Down)
 		d->y_offset += (OFFSET_Y * d->zoom);
 	else if (keysym == XK_Page_Up)
-		d->iter += 21;
+		d->iter += 7;
 	else if (keysym == XK_Page_Down)
-		d->iter -= 21;
+		d->iter -= 7;
 	else
 	{
 		ft_printf("Unknown key: %d\n", keysym);

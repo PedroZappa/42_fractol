@@ -27,10 +27,18 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 {
 	char *name;
 	name = ft_stolower(argv[1]);
-	if (!ft_strcmp(name, "mandelbrot"))
-		display->name = "mandelbrot";
+	if (!ft_strcmp(name, "mandelbrot") && (argc >= 2))
+	{
+		display->set = MANDELBROT;
+		display->name = "Mandelbrot";
+		display->iter = ft_atoi(argv[2]);
+	}
 	else if (!ft_strcmp(name, "julia") && (argc >= 5))
-		display->name = "julia";
+	{
+		display->set = JULIA;
+		display->name = "Julia";
+		display->iter = ft_atoi(argv[2]);
+	}
 	else
 		return (0);
 	return (1);
