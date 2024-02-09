@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (ft_no_args());
-	if (!ft_args(&display, argc, argv))
+	else if (!ft_args(&display, argc, argv))
 		return (EXIT_FAILURE);
 	ft_init_display(&display);
 	ft_render(&display);
