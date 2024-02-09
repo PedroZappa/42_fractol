@@ -36,13 +36,13 @@ int	ft_handle_keys(int keysym, t_display *d)
 	if (keysym == XK_Escape)
 		ft_kill_handle(d);
 	else if (keysym == XK_Left || keysym == XK_KP_Left)
-		d->x_offset -= (0.3 * d->zoom);
+		d->x_offset -= (OFFSET_X * d->zoom);
 	else if (keysym == XK_Right || keysym == XK_KP_Right)
-		d->x_offset += (0.3 * d->zoom);
+		d->x_offset += (OFFSET_X * d->zoom);
 	else if (keysym == XK_Up || keysym == XK_KP_Up)
-		d->y_offset -= (0.3 * d->zoom);
+		d->y_offset -= (OFFSET_Y * d->zoom);
 	else if (keysym == XK_Down || keysym == XK_KP_Down)
-		d->y_offset += (0.3 * d->zoom);
+		d->y_offset += (OFFSET_Y * d->zoom);
 	else if (keysym == XK_Page_Up)
 		d->iter += 21;
 	else if (keysym == XK_Page_Down)

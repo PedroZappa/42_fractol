@@ -23,6 +23,8 @@
 // Display Dimensions
 # define HEIGHT		800
 # define WIDTH		800
+# define OFFSET_X	0.3
+# define OFFSET_Y	0.3
 
 // Complex Math Inits
 # define INIT_ITER	42
