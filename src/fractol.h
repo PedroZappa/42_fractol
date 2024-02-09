@@ -29,8 +29,8 @@
 
 // Complex Math Inits
 # define INIT_ITER	42
-# define INIT_C_R	-0.7
-# define INIT_C_I	0.27015
+# define INIT_C_R	-0.5
+# define INIT_C_I	0.27025
 # define MIN_R		-2.0
 # define MAX_R		2.0
 # define MIN_I		-2.0
