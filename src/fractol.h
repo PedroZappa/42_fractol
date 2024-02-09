@@ -33,7 +33,6 @@
 # define MIN_I		-2.0
 # define MAX_I		2.0
 
-
 //=============================================================================/
 //								Librariy Headers                               /
 //=============================================================================/
@@ -78,6 +77,15 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
+/*	Struct for passing a range into scaling function
+ *	*/
+typedef struct s_range
+{
+	double		min;
+	double		max;
+}				t_range;
+
+
 /* X Environment Structure
  *	// MLX variables
  *		mlx_conn:	Stores pointer to the MLX connection
@@ -112,15 +120,11 @@ typedef struct s_display
 	t_complex	c_julia;
 	t_complex	min;
 	t_complex	max;
+	t_range	win_size;
+	t_range	frac_range;
+	t_range	color_iter;
+	t_range	color_range;
 }				t_display;
-
-/*	Struct for passing a range into scaling function
- *	*/
-typedef struct s_range
-{
-	double		min;
-	double		max;
-}				t_range;
 
 //=============================================================================/
 //							Function Prototypes                                /
@@ -142,6 +146,7 @@ int			ft_help_flag(int argc, char **argv);
 void		ft_init_display(t_display *display);
 void		ft_init_data(t_display *display);
 t_complex	ft_init_complex(double r, double i);
+t_range		ft_init_range(double min, double max);
 
 /*	ft_display.c : Display functions */
 void		ft_render(t_display *display);

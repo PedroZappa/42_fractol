@@ -46,10 +46,11 @@ void	ft_init_display(t_display *display)
  *	*/
 void	ft_init_data(t_display *display)
 {
-	display->escape = 4.0;
-	display->iter = INIT_ITER;
 	display->height = HEIGHT;
 	display->width = WIDTH;
+	display->iter = INIT_ITER;
+	display->name = display->name;
+	display->escape = 4.0;
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;
 	display->zoom = 1.5;
@@ -58,6 +59,10 @@ void	ft_init_data(t_display *display)
 	display->c = ft_init_complex(0.0, 0.0);
 	display->min = ft_init_complex(MIN_R, MIN_I);
 	display->max = ft_init_complex(MAX_R, MAX_I);
+	display->win_size = ft_init_range(0, WIDTH);
+	display->frac_range = ft_init_range(MIN_R, MAX_R);
+	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
+	display->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
 }
 
 t_complex	ft_init_complex(double r, double i)
@@ -67,4 +72,13 @@ t_complex	ft_init_complex(double r, double i)
 	c.r = r;
 	c.i = i;
 	return (c);
+}
+
+t_range		ft_init_range(double min, double max)
+{
+	t_range	r;
+
+	r.min = min;
+	r.max = max;
+	return (r);
 }

@@ -51,28 +51,16 @@ void	ft_get_pixel(t_display *display, int x, int y)
 {
 	int			color;
 	int			i;
-	t_range		fract_range;
-	t_range		win_size;
-	t_range		color_iter;
-	t_range		color_range;
 
 	i = -1;
 	display->z.r = 0;
 	display->z.i = 0;
-	win_size.min = 0;
-	win_size.max = WIDTH;
-	color_iter.min = HEX_BLACK;
-	color_iter.max = display->iter;
-	color_range.min = HEX_BLACK;
-	color_range.max = HEX_WHITE;
-	fract_range.min = -2.0;
-	fract_range.max = 2.0;
-	display->c.r = (ft_map(x, win_size, fract_range) * display->zoom) +
-		display->x_offset;
-	fract_range.min = 2.0;
-	fract_range.max = -2.0;
-	display->c.i = (ft_map(y, win_size, fract_range) * display->zoom) +
-		display->y_offset;
+	display->c.r = (ft_map(x, display->win_size, display->frac_range)
+		* display->zoom) + display->x_offset;
+	display->frac_range.min = 2.0;
+	display->frac_range.max = -2.0;
+	display->c.i = (ft_map(y, display->win_size, display->frac_range)
+		* display->zoom) + display->y_offset;
 	while (++i < display->iter)
 	{
 		display->z = ft_c_sum(ft_c_square(display->z), display->c);
@@ -85,7 +73,7 @@ void	ft_get_pixel(t_display *display, int x, int y)
 		if (((display->z.r * display->z.r) + (display->z.i * display->z.i))
 				> display->escape)
 		{
-			color = ft_map(i, color_iter, color_range);
+			color = ft_map(i, display->color_iter, display->color_range);
 			ft_put_pixel(display->img, x, y, color);
 			return ;
 		}
