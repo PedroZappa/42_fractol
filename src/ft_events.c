@@ -66,14 +66,18 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 	mlx_mouse_get_pos(d->mlx_conn, d->mlx_win, &x, &y);
 	if (button == Button4)
 	{
-		 d->x_offset += -(ft_map(x, d->win_size, d->frac_range) * 0.01);
-		 d->y_offset += -(ft_map(y, d->win_size, d->frac_range) * 0.01);
+		 d->x_offset += (ft_map(x, d->win_size, d->frac_range) * d->zoom)
+		* 0.01;
+		 d->y_offset += (ft_map(y, d->win_size, d->frac_range) * d->zoom)
+		* 0.01;
 		d->zoom /= SCALE_FACTOR;
 	}
 	else if (button == Button5)
 	{
-		 d->x_offset -= -(ft_map(x, d->win_size, d->frac_range) * 0.01);
-		 d->y_offset -= -(ft_map(y, d->win_size, d->frac_range) * 0.01);
+		 d->x_offset -= (ft_map(x, d->win_size, d->frac_range) * d->zoom)
+		* 0.01;
+		 d->y_offset -= (ft_map(y, d->win_size, d->frac_range) * d->zoom) 
+		* 0.01;
 		 d->zoom *= SCALE_FACTOR;
 	}
 	else
@@ -81,7 +85,6 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 		ft_printf("Unknown mouse: %d\n", button);
 		return (0);
 	}
-	ft_printf("Cursor at X: %d Y: %d\n", x, y);
 	ft_render(d);
 	return (0);
 }
