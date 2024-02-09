@@ -12,6 +12,17 @@
 
 #include "fractol.h"
 
+void	ft_select_set(t_display *display)
+{
+	if (display->set == MANDELBROT)
+		render_mandelbrot(display);
+	else if (display->set == JULIA)
+		render_julia(display);
+	else if (display->set == NEWTON)
+		render_newton(display);
+	return ;
+}
+
 void	render_mandelbrot(t_display *display)
 {
 	(void)display;
@@ -19,6 +30,12 @@ void	render_mandelbrot(t_display *display)
 }
 
 void	render_julia(t_display *display)
+{
+	(void)display;
+	return ;
+}
+
+void	render_newton(t_display *display)
 {
 	(void)display;
 	return ;

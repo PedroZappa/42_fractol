@@ -62,7 +62,6 @@ void	ft_get_pixel(t_display *d, int x, int y)
 	d->c.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
 	while (++i < d->iter)
 	{
-		// d->z = ft_c_sum(ft_c_square(d->z), d->c);
 		r_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
 		d->z.i = (2 * d->z.r * d->z.i) + d->c.i;
 		d->z.r = r_tmp;

@@ -33,6 +33,11 @@
 # define MIN_I		-2.0
 # define MAX_I		2.0
 
+// Set IDs
+# define MANDELBROT	0
+# define JULIA		1
+# define NEWTON		2
+
 //=============================================================================/
 //								Librariy Headers                               /
 //=============================================================================/
@@ -50,7 +55,7 @@
 //                               Structures                                    /
 //=============================================================================/
 
-/* Complex Number Structure 
+/* Complex Number Structure
  *	r:	Real part
  *	i:	Imaginary part
  *	*/
@@ -60,7 +65,7 @@ typedef struct s_complex
 	double	i;
 }				t_complex;
 
-/* Image Data Buffer Structure 
+/* Image Data Buffer Structure
  * [ Stores image data coming from mlx_get_data_addr() ]
  *	img:		Pointer to image struct
  *	pix:		Pointer to image pixel data
@@ -107,6 +112,7 @@ typedef struct s_display
 	void		*mlx_win;
 	int			width;
 	int			height;
+	int			set;
 	char 		*name;
 	t_img		img;
 	long		iter;
@@ -156,6 +162,7 @@ void		ft_put_pixel(t_img img, int x, int y, int color);
 /*	ft_sets.c : Fractal set renderers */
 void		render_mandelbrot(t_display *display);
 void		render_julia(t_display *display);
+void		render_newton(t_display *display);
 
 /*	ft_events.c */
 void		ft_events_init(t_display *display);
