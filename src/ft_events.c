@@ -53,7 +53,7 @@ int	ft_handle_keys(int keysym, t_display *d)
 		return (0);
 	}
 	ft_render(d);
-	return (0);
+	return (1);
 }
 
 /* Handle Mouse input: int (*f)(int button, int x, int y, void *param) 
@@ -65,13 +65,15 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 {
 	(void)x;
 	(void)y;
-	(void)button;
 	if (button == Button4)
 		d->zoom *= 0.95;
 	else if (button == Button5)
 		d->zoom *= 1.05;
 	else
+	{
 		ft_printf("Unknown mouse: %d\n", button);
+		return (0);
+	}
 	ft_render(d);
 	return (0);
 }
