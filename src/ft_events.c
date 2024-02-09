@@ -66,9 +66,9 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 	(void)x;
 	(void)y;
 	if (button == Button4)
-		d->zoom /= 1.05;
+		d->zoom /= SCALE_FACTOR;
 	else if (button == Button5)
-		d->zoom *= 1.05;
+		d->zoom *= SCALE_FACTOR;
 	else
 	{
 		ft_printf("Unknown mouse: %d\n", button);

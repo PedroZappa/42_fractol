@@ -21,10 +21,11 @@
 # define MSG_KILL	"Thanks for playing with Fract\'ol!\n\tBuBye...\n"
 
 // Display Dimensions
-# define HEIGHT		800
-# define WIDTH		800
-# define OFFSET_X	0.3
-# define OFFSET_Y	0.3
+# define HEIGHT			800
+# define WIDTH			800
+# define OFFSET_X		0.3
+# define OFFSET_Y		0.3
+# define SCALE_FACTOR	1.01
 
 // Complex Math Inits
 # define INIT_ITER	42
