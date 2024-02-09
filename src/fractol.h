@@ -142,14 +142,10 @@ typedef struct s_display
 /* ft_args.c */
 int			ft_args(t_display *display, int argc, char **argv);
 int			ft_select_fractal(t_display *display, int argc, char **argv);
-int			ft_set_complex(t_display *display, int argc, char **argv);
-int			ft_invalid_args(char *name);
 int			ft_no_args(void);
 
 /*	ft_help.c : Args handling & help functions */
 int			ft_usage(void);
-int			ft_no_args(void);
-int			ft_help_flag(int argc, char **argv);
 
 /* ft_mlx.c : MLX setup functions */
 void		ft_init_display(t_display *display);

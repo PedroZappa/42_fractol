@@ -56,6 +56,7 @@ void	ft_init_data(t_display *display)
 	display->z = ft_init_complex(0.0, 0.0);
 	display->z_old = ft_init_complex(0.0, 0.0);
 	display->c = ft_init_complex(0.0, 0.0);
+	display->c_julia = ft_init_complex(INIT_C_R, INIT_C_I);
 	display->min = ft_init_complex(MIN_R, MIN_I);
 	display->max = ft_init_complex(MAX_R, MAX_I);
 	display->win_size = ft_init_range(0, WIDTH);

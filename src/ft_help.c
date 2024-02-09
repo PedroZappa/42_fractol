@@ -33,16 +33,3 @@ int	ft_usage(void)
 	ft_sep_color('#', '=', 50, GRN);
 	return (0);
 }
-
-/*	Check if help flag is present in the command line arguments.
- *	*/
-int ft_help_flag(int argc, char **argv)
-{
-	int i;
-
-	i = -1;
-	while (++i < argc)
-		if (ft_strcmp(argv[i], "-h") == 0)
-			return (1);
-	return (0);
-}

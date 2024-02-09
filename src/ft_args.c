@@ -12,13 +12,16 @@
 
 #include "fractol.h"
 
+static int	ft_set_args(t_display *display, int argc, char **argv);
+static int	ft_invalid_args(char *name);
+
 /*	Command line arguments checker
  *	*/
 int	ft_args(t_display *display, int argc, char **argv)
 {
 	if (!ft_select_fractal(display, argc, argv))
 		return (ft_invalid_args(argv[1]));
-	if (!ft_set_complex(display, argc, argv))
+	if (!ft_set_args(display, argc, argv))
 		return (0);
 	return (1);
 }
@@ -33,7 +36,8 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 		display->name = "Mandelbrot";
 		display->iter = ft_atoi(argv[2]);
 	}
-	else if (!ft_strcmp(name, "julia") && (argc == 5))
+	// else if (!ft_strcmp(name, "julia") && (argc == 5))
+	else if (!ft_strcmp(name, "julia"))
 	{
 		display->set = JULIA;
 		display->name = "Julia";
@@ -44,31 +48,30 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 	return (1);
 }
 
-int	ft_set_complex(t_display *display, int argc, char **argv)
+static int	ft_set_args(t_display *display, int argc, char **argv)
 {
-	display->c_julia.r = INIT_C_R;
-	display->c_julia.i = INIT_C_I;
-	if ((argc > 2) && !ft_is_argint(argv[2]))
-		return (ft_kill_werror("Invalid argument type\n"));
-	else if (argc > 2)
+	if (((argc > 2) && (argc < 5)) && !ft_is_argint(argv[2]))
+		return (ft_kill_werror("Invalid arguments\n"));
+	else if ((argc == 3) || (argc == 5))
 	{
 		display->iter = ft_atoi(argv[2]);
 		if (display->iter <= 0)
 			display->iter = INIT_ITER;
 	}
-	if ((argc >= 5) && ((!ft_is_argdbl(argv[3])) || (!ft_is_argdbl(argv[4]))))
+	if ((argc > 5) && ((!ft_is_argdbl(argv[3])) || (!ft_is_argdbl(argv[4]))))
 		return (ft_kill_werror("Invalid argument type\n"));
-	else if (argc >= 5)
+	else if (argc == 5)
 	{
 		display->c_julia.r = ft_atod(argv[3]);
 		display->c_julia.i = ft_atod(argv[4]);
 	}
-	printf("c_julia.r = %f, c_julia.i = %f\n", display->c_julia.r, display->c_julia.i);
+	printf("c_julia.r = %f, c_julia.i = %f", display->c_julia.r, display->c_julia.i);
 	return (1);
 }
 
-int	ft_invalid_args(char *name)
+static int	ft_invalid_args(char *name)
 {
+	ft_sep_color('#', '=', 40, GRN);
 	ft_perror_color("Invalid argument: ", RED);
 	ft_printf("%s\n", name);
 	ft_usage();

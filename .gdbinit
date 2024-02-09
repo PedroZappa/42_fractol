@@ -23,9 +23,19 @@ define ft_select_fractal
 	display argc
 	display name
 	display *display
-	display *display->set
-	display *display->name
-	display *display->iter
+	display display->set
+	display display->name
+	display display->iter
+end
+
+define ft_set_complex
+	display *display
+	display argc
+	display argv[3]
+	display argv[4]
+	display display->c_julia.r
+	display display->c_julia.i
+	display display->iter
 end
 
 define ft_init_display
@@ -95,10 +105,16 @@ end
 # ft_args
 
 ## Start @ ft_select_fractal
+# fs cmd
+# break ft_select_fractal
+# run "julia" 42 0.3 1
+# ft_select_fractal
+
+## Star @ ft_set_complex
 fs cmd
-break ft_select_fractal
-run "julia" 42 0.3 1
-ft_select_fractal
+break ft_set_complex
+run "julia" 43 0.1 0.7
+ft_set_complex
 
 ## Start @ ft_init_display
 # fs cmd

@@ -26,7 +26,6 @@ int		ft_kill_werror(char *str)
 	ft_sep_color('#', '=', 40, GRN);
 	ft_perror_color(str, RED);
 	ft_usage();
-	ft_printf(MSG_KILL);
 	return (0);
 
 }

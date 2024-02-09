@@ -45,7 +45,7 @@ CC		= cc
 
 CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
-CFLAGS 		+= -O3
+# CFLAGS 		+= -O3
 MLXFLAGS	= -lX11 -lXext -lm
 # MLXFLAGS	+= -L/usr/X11R6/lib
 
