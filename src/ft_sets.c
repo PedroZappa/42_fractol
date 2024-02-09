@@ -12,19 +12,6 @@
 
 #include "fractol.h"
 
-void	ft_select_set(t_display *d, int x, int y)
-{
-	if (d->set == MANDELBROT)
-		render_mandelbrot(d, x, y);
-	else if (d->set == JULIA)
-		render_julia(d, x, y);
-	else if (d->set == NEWTON)
-		render_newton(d, x, y);
-	else
-		ft_kill_handle(d);
-	return ;
-}
-
 void	render_mandelbrot(t_display *d, int x, int y)
 {
 	double		r_tmp;

@@ -19,6 +19,15 @@ define ft_help_flag
 	display i
 end
 
+define ft_select_fractal
+	display argc
+	display name
+	display *display
+	display *display->set
+	display *display->name
+	display *display->iter
+end
+
 define ft_init_display
 	display *display
 	display *display->escape 
@@ -71,19 +80,25 @@ define ft_kill_handle
 	display *display
 end
 
-set logging enabled on
+# set logging enabled on
 
 ## Start @ main
-fs cmd
-break main
-run "mandelbrot"
-main
+# fs cmd
+# break main
+# run "julia" 42 0.3 1
+# main
 
 ## Start @ ft_args
 # fs cmd
 # break ft_args
-# run "mandelbrot"
+# run "julia" 42 0.3 1
 # ft_args
+
+## Start @ ft_select_fractal
+fs cmd
+break ft_select_fractal
+run "julia" 42 0.3 1
+ft_select_fractal
 
 ## Start @ ft_init_display
 # fs cmd

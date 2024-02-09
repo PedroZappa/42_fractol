@@ -27,13 +27,13 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 {
 	char *name;
 	name = ft_stolower(argv[1]);
-	if (!ft_strcmp(name, "mandelbrot") && (argc >= 2))
+	if (!ft_strcmp(name, "mandelbrot") && (argc == 3))
 	{
 		display->set = MANDELBROT;
 		display->name = "Mandelbrot";
 		display->iter = ft_atoi(argv[2]);
 	}
-	else if (!ft_strcmp(name, "julia") && (argc >= 5))
+	else if (!ft_strcmp(name, "julia") && (argc == 5))
 	{
 		display->set = JULIA;
 		display->name = "Julia";
@@ -63,6 +63,7 @@ int	ft_set_complex(t_display *display, int argc, char **argv)
 		display->c_julia.r = ft_atod(argv[3]);
 		display->c_julia.i = ft_atod(argv[4]);
 	}
+	printf("c_julia.r = %f, c_julia.i = %f\n", display->c_julia.r, display->c_julia.i);
 	return (1);
 }
 
