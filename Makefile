@@ -24,7 +24,7 @@ LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
 SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
-			  ft_kill.c ft_display.c ft_math.c ft_mlx.c ft_args.c ft_utils.c)
+			  ft_kill.c ft_render.c ft_math.c ft_mlx.c ft_args.c ft_utils.c)
 
 OBJS		= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 DEPS		= $(OBJS:.o=.d)
