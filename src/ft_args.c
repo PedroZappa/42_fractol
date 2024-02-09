@@ -37,7 +37,7 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 		display->iter = ft_atoi(argv[2]);
 	}
 	// else if (!ft_strcmp(name, "julia") && (argc == 5))
-	else if (!ft_strcmp(name, "julia"))
+	else if (!ft_strcmp(name, "julia") && ((argc == 3) || (argc == 5)))
 	{
 		display->set = JULIA;
 		display->name = "Julia";
