@@ -160,7 +160,8 @@ void		ft_get_pixel(t_display *display, int x, int y);
 void		ft_put_pixel(t_img img, int x, int y, int color);
 
 /*	ft_sets.c : Fractal set renderers */
-void		render_mandelbrot(t_display *display);
+void		ft_select_set(t_display *d, int x, int y);
+void		render_mandelbrot(t_display *display, int x, int y);
 void		render_julia(t_display *display);
 void		render_newton(t_display *display);
 
