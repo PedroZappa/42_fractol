@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <X11/X.h>
 
 /*	Setup hook for pressed keys;
 *	Setup hook for mouse clicks;
@@ -18,11 +19,9 @@
  *	*/
 void	ft_events_init(t_display *d)
 {
+	mlx_hook(d->mlx_win, DestroyNotify, StructureNotifyMask, ft_kill_handle, d);
 	mlx_hook(d->mlx_win, KeyPress, KeyPressMask, ft_handle_keys, d);
-	mlx_hook(d->mlx_win, DestroyNotify, StructureNotifyMask, 
-		  ft_kill_handle, d);
-	mlx_hook(d->mlx_win, ButtonPress, ButtonPressMask, ft_handle_mouse, 
-		  d);
+	mlx_hook(d->mlx_win, ButtonPress, ButtonPressMask, ft_handle_mouse, d);
 }
 
 /*	Handle key input: int (*f)(int keycode, void *param)
@@ -36,13 +35,13 @@ int	ft_handle_keys(int keysym, t_display *d)
 	if (keysym == XK_Escape)
 		ft_kill_handle(d);
 	else if (keysym == XK_Left || keysym == XK_KP_Left)
-		d->x_offset -= (OFFSET_X * d->zoom);
-	else if (keysym == XK_Right || keysym == XK_KP_Right)
 		d->x_offset += (OFFSET_X * d->zoom);
+	else if (keysym == XK_Right || keysym == XK_KP_Right)
+		d->x_offset -= (OFFSET_X * d->zoom);
 	else if (keysym == XK_Up || keysym == XK_KP_Up)
-		d->y_offset -= (OFFSET_Y * d->zoom);
-	else if (keysym == XK_Down || keysym == XK_KP_Down)
 		d->y_offset += (OFFSET_Y * d->zoom);
+	else if (keysym == XK_Down || keysym == XK_KP_Down)
+		d->y_offset -= (OFFSET_Y * d->zoom);
 	else if (keysym == XK_Page_Up)
 		d->iter += 7;
 	else if (keysym == XK_Page_Down)

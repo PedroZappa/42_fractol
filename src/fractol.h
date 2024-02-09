@@ -172,6 +172,8 @@ void		render_newton(t_display *display);
 void		ft_events_init(t_display *display);
 int			ft_handle_keys(int keysym, t_display *display);
 int			ft_handle_mouse(int button, int x, int y, t_display *display);
+int			ft_minimize(t_display *d);
+int			ft_maximize(t_display *d);
 
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);
