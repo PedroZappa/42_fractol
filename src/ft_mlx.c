@@ -53,7 +53,7 @@ void	ft_init_data(t_display *display)
 	display->escape = 4.0;
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;
-	display->zoom = 1.5;
+	display->zoom = -1.5;
 	display->z = ft_init_complex(0.0, 0.0);
 	display->z_old = ft_init_complex(0.0, 0.0);
 	display->c = ft_init_complex(0.0, 0.0);

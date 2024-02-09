@@ -47,38 +47,33 @@ void	ft_render(t_display *display)
  *				Check if z is in the Mandelbrot set (Check Pythagorean theorem)
  *					Scale the range (0 to HEX_WHITE) to (0 to i)
  *	*/
-void	ft_get_pixel(t_display *display, int x, int y)
+void	ft_get_pixel(t_display *d, int x, int y)
 {
+	double		r_tmp;
 	int			color;
 	int			i;
 
-	i = -1;
-	display->z.r = 0;
-	display->z.i = 0;
-	display->c.r = (ft_map(x, display->win_size, display->frac_range)
-		* display->zoom) + display->x_offset;
-	display->frac_range.min = 2.0;
-	display->frac_range.max = -2.0;
-	display->c.i = (ft_map(y, display->win_size, display->frac_range)
-		* display->zoom) + display->y_offset;
-	while (++i < display->iter)
+	i = 0;
+	d->z.r = 0;
+	d->z.i = 0;
+	d->c.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	d->frac_range.min = 2.0;
+	d->frac_range.max = -2.0;
+	d->c.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
+	while (++i < d->iter)
 	{
-		display->z = ft_c_sum(ft_c_square(display->z), display->c);
-		// display->z_old.r = display->c.r;
-		// display->z_old.i = display->c.i;
-		// display->c.r = ((display->z_old.r * display->z_old.r)
-		// 	- (display->z_old.i * display->z_old.i)) + display->c.r;
-		// display->c.i = (2.0 * display->z_old.r * display->z_old.i)
-		// 	+ display->c.i;
-		if (((display->z.r * display->z.r) + (display->z.i * display->z.i))
-				> display->escape)
+		// d->z = ft_c_sum(ft_c_square(d->z), d->c);
+		r_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
+		d->z.i = (2 * d->z.r * d->z.i) + d->c.i;
+		d->z.r = r_tmp;
+		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
 		{
-			color = ft_map(i, display->color_iter, display->color_range);
-			ft_put_pixel(display->img, x, y, color);
+			color = ft_map(i, d->color_iter, d->color_range);
+			ft_put_pixel(d->img, x, y, color);
 			return ;
 		}
 	}
-	ft_put_pixel(display->img, x, y, HEX_PURPLE);
+	ft_put_pixel(d->img, x, y, HEX_GREEN);
 }
 
 /*	ft_put_pixel : Puts a pixel to the display
