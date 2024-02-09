@@ -159,7 +159,6 @@ t_range		ft_init_range(double min, double max);
 
 /*	ft_render.c : Rendering bitmap functions */
 void		ft_render(t_display *display);
-void		ft_get_pixel(t_display *display, int x, int y);
 void		ft_put_pixel(t_img img, int x, int y, int color);
 
 /*	ft_sets.c : Fractal set renderers */

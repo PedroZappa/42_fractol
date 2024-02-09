@@ -50,6 +50,7 @@ void	render_mandelbrot(t_display *d, int x, int y)
 			return ;
 		}
 	}
+	ft_put_pixel(d->img, x, y, HEX_BLACK);
 	return ;
 }
 
