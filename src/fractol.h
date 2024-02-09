@@ -18,7 +18,7 @@
 //=============================================================================/
 
 // Messages
-# define MSG_KILL	"Thanks for playing with Fract\'ol!\n\tBuBye...\n"
+# define MSG_KILL	"Thanks for playing with Fract\'ol!\n"
 
 // Display Dimensions
 # define HEIGHT			800
