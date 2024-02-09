@@ -16,12 +16,11 @@ int	ft_usage(void)
 {
 	ft_sep_color('#', '=', 30, GRN);
 	ft_pout_color("Fract'ol Usage:\n", YEL);
-	ft_printf("\t%s./fractol <set> <iterations> <c.r> <c.i>%s\n", CYN, NC);
+	ft_printf("\t%s./fractol <set> <iter> <c.r> <c.i>%s\n", CYN, NC);
 	ft_sep_color('#', '=', 50, GRN);
 	ft_pout_color("Available Sets:\n", YEL);
 	ft_printf("> Mandelbrot\n\t%s./fractol <set>%s\n", CYN, NC);
-	ft_printf("> Julia\n\t%s./fractol <set> <iterations> <c.r> <c.i>%s\n",
-		CYN, NC);
+	ft_printf("> Julia\n\t%s./fractol <set> <iter> <c.r> <c.i>%s\n", CYN, NC);
 	ft_printf("> Newton\n\t...\n");
 	ft_sep_color('#', '=', 50, GRN);
 	ft_pout_color("Controls:\n", YEL);
