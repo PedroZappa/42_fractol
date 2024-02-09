@@ -14,7 +14,7 @@
 
 int	ft_usage(void)
 {
-	ft_sep_color('#', '=', 30, GRN);
+	ft_sep_color('#', '=', 50, GRN);
 	ft_pout_color("Fract'ol Usage:\n", YEL);
 	ft_printf("\t%s./fractol <set> <iter> <c.r> <c.i>%s\n", CYN, NC);
 	ft_sep_color('#', '=', 50, GRN);
@@ -30,7 +30,7 @@ int	ft_usage(void)
 	ft_printf(":Change color scheme with:\n\t> Spacebar\n");
 	ft_printf(":Switch between Sets with:\n\t> 1, 2, 3\n");
 	ft_printf(":To Exit press:\n\t> ESC\n\t> Window's X button\n");
-	ft_sep_color('#', '=', 30, GRN);
+	ft_sep_color('#', '=', 50, GRN);
 	return (0);
 }
 
