@@ -34,6 +34,19 @@ void	ft_render(t_display *d)
 	return ;
 }
 
+void	ft_select_set(t_display *d, int x, int y)
+{
+	if (d->set == MANDELBROT)
+		render_mandelbrot(d, x, y);
+	else if (d->set == JULIA)
+		render_julia(d, x, y);
+	else if (d->set == NEWTON)
+		render_newton(d, x, y);
+	else
+		ft_kill_handle(d);
+	return ;
+}
+
 /*	ft_put_pixel : Puts a pixel to the d
  *										 img->bpp
  *	offset = (y * img->line_len) + ( x * -------- )

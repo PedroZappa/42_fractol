@@ -61,16 +61,18 @@ void	render_julia(t_display *d, int x, int y)
 	int			i;
 
 	i = 0;
-	d->z.r = 0;
-	d->z.i = 0;
-	d->c.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	d->c_julia.r = 0;
+	d->c_julia.i = 0;
+	d->c_julia.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) 
+		+ d->x_offset;
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
-	d->c.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
+	d->c_julia.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) 
+		+ d->y_offset;
 	while (++i < d->iter)
 	{
-		r_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
-		d->z.i = (2 * d->z.r * d->z.i) + d->c.i;
+		r_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c_julia.r;
+		d->z.i = (2 * d->z.r * d->z.i) + d->c_julia.i;
 		d->z.r = r_tmp;
 		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
 		{
