@@ -27,7 +27,6 @@ void	ft_render(t_display *d)
 		x = -1;
 		while (++x < WIDTH)
 			ft_select_set(d, x, y);
-			// render_mandelbrot(d, x, y);
 		ft_printf("\rRendering: [%d%%]", ((y * 100) / d->height) + 1);
 	}
 	ft_pout_color("\tComplete!\n", MAG);
