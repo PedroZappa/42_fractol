@@ -48,7 +48,10 @@ int	ft_handle_keys(int keysym, t_display *d)
 	else if (keysym == XK_Page_Down)
 		d->iter -= 21;
 	else
+	{
 		ft_printf("Unknown key: %d\n", keysym);
+		return (0);
+	}
 	ft_render(d);
 	return (0);
 }
