@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 18:00:59 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:06:09 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define MIN_R		-2.0
 # define MAX_R		2.0
 
-# define SETS		2
+# define SETS		3
 # define COLORS		0xFFFFFF
 // Set IDs
 # define MANDELBROT	0
@@ -126,6 +126,8 @@ typedef struct s_display
 	t_complex	z;
 	t_complex	c;
 	t_complex	c_julia;
+	t_complex	z_newton;
+	double		newton_escape;
 	t_range		win_size;
 	t_range		frac_range;
 	t_range		color_iter;
@@ -160,6 +162,8 @@ void		ft_put_pixel(t_img img, int x, int y, int color);
 /*	ft_sets.c : Fractal set renderers */
 void		render_mandelbrot(t_display *display, int x, int y);
 void		render_julia(t_display *display, int x, int y);
+
+/*	ft_sets_2.c : Newton's set needed its own file */
 void		render_newton(t_display *display, int x, int y);
 
 /*	ft_events.c */

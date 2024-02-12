@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/02/12 16:31:05 by passunca         ###   ########.fr        #
+#    Updated: 2024/02/12 22:04:38 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ MLX_PATH 	= $(INC_PATH)/mlx
 
 SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
 			  ft_kill.c ft_render.c ft_math.c ft_mlx.c ft_args.c ft_utils.c \
-			  ft_ui.c)
+			  ft_ui.c ft_sets_2.c)
 
 OBJS		= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 DEPS		= $(OBJS:.o=.d)

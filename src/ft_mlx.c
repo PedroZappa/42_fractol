@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:45:27 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:01:12 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	ft_init_data(t_display *display)
 	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
 	display->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
 	display->color = HEX_BLACK;
+	display->newton_escape = 0.000001;
 }
 
 t_complex	ft_init_complex(double r, double i)
