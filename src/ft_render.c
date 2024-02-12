@@ -31,7 +31,8 @@ void	ft_render(t_display *d)
 	}
 	ft_pout_color("\tComplete!\n", MAG);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
-	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 10, HEX_WHITE, "Test");
+	mlx_string_put(d->mlx_conn, d->mlx_win, 15, 20, HEX_WHITE, d->name);
+	mlx_string_put(d->mlx_conn, d->mlx_win, 15, 40, HEX_WHITE, ft_dtoa(d->z.r));
 	return ;
 }
 

@@ -52,6 +52,7 @@
 # include <X11/keysym.h>				// Keysym for event handling
 
 # include "../inc/libft/libft/libft.h"	// Libft library
+# include "../inc/libft/ft_printf/ft_printf.h"
 # include "../inc/mlx/mlx.h"			// MLX library
 
 //=============================================================================/
