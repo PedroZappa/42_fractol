@@ -126,8 +126,6 @@ typedef struct s_display
 	t_complex	z;
 	t_complex	c;
 	t_complex	c_julia;
-	t_complex	min;
-	t_complex	max;
 	t_range		win_size;
 	t_range		frac_range;
 	t_range		color_iter;

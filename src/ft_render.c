@@ -12,6 +12,8 @@
 
 #include "fractol.h"
 
+void	ft_render_ui(t_display *d);
+
 /*	ft_render : Renders the fractal
  *		Get all the pixels
  *		Pushes image into the window
@@ -31,8 +33,7 @@ void	ft_render(t_display *d)
 	}
 	ft_pout_color("\tComplete!\n", MAG);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
-	mlx_string_put(d->mlx_conn, d->mlx_win, 15, 20, HEX_WHITE, d->name);
-	mlx_string_put(d->mlx_conn, d->mlx_win, 15, 40, HEX_WHITE, ft_dtoa(d->z.r));
+	ft_render_ui(d);
 	return ;
 }
 
@@ -47,6 +48,24 @@ void	ft_select_set(t_display *d, int x, int y)
 	else
 		ft_kill_handle(d);
 	return ;
+}
+
+void	ft_render_ui(t_display *d)
+{
+	mlx_string_put(d->mlx_conn, d->mlx_win, 15, 20, HEX_WHITE, d->name);
+	if (!ft_strcmp(d->name, "Mandelbrot"))
+	{
+		mlx_string_put(d->mlx_conn, d->mlx_win, 15, 40, HEX_WHITE, 
+				 ft_strjoin("Zoom : ", ft_dtoa(d->zoom)));
+		mlx_string_put(d->mlx_conn, d->mlx_win, 15, 60, HEX_WHITE, ft_dtoa(d->c.r));
+		mlx_string_put(d->mlx_conn, d->mlx_win, 15, 80, HEX_WHITE, ft_dtoa(d->c.i));
+	}
+	else if (!ft_strcmp(d->name, "Julia"))
+	{
+		mlx_string_put(d->mlx_conn, d->mlx_win, 15, 40, HEX_WHITE, ft_dtoa(d->zoom));
+		mlx_string_put(d->mlx_conn, d->mlx_win, 15, 60, HEX_WHITE, ft_dtoa(d->c_julia.r));
+		mlx_string_put(d->mlx_conn, d->mlx_win, 15, 80, HEX_WHITE, ft_dtoa(d->c_julia.i));
+	}
 }
 
 /*	ft_put_pixel : Puts a pixel to the d
