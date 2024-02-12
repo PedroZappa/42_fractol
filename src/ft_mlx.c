@@ -32,7 +32,7 @@ void	ft_init_display(t_display *display)
 		ft_kill_window(display);
 	display->img.pix = mlx_get_data_addr
 		(display->img.img, &display->img.bpp, &display->img.line_len,
-		&display->img.endian);
+			&display->img.endian);
 	ft_events_init(display);
 	ft_init_data(display);
 	ft_sep_color('#', '=', 40, GRN);
@@ -70,7 +70,7 @@ t_complex	ft_init_complex(double r, double i)
 	return (c);
 }
 
-t_range		ft_init_range(double min, double max)
+t_range	ft_init_range(double min, double max)
 {
 	t_range	r;
 

@@ -55,7 +55,7 @@ int	ft_handle_keys(int keysym, t_display *d)
 	return (1);
 }
 
-/* Handle Mouse input: int (*f)(int button, int x, int y, void *param) 
+/* Handle Mouse input: int (*f)(int button, int x, int y, void *param)
  *		Handle Zoom in with mouse wheel
  *		Handle Zoom out with mouse wheel
  *
@@ -65,19 +65,19 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 	mlx_mouse_get_pos(d->mlx_conn, d->mlx_win, &x, &y);
 	if (button == Button4)
 	{
-		 d->x_offset += (ft_map(x, d->win_size, d->frac_range) * d->zoom)
-		* 0.015;
-		 d->y_offset += (ft_map(y, d->win_size, d->frac_range) * d->zoom)
-		* 0.015;
+		d->x_offset += (ft_map(x, d->win_size, d->frac_range) * d->zoom)
+			* 0.015;
+		d->y_offset += (ft_map(y, d->win_size, d->frac_range) * d->zoom)
+			* 0.015;
 		d->zoom /= SCALE_FACTOR;
 	}
 	else if (button == Button5)
 	{
-		 d->x_offset -= (ft_map(x, d->win_size, d->frac_range) * d->zoom)
-		* 0.015;
-		 d->y_offset -= (ft_map(y, d->win_size, d->frac_range) * d->zoom) 
-		* 0.015;
-		 d->zoom *= SCALE_FACTOR;
+		d->x_offset -= (ft_map(x, d->win_size, d->frac_range) * d->zoom)
+			* 0.015;
+		d->y_offset -= (ft_map(y, d->win_size, d->frac_range) * d->zoom)
+			* 0.015;
+		d->zoom *= SCALE_FACTOR;
 	}
 	else
 	{

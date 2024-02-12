@@ -32,6 +32,7 @@ int	ft_is_argint(char *arg)
 int	ft_is_argdbl(char *arg)
 {
 	int	found;
+
 	while (ft_isspace(*arg))
 		++arg;
 	if (*arg && ((*arg == '-') || (*arg == '+')))
@@ -43,7 +44,7 @@ int	ft_is_argdbl(char *arg)
 	{
 		if (!ft_isdigit(*arg) && (*arg != '.') && (*arg != ','))
 			return (0);
-		if ((*arg == '.') || ((*arg == ',') && (found = 1)))
+		if ((*arg == '.') || ((*arg == ',') && (found == 1)))
 			return (0);
 		if ((*arg == '.') || (*arg == ','))
 			found = 1;

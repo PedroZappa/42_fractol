@@ -93,7 +93,6 @@ typedef struct s_range
 	double		max;
 }				t_range;
 
-
 /* X Environment Structure
  *	// MLX variables
  *		mlx_conn:	Stores pointer to the MLX connection
@@ -116,7 +115,7 @@ typedef struct s_display
 	int			width;
 	int			height;
 	int			set;
-	char 		*name;
+	char		*name;
 	t_img		img;
 	long		iter;
 	double		escape;
@@ -128,10 +127,10 @@ typedef struct s_display
 	t_complex	c_julia;
 	t_complex	min;
 	t_complex	max;
-	t_range	win_size;
-	t_range	frac_range;
-	t_range	color_iter;
-	t_range	color_range;
+	t_range		win_size;
+	t_range		frac_range;
+	t_range		color_iter;
+	t_range		color_range;
 }				t_display;
 
 //=============================================================================/
@@ -178,8 +177,6 @@ void		ft_error(void);
 
 /* ft_math.c : Useful math functions */
 double		ft_map(double n, t_range to_scale, t_range scaled);
-t_complex	ft_c_sum(t_complex c1, t_complex c2);
-t_complex	ft_c_square(t_complex c);
 
 /* ft_utils.c : Useful utility functions */
 int			ft_is_argint(char *arg);
