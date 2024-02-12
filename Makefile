@@ -6,7 +6,7 @@
 #    By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 09:27:39 by passunca          #+#    #+#              #
-#    Updated: 2024/02/12 22:04:38 by passunca         ###   ########.fr        #
+#    Updated: 2024/02/12 22:10:54 by passunca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,9 @@ BUILD_PATH	= .build
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
-SRC			= $(addprefix $(SRC_PATH)/, main.c ft_events.c ft_help.c ft_sets.c \
-			  ft_kill.c ft_render.c ft_math.c ft_mlx.c ft_args.c ft_utils.c \
-			  ft_ui.c ft_sets_2.c)
+SRC			= $(addprefix $(SRC_PATH)/, main.c ft_help.c ft_sets.c ft_kill.c \
+			  ft_render.c ft_math.c ft_mlx.c ft_args.c ft_utils.c ft_ui.c \
+			  ft_sets_2.c ft_events_mouse.c ft_events_keys.c)
 
 OBJS		= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 DEPS		= $(OBJS:.o=.d)
@@ -46,7 +46,7 @@ CC		= cc
 
 CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
-# CFLAGS 		+= -O3
+CFLAGS 		+= -O3
 MLXFLAGS	= -lX11 -lXext -lm
 # MLXFLAGS	+= -L/usr/X11R6/lib
 
