@@ -62,7 +62,6 @@ int	ft_handle_keys(int keysym, t_display *d)
  *	*/
 int	ft_handle_mouse(int button, int x, int y, t_display *d)
 {
-	mlx_mouse_get_pos(d->mlx_conn, d->mlx_win, &x, &y);
 	if (button == Button4)
 	{
 		d->x_offset += (ft_map(x, d->win_size, d->frac_range) * d->zoom)
