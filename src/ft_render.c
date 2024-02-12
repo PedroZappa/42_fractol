@@ -31,6 +31,7 @@ void	ft_render(t_display *d)
 	}
 	ft_pout_color("\tComplete!\n", MAG);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
+	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 10, HEX_WHITE, "Test");
 	return ;
 }
 

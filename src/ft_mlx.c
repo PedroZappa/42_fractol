@@ -24,7 +24,7 @@ void	ft_init_display(t_display *display)
 	if (!display->mlx_conn)
 		ft_error();
 	display->mlx_win = mlx_new_window
-		(display->mlx_conn, WIDTH, HEIGHT, display->name);
+		(display->mlx_conn, WIDTH, HEIGHT, "Fracto'l");
 	if (!display->mlx_win)
 		ft_clean_kill(display);
 	display->img.img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
