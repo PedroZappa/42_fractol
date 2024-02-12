@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:39:50 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:43:03 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,6 @@
 
 static void	ft_handle_offset(int keysym, t_display *d);
 static void	ft_switch_color(int keysym, t_display *d);
-
-/*	Setup hook for pressed keys;
-*	Setup hook for mouse clicks;
-*	Setup hook to listen clicking X on the window
- *	*/
-void	ft_events_init(t_display *d)
-{
-	mlx_hook(d->mlx_win, DestroyNotify, StructureNotifyMask, ft_kill_handle, d);
-	mlx_hook(d->mlx_win, KeyPress, KeyPressMask, ft_handle_keys, d);
-	mlx_hook(d->mlx_win, ButtonPress, ButtonPressMask, ft_handle_mouse, d);
-}
 
 /*	Handle key input: int (*f)(int keycode, void *param)
  *		If `XK_Escape` keysym is received, destroy window and exit.

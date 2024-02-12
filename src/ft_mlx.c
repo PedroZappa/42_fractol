@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:20:51 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:43:09 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ void	ft_init_display(t_display *display)
 	ft_events_init(display);
 	ft_init_data(display);
 	ft_sep_color('#', '=', 40, GRN);
+}
+
+/*	Setup hook for pressed keys;
+*	Setup hook for mouse clicks;
+*	Setup hook to listen clicking X on the window
+ *	*/
+void	ft_events_init(t_display *d)
+{
+	mlx_hook(d->mlx_win, DestroyNotify, StructureNotifyMask, ft_kill_handle, d);
+	mlx_hook(d->mlx_win, KeyPress, KeyPressMask, ft_handle_keys, d);
+	mlx_hook(d->mlx_win, ButtonPress, ButtonPressMask, ft_handle_mouse, d);
 }
 
 /*	ft_init_data : Initializes t_display's data

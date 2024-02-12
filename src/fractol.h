@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:39:05 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:43:38 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ int			ft_usage(void);
 
 /* ft_mlx.c : MLX setup functions */
 void		ft_init_display(t_display *display);
+void		ft_events_init(t_display *display);
 void		ft_init_data(t_display *display);
 t_complex	ft_init_complex(double r, double i);
 t_range		ft_init_range(double min, double max);
@@ -162,11 +163,8 @@ void		render_julia(t_display *display, int x, int y);
 void		render_newton(t_display *display, int x, int y);
 
 /*	ft_events.c */
-void		ft_events_init(t_display *display);
 int			ft_handle_keys(int keysym, t_display *display);
 int			ft_handle_mouse(int button, int x, int y, t_display *display);
-int			ft_minimize(t_display *d);
-int			ft_maximize(t_display *d);
 
 /*	ft_kill.c : exit functions */
 void		ft_clean_kill(t_display *display);
