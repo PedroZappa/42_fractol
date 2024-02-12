@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:31:08 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:06:51 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,8 @@ double		ft_map(double n, t_range to_scale, t_range scaled);
 /* ft_utils.c : Useful utility functions */
 int			ft_is_argint(char *arg);
 int			ft_is_argdbl(char *arg);
+
+/* ft_ui.c : UI rendering functionality */
+void		ft_render_ui(t_display *d);
 
 #endif
