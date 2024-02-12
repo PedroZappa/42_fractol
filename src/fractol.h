@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:43:38 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:00:59 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,14 @@ typedef struct s_display
 	t_range		color_range;
 	int			color;
 }				t_display;
+
+typedef struct s_color
+{
+	int			a;
+	double		r;
+	double		g;
+	double		b;
+}				t_color;
 
 //=============================================================================/
 //							Function Prototypes                                /

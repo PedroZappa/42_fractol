@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:43:03 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:59:54 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,26 @@ static void	ft_handle_offset(int keysym, t_display *d)
 
 static void	ft_switch_color(int keysym, t_display *d)
 {
+	// const char* hexColors[] = {
+	// 	"#000000", // Black
+	// 	"#FFFFFF", // White
+	// 	"#FF0000", // Red
+	// 	"#00FF00", // Green
+	// 	"#0000FF", // Blue
+	// 	"#FF00FF", // Pink
+	// 	"#CCFF00", // Yellow
+	// 	"#FF6600", // Orange
+	// 	"#660066", // Purple
+	// 	"#33CCCC", // Cyan
+	// 	"#FF66B2", // Salmon
+	// 	"#0066FF", // Light Blue
+	// 	"#FF3300", // Red-Orange
+	// 	"#FCBE11"  // Bright Standard
+	// };
 	if (keysym == XK_Shift_L)
-		d->color = ((d->color + 33) % COLORS);
+		d->color = ft_argb(255, 0, 255, 000);
 	else if (keysym == XK_Shift_R)
-		d->color = ((d->color - 33) % COLORS);
+		d->color = ft_argb(255, 255, 255, 255);
 }
 
 /* Handle Mouse input: int (*f)(int button, int x, int y, void *param)
