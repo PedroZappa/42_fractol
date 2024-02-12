@@ -70,8 +70,8 @@ void	ft_init_data(t_display *display)
 	display->win_size = ft_init_range(0, WIDTH);
 	display->frac_range = ft_init_range(MIN_R, MAX_R);
 	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
-	display->color = HEX_BLACK;
 	display->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
+	display->color = HEX_BLACK;
 }
 
 t_complex	ft_init_complex(double r, double i)
