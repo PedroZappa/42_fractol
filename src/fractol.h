@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 16:35:11 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:04:14 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@
 # define MAX_I		2.0
 
 // Set IDs
+# define SETS		2
 # define MANDELBROT	0
 # define JULIA		1
-# define NEWTON		2
+// # define NEWTON		2
 
 //=============================================================================/
 //								Librariy Headers                               /

@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:50:18 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/04 10:53:10 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:05:27 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	ft_usage(void)
 	ft_printf(":Move around with:\n\t> Arrow keys\n\t> Numpad keys\n");
 	ft_printf(":Zoom in and out with:\n\t> Mouse wheel\n");
 	ft_printf(":Change n iterations with:\n\t> PageUp & PageDown\n");
-	ft_printf(":Change color scheme with:\n\t> Spacebar\n");
-	ft_printf(":Switch between Sets with:\n\t> 1, 2, 3\n");
+	ft_printf(":Change color scheme with:\n\t> L-Shift & R-Shift\n");
+	ft_printf(":Switch between Sets with:\n\t> Spacebar\n");
 	ft_printf(":To Exit press:\n\t> ESC\n\t> Window's X button\n");
 	ft_sep_color('#', '=', 50, GRN);
 	return (0);
