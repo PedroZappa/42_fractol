@@ -6,14 +6,14 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:10:32 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:33:11 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 static void	ft_handle_offset(int keysym, t_display *d);
-// static void	ft_switch_color(int keysym, t_display *d)
+static void	ft_switch_color(int keysym, t_display *d);
 
 /*	Setup hook for pressed keys;
 *	Setup hook for mouse clicks;
@@ -46,7 +46,7 @@ int	ft_handle_keys(int keysym, t_display *d)
 	else if (keysym == XK_space)
 		d->set = (d->set + 1) % SETS;
 	else if ((keysym == XK_Shift_L) || (keysym == XK_Shift_R))
-		d->color = (d->color + 1) % COLORS;
+		ft_switch_color(keysym, d);
 	else
 	{
 		ft_printf("Unknown key: %d\n", keysym);
@@ -68,9 +68,13 @@ static void	ft_handle_offset(int keysym, t_display *d)
 		d->y_offset -= (OFFSET_Y * d->zoom);
 }
 
-// static void	ft_switch_color(int keysym, t_display *d)
-// {
-// }
+static void	ft_switch_color(int keysym, t_display *d)
+{
+	if (keysym == XK_Shift_L)
+		d->color = ((d->color + 10) % COLORS);
+	else if (keysym == XK_Shift_R)
+		d->color = ((d->color - 10) % COLORS);
+}
 
 /* Handle Mouse input: int (*f)(int button, int x, int y, void *param)
  *		Handle Zoom in with mouse wheel

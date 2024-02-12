@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 20:58:27 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:17:38 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:20:51 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	ft_init_data(t_display *display)
 	display->win_size = ft_init_range(0, WIDTH);
 	display->frac_range = ft_init_range(MIN_R, MAX_R);
 	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
-	display->color = HEX_WHITE;
-	display->color_range = ft_init_range(HEX_BLACK, display->color);
+	display->color = HEX_PINK;
+	display->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
 }
 
 t_complex	ft_init_complex(double r, double i)
