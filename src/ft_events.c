@@ -64,7 +64,8 @@ static void	ft_switch_color(int keysym, t_display *d)
 	if (keysym == XK_Shift_L)
 		d->color_range = ft_init_range(HEX_WHITE, HEX_BLACK);
 	if (keysym == XK_Shift_R)
-		d->color_range = ft_init_range(ft_argb(0, 255, 055, 255), ft_argb(255, 0, 0, 0));
+		d->color_range = ft_init_range(ft_argb(0, 255, 055, 255),
+				ft_argb(255, 0, 0, 0));
 	else if (keysym == XK_r)
 		d->color_range = ft_init_range(HEX_BLACK, HEX_RED);
 	else if (keysym == XK_g)
