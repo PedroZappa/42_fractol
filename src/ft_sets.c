@@ -32,7 +32,7 @@ void	render_mandelbrot(t_display *d, int x, int y)
 		d->z.r = zr_tmp;
 		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
 		{
-			color = ft_map(i, d->color_iter, d->color_range);
+			color = (ft_map(i, d->color_iter, d->color_range) * 5);
 			ft_put_pixel(d->img, x, y, color);
 			return ;
 		}
@@ -59,7 +59,7 @@ void	render_julia(t_display *d, int x, int y)
 		d->z.i = ((2 * z_tmp.r * z_tmp.i) + d->c_julia.i);
 		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
 		{
-			color = ft_map(i, d->color_iter, d->color_range);
+			color = (ft_map(i, d->color_iter, d->color_range) * 5);
 			ft_put_pixel(d->img, x, y, color);
 			return ;
 		}
