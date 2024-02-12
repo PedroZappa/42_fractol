@@ -133,14 +133,6 @@ typedef struct s_display
 	int			color;
 }				t_display;
 
-typedef struct s_color
-{
-	int			a;
-	double		r;
-	double		g;
-	double		b;
-}				t_color;
-
 //=============================================================================/
 //							Function Prototypes                                /
 //=============================================================================/
