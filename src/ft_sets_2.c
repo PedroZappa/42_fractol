@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:34:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 22:02:35 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:19:31 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static unsigned ft_check_roots(t_display *d)
 	if ((ft_abs(diff.r) < d->newton_escape)
 		&& (ft_abs(diff.i) < d->newton_escape))
 		return (1);
-	return (1);
+	return (0);
 }
 
 static void	ft_init_roots(t_complex *roots)

@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:25:24 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 21:55:34 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:16:34 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	render_julia(t_display *d, int x, int y)
 		d->z.r = ((z_tmp.r * z_tmp.r) - (z_tmp.i * z_tmp.i) + d->c_julia.r);
 		d->z.i = ((2 * z_tmp.r * z_tmp.i) + d->c_julia.i);
 		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
-{
+		{
 			color = (ft_map(i, d->color_iter, d->color_range) * 5);
 			ft_put_pixel(d->img, x, y, color);
 			return ;
