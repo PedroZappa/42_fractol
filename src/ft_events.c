@@ -6,12 +6,13 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 16:42:42 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:46:39 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <X11/X.h>
+
+static void	ft_handle_offset(int keysym, t_display *d);
 
 /*	Setup hook for pressed keys;
 *	Setup hook for mouse clicks;
@@ -34,14 +35,9 @@ int	ft_handle_keys(int keysym, t_display *d)
 {
 	if (keysym == XK_Escape)
 		ft_kill_handle(d);
-	else if (keysym == XK_Left)
-		d->x_offset += (OFFSET_X * d->zoom);
-	else if (keysym == XK_Right)
-		d->x_offset -= (OFFSET_X * d->zoom);
-	else if (keysym == XK_Up)
-		d->y_offset += (OFFSET_Y * d->zoom);
-	else if (keysym == XK_Down)
-		d->y_offset -= (OFFSET_Y * d->zoom);
+	else if ((keysym == XK_Left) || (keysym == XK_Right)
+		|| (keysym == XK_Up) || (keysym == XK_Down))
+		ft_handle_offset(keysym, d);
 	else if (keysym == XK_Page_Up)
 		d->iter += 7;
 	else if (keysym == XK_Page_Down)
@@ -53,6 +49,18 @@ int	ft_handle_keys(int keysym, t_display *d)
 	}
 	ft_render(d);
 	return (1);
+}
+
+static void	ft_handle_offset(int keysym, t_display *d)
+{
+	if (keysym == XK_Left)
+		d->x_offset += (OFFSET_X * d->zoom);
+	else if (keysym == XK_Right)
+		d->x_offset -= (OFFSET_X * d->zoom);
+	else if (keysym == XK_Up)
+		d->y_offset += (OFFSET_Y * d->zoom);
+	else if (keysym == XK_Down)
+		d->y_offset -= (OFFSET_Y * d->zoom);
 }
 
 /* Handle Mouse input: int (*f)(int button, int x, int y, void *param)
