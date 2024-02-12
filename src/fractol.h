@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 16:27:02 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:35:11 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //=============================================================================/
 
 // Messages
-# define MSG_KILL	"Thanks for playing with Fract\'ol!\n"
+# define MSG_KILL	"Thanks for playing passunca\'s Fract\'ol!\n"
 
 // Display Dimensions
 # define HEIGHT			800
