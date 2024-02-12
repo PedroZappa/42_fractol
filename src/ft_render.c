@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:46:00 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 16:06:15 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:37:36 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_render(t_display *d)
 	ft_pout_color("\tComplete!\n", MAG);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
 	ft_render_ui(d);
+	ft_printf("d->color = %d\n", d->color);
 	return ;
 }
 

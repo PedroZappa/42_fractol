@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:29:34 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:39:05 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define MAX_R		2.0
 
 # define SETS		2
-# define COLORS		2
+# define COLORS		0xFFFFFF
 // Set IDs
 # define MANDELBROT	0
 # define JULIA		1

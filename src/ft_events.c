@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:33:11 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:39:50 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ static void	ft_handle_offset(int keysym, t_display *d)
 static void	ft_switch_color(int keysym, t_display *d)
 {
 	if (keysym == XK_Shift_L)
-		d->color = ((d->color + 10) % COLORS);
+		d->color = ((d->color + 33) % COLORS);
 	else if (keysym == XK_Shift_R)
-		d->color = ((d->color - 10) % COLORS);
+		d->color = ((d->color - 33) % COLORS);
 }
 
 /* Handle Mouse input: int (*f)(int button, int x, int y, void *param)
