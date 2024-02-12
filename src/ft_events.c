@@ -14,6 +14,7 @@
 
 static void	ft_handle_offset(int keysym, t_display *d);
 static void	ft_switch_color(int keysym, t_display *d);
+static void	ft_handle_zoom(int button, int x, int y, t_display *d);
 
 /*	Handle key input: int (*f)(int keycode, void *param)
  *		If `XK_Escape` keysym is received, destroy window and exit.
@@ -83,6 +84,27 @@ static void	ft_switch_color(int keysym, t_display *d)
  *	*/
 int	ft_handle_mouse(int button, int x, int y, t_display *d)
 {
+	ft_printf("Mouse: (%d, %d)\n", x, y);
+	if (button == Button1)
+	{
+		d->c_julia.r = ft_map(x, d->win_size, d->frac_range);
+		d->c_julia.i = ft_map(y, d->win_size, d->frac_range);
+		d->name = "Julia";
+		d->set = JULIA;
+	}
+	else if (button == Button2)
+	{
+		d->name = "Mandelbrot";
+		d->set = MANDELBROT;
+	}
+	else if ((button == Button4) || (button == Button5))
+		ft_handle_zoom(button, x, y, d);
+	ft_render(d);
+	return (0);
+}
+
+static void	ft_handle_zoom(int button, int x, int y, t_display *d)
+{
 	if (button == Button4)
 	{
 		d->x_offset += (ft_map(x, d->win_size, d->frac_range) * d->zoom)
@@ -102,8 +124,6 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 	else
 	{
 		ft_printf("Unknown mouse: %d\n", button);
-		return (0);
+		return ;
 	}
-	ft_render(d);
-	return (0);
 }
