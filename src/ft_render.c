@@ -33,6 +33,8 @@ void	ft_render(t_display *d)
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
 	ft_render_ui(d);
 	ft_printf("d->color = %d\n", d->color);
+	ft_printf("d->color_range.min = %d\n", d->color_range.min);
+	ft_printf("d->color_range.max = %d\n", d->color_range.max);
 	return ;
 }
 

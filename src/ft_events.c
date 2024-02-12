@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:59:54 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:53:28 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int	ft_handle_keys(int keysym, t_display *d)
 		d->iter -= 7;
 	else if (keysym == XK_space)
 		d->set = (d->set + 1) % SETS;
-	else if ((keysym == XK_Shift_L) || (keysym == XK_Shift_R))
+	else if ((keysym == XK_Shift_L) || (keysym == XK_Shift_R)
+		|| (keysym == XK_q) || (keysym == XK_r) || (keysym == XK_g)
+		|| (keysym == XK_b))
 		ft_switch_color(keysym, d);
 	else
 	{
@@ -59,26 +61,18 @@ static void	ft_handle_offset(int keysym, t_display *d)
 
 static void	ft_switch_color(int keysym, t_display *d)
 {
-	// const char* hexColors[] = {
-	// 	"#000000", // Black
-	// 	"#FFFFFF", // White
-	// 	"#FF0000", // Red
-	// 	"#00FF00", // Green
-	// 	"#0000FF", // Blue
-	// 	"#FF00FF", // Pink
-	// 	"#CCFF00", // Yellow
-	// 	"#FF6600", // Orange
-	// 	"#660066", // Purple
-	// 	"#33CCCC", // Cyan
-	// 	"#FF66B2", // Salmon
-	// 	"#0066FF", // Light Blue
-	// 	"#FF3300", // Red-Orange
-	// 	"#FCBE11"  // Bright Standard
-	// };
 	if (keysym == XK_Shift_L)
-		d->color = ft_argb(255, 0, 255, 000);
-	else if (keysym == XK_Shift_R)
-		d->color = ft_argb(255, 255, 255, 255);
+		d->color_range = ft_init_range(HEX_WHITE, HEX_BLACK);
+	if (keysym == XK_Shift_R)
+		d->color_range = ft_init_range(ft_argb(0, 255, 055, 255), ft_argb(255, 0, 0, 0));
+	else if (keysym == XK_r)
+		d->color_range = ft_init_range(HEX_BLACK, HEX_RED);
+	else if (keysym == XK_g)
+		d->color_range = ft_init_range(HEX_BLACK, HEX_GREEN);
+	else if (keysym == XK_b)
+		d->color_range = ft_init_range(HEX_BLACK, HEX_BLUE);
+	else if (keysym == XK_q)
+		d->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
 }
 
 /* Handle Mouse input: int (*f)(int button, int x, int y, void *param)
