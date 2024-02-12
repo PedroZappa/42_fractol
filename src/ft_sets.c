@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:25:24 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/02 18:12:02 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:14:39 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	render_mandelbrot(t_display *d, int x, int y)
 			return ;
 		}
 	}
-	ft_put_pixel(d->img, x, y, HEX_BLACK);
+	ft_put_pixel(d->img, x, y, d->color);
 }
 
 void	render_julia(t_display *d, int x, int y)
@@ -64,7 +64,7 @@ void	render_julia(t_display *d, int x, int y)
 			return ;
 		}
 	}
-	ft_put_pixel(d->img, x, y, HEX_BLACK);
+	ft_put_pixel(d->img, x, y, d->color);
 }
 
 void	render_newton(t_display *d, int x, int y)

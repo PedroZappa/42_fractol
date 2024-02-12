@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 17:04:14 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:17:20 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@
 # define INIT_C_I	0.27025
 # define MIN_R		-2.0
 # define MAX_R		2.0
-# define MIN_I		-2.0
-# define MAX_I		2.0
 
-// Set IDs
 # define SETS		2
+# define COLORS		2
+// Set IDs
 # define MANDELBROT	0
 # define JULIA		1
-// # define NEWTON		2
+# define NEWTON		2
 
 //=============================================================================/
 //								Librariy Headers                               /
@@ -131,6 +130,7 @@ typedef struct s_display
 	t_range		frac_range;
 	t_range		color_iter;
 	t_range		color_range;
+	int			color;
 }				t_display;
 
 //=============================================================================/
