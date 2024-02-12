@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:50:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/05 20:38:23 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:42:42 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int	ft_handle_keys(int keysym, t_display *d)
 {
 	if (keysym == XK_Escape)
 		ft_kill_handle(d);
-	else if (keysym == XK_Left || keysym == XK_KP_Left)
+	else if (keysym == XK_Left)
 		d->x_offset += (OFFSET_X * d->zoom);
-	else if (keysym == XK_Right || keysym == XK_KP_Right)
+	else if (keysym == XK_Right)
 		d->x_offset -= (OFFSET_X * d->zoom);
-	else if (keysym == XK_Up || keysym == XK_KP_Up)
+	else if (keysym == XK_Up)
 		d->y_offset += (OFFSET_Y * d->zoom);
-	else if (keysym == XK_Down || keysym == XK_KP_Down)
+	else if (keysym == XK_Down)
 		d->y_offset -= (OFFSET_Y * d->zoom);
 	else if (keysym == XK_Page_Up)
 		d->iter += 7;
