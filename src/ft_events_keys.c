@@ -69,6 +69,8 @@ static void	ft_switch_set(int keysym, t_display *d)
 			d->name = "Mandelbrot";
 		else if (d->set == JULIA)
 			d->name = "Julia";
+		else if (d->set == TRICORN)
+			d->name = "Tricorn";
 		else if (d->set == NEWTON)
 			d->name = "Newton";
 	}

@@ -41,6 +41,8 @@ void	ft_select_set(t_display *d, int x, int y)
 		render_mandelbrot(d, x, y);
 	else if (d->set == JULIA)
 		render_julia(d, x, y);
+	else if (d->set == TRICORN)
+		render_tricorn(d, x, y);
 	else if (d->set == NEWTON)
 		render_newton(d, x, y);
 	else
