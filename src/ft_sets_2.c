@@ -17,10 +17,6 @@ static unsigned		ft_check_roots(t_display *d);
 static void			ft_init_roots(t_complex *roots);
 static t_complex	ft_get_diff(t_complex z_newton, t_complex root);
 
-/*
- *	f(n)(c) = f(n-1)(c)² + c
-
- *	*/
 void	render_newton(t_display *d, int x, int y)
 {
 	int			i;
@@ -46,15 +42,17 @@ static void	calculate_newton(t_display *d)
 	t_complex	next;
 	double		denominator;
 
-	denominator = (3 * ((d->z_newton.r * d->z_newton.r) + (d->z_newton.i * d->z_newton.i)));
-	next.r = (((d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.r)
-		+ (2 * d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.i * d->z_newton.i) - (d->z_newton.r * d->z_newton.r)
-		+ (d->z_newton.r * d->z_newton.i * d->z_newton.i * d->z_newton.i * d->z_newton.i) + (d->z_newton.i * d->z_newton.i))
-			/ denominator);
-	next.i = ((d->z_newton.i * ((d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.r)
-		+ (2 * d->z_newton.r * d->z_newton.r * d->z_newton.i * d->z_newton.i) + (2 * d->z_newton.r)
-		+ (d->z_newton.i * d->z_newton.i * d->z_newton.i * d->z_newton.i))
-			/ denominator));
+	denominator = (3 * ((d->z_newton.r * d->z_newton.r)
+		+ (d->z_newton.i * d->z_newton.i)));
+	next.r = (((d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.r 
+		* d->z_newton.r) + (2 * d->z_newton.r * d->z_newton.r * d->z_newton.r
+		* d->z_newton.i * d->z_newton.i) - (d->z_newton.r * d->z_newton.r)
+		+ (d->z_newton.r * d->z_newton.i * d->z_newton.i * d->z_newton.i 
+		* d->z_newton.i) + (d->z_newton.i * d->z_newton.i)) / denominator);
+	next.i = ((d->z_newton.i * ((d->z_newton.r * d->z_newton.r * d->z_newton.r 
+		* d->z_newton.r) + (2 * d->z_newton.r * d->z_newton.r * d->z_newton.i 
+		* d->z_newton.i) + (2 * d->z_newton.r) + (d->z_newton.i * d->z_newton.i
+		* d->z_newton.i * d->z_newton.i)) / denominator));
 	d->z_newton.r -= next.r;
 	d->z_newton.i -= next.i;
 }
