@@ -23,8 +23,10 @@ void	render_newton(t_display *d, int x, int y)
 	int			color;
 
 	i = 0;
-	d->z_newton.r = ((x / d->zoom) + d->x_offset);
-	d->z_newton.i = ((x / d->zoom) + d->y_offset);
+	d->z_newton.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	d->frac_range.min = 2.0;
+	d->frac_range.max = -2.0;
+	d->z_newton.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
 	while (i++ < d->iter)
 	{
 		calculate_newton(d);
