@@ -34,12 +34,13 @@
 # define MIN_R		-2.0
 # define MAX_R		2.0
 
-# define SETS		3
+# define SETS		4
 # define COLORS		0xFFFFFF
 // Set IDs
 # define MANDELBROT	0
 # define JULIA		1
-# define NEWTON		2
+# define TRICORN	2
+# define NEWTON		3
 
 //=============================================================================/
 //								Librariy Headers                               /
@@ -50,6 +51,7 @@
 # include <unistd.h>					// write()
 # include <X11/X.h>						// MLX library for Event codes
 # include <X11/keysym.h>				// Keysym for event handling
+# include <math.h>						// sqrt()
 
 # include "../inc/libft/libft/libft.h"	// Libft library
 # include "../inc/libft/ft_printf/ft_printf.h"
@@ -162,6 +164,7 @@ void		ft_put_pixel(t_img img, int x, int y, int color);
 /*	ft_sets.c : Fractal set renderers */
 void		render_mandelbrot(t_display *display, int x, int y);
 void		render_julia(t_display *display, int x, int y);
+void		render_tricorn(t_display *d, int x, int y);
 
 /*	ft_sets_2.c : Newton's set needed its own file */
 void		render_newton(t_display *display, int x, int y);
