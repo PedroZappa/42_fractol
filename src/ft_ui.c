@@ -15,6 +15,6 @@
 void	ft_render_ui(t_display *d)
 {
 	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 20, HEX_WHITE, d->name);
-	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 40, HEX_WHITE, 
-				ft_strjoin("iter: ",ft_itoa(d->iter)));
+	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 40, HEX_WHITE,
+		ft_strjoin("iter: ", ft_itoa(d->iter)));
 }
