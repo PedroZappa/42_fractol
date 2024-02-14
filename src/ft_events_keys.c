@@ -51,13 +51,14 @@ int	ft_handle_keys(int keysym, t_display *d)
 static void	ft_handle_offset(int keysym, t_display *d)
 {
 	if (keysym == XK_Left)
-		d->x_offset += ft_absd(OFFSET_X * d->zoom);
+		d->x_offset += (OFFSET_X * ft_absd(d->zoom));
 	else if (keysym == XK_Right)
-		d->x_offset -= ft_absd(OFFSET_X * d->zoom);
+		d->x_offset -= (OFFSET_X * ft_absd(d->zoom));
 	else if (keysym == XK_Up)
-		d->y_offset += ft_absd(OFFSET_Y * d->zoom);
+		d->y_offset += (OFFSET_Y * ft_absd(d->zoom));
 	else if (keysym == XK_Down)
-		d->y_offset -= ft_absd(OFFSET_Y * d->zoom);
+		d->y_offset -= (OFFSET_Y * ft_absd(d->zoom));
+	ft_printf("Offset: (%d, %d)\n", d->x_offset, d->y_offset);
 }
 
 static void	ft_switch_set(int keysym, t_display *d)

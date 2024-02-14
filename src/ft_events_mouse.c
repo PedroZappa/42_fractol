@@ -48,7 +48,7 @@ static void	ft_handle_zoom(int button, int x, int y, t_display *d)
 			* 0.02;
 		d->y_offset += (ft_map(y, d->win_size, d->frac_range) * d->zoom)
 			* 0.02;
-		d->zoom /= SCALE_FACTOR;
+		d->zoom /= ft_absd(SCALE_FACTOR);
 	}
 	else if (button == Button5)
 	{
@@ -56,7 +56,7 @@ static void	ft_handle_zoom(int button, int x, int y, t_display *d)
 			* 0.02;
 		d->y_offset -= (ft_map(y, d->win_size, d->frac_range) * d->zoom)
 			* 0.02;
-		d->zoom *= SCALE_FACTOR;
+		d->zoom *= ft_absd(SCALE_FACTOR);
 	}
 	else
 	{
