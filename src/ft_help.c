@@ -37,9 +37,9 @@ static void	ft_controls(void)
 	ft_printf(":Move around with:\n\t> %sArrow keys%s\n", CYN, NC);
 	ft_printf(":Zoom in and out with:\n\t> %sMouse wheel%s\n", CYN, NC);
 	ft_printf(":Change n iterations with:\n\t> %sPageUp & PageDown%s\n",
-		   CYN, NC);
+		CYN, NC);
 	ft_printf(":Change color scheme with:\n\t> %sL-Shift & R-Shift%s\n",
-		   CYN, NC);
+		CYN, NC);
 	ft_printf(":Toggle between Sets with:\n\t> %sSpacebar%s\n", CYN, NC);
 	ft_printf(":Select a specific Set with:\n\t", CYN, NC);
 	ft_printf("> %s1, 2, 3, 4%s\n", CYN, NC);

@@ -12,9 +12,8 @@
 
 #include "fractol.h"
 
-int	ft_color_newton(t_display *d, unsigned root)
+int	ft_color_newton(unsigned int root)
 {
-	(void)d;
 	if (root == 1)
 		return (HEX_RED);
 	else if (root == 2)

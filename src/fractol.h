@@ -193,6 +193,6 @@ int			ft_is_argdbl(char *arg);
 void		ft_render_ui(t_display *d);
 
 /*	ft_color.c : Color functions */
-int			ft_color_newton(t_display *d, unsigned root);
+int			ft_color_newton(unsigned int root);
 
 #endif

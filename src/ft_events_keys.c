@@ -34,7 +34,7 @@ int	ft_handle_keys(int keysym, t_display *d)
 	else if (keysym == XK_Page_Down)
 		d->iter -= 7;
 	else if ((keysym == XK_space) || (keysym == XK_1) || (keysym == XK_2)
-			|| (keysym == XK_3) || (keysym == XK_4))
+		|| (keysym == XK_3) || (keysym == XK_4))
 		ft_switch_set(keysym, d);
 	else if ((keysym == XK_Shift_L) || (keysym == XK_Shift_R)
 		|| (keysym == XK_q) || (keysym == XK_r) || (keysym == XK_g)
@@ -59,7 +59,6 @@ static void	ft_handle_offset(int keysym, t_display *d)
 		d->y_offset += (OFFSET_Y * ft_absd(d->zoom));
 	else if (keysym == XK_Down)
 		d->y_offset -= (OFFSET_Y * ft_absd(d->zoom));
-	ft_printf("Offset: (%d, %d)\n", d->x_offset, d->y_offset);
 }
 
 static void	ft_switch_set(int keysym, t_display *d)

@@ -32,7 +32,6 @@ void	ft_render(t_display *d)
 	ft_pout_color("\tComplete!\n", MAG);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
 	ft_render_ui(d);
-	ft_printf("zoom: %f\n", d->zoom);
 	return ;
 }
 

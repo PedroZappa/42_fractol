@@ -13,7 +13,7 @@
 #include "fractol.h"
 
 static void			calculate_newton(t_display *d);
-static unsigned		ft_check_roots(t_display *d);
+static unsigned int	ft_check_roots(t_display *d);
 static void			ft_init_roots(t_complex *roots);
 static t_complex	ft_get_diff(t_complex z_newton, t_complex root);
 
@@ -24,20 +24,19 @@ void	render_newton(t_display *d, int x, int y)
 	int			color;
 
 	i = 0;
-	d->z_newton.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	d->z_newton.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom)
+		+ d->x_offset;
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
-	d->z_newton.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
+	d->z_newton.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom)
+		+ d->y_offset;
 	while (i++ < d->iter)
 	{
 		calculate_newton(d);
 		root = ft_check_roots(d);
-		// if (!ft_check_roots(d))
 		if (root)
 		{
-			// color = (ft_map(i, d->color_iter, d->color_range) * 5);
-			// color = ft_color_newton(d, ft_check_roots(d));
-			color = ft_color_newton(d, root);
+			color = ft_color_newton(root);
 			return (ft_put_pixel(d->img, x, y, color));
 		}
 	}
@@ -50,21 +49,24 @@ static void	calculate_newton(t_display *d)
 	double		denominator;
 
 	denominator = (3 * ((d->z_newton.r * d->z_newton.r)
-		+ (d->z_newton.i * d->z_newton.i)));
-	next.r = (((d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.r 
-		* d->z_newton.r) + (2 * d->z_newton.r * d->z_newton.r * d->z_newton.r
-		* d->z_newton.i * d->z_newton.i) - (d->z_newton.r * d->z_newton.r)
-		+ (d->z_newton.r * d->z_newton.i * d->z_newton.i * d->z_newton.i 
-		* d->z_newton.i) + (d->z_newton.i * d->z_newton.i)) / denominator);
-	next.i = ((d->z_newton.i * ((d->z_newton.r * d->z_newton.r * d->z_newton.r 
-		* d->z_newton.r) + (2 * d->z_newton.r * d->z_newton.r * d->z_newton.i 
-		* d->z_newton.i) + (2 * d->z_newton.r) + (d->z_newton.i * d->z_newton.i
-		* d->z_newton.i * d->z_newton.i)) / denominator));
+				+ (d->z_newton.i * d->z_newton.i)));
+	next.r = (((d->z_newton.r * d->z_newton.r * d->z_newton.r * d->z_newton.r
+					* d->z_newton.r) + (2 * d->z_newton.r * d->z_newton.r
+					* d->z_newton.r * d->z_newton.i * d->z_newton.i)
+				- (d->z_newton.r * d->z_newton.r) + (d->z_newton.r
+					* d->z_newton.i * d->z_newton.i * d->z_newton.i
+					* d->z_newton.i)
+				+ (d->z_newton.i * d->z_newton.i)) / denominator);
+	next.i = ((d->z_newton.i * ((d->z_newton.r * d->z_newton.r * d->z_newton.r
+						* d->z_newton.r) + (2 * d->z_newton.r * d->z_newton.r
+						* d->z_newton.i * d->z_newton.i) + (2 * d->z_newton.r)
+					+ (d->z_newton.i * d->z_newton.i * d->z_newton.i
+						* d->z_newton.i)) / denominator));
 	d->z_newton.r -= next.r;
 	d->z_newton.i -= next.i;
 }
 
-static unsigned ft_check_roots(t_display *d)
+static unsigned int	ft_check_roots(t_display *d)
 {
 	static t_complex	roots[3];
 	t_complex			diff;
@@ -88,7 +90,7 @@ static unsigned ft_check_roots(t_display *d)
 
 static void	ft_init_roots(t_complex *roots)
 {
-	static unsigned set;
+	static unsigned int	set;
 
 	if (!set)
 	{
