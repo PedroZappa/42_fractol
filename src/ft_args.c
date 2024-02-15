@@ -43,13 +43,13 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 		display->name = "Julia";
 		display->iter = ft_atoi(argv[2]);
 	}
-	else if (!ft_strcmp(name, "tricorn"))
+	else if (!ft_strcmp(name, "tricorn") && (argc == 3))
 	{
 		display->set = TRICORN;
 		display->name = "Tricorn";
 		display->iter = ft_atoi(argv[2]);
 	}
-	else if (!ft_strcmp(name, "newton"))
+	else if (!ft_strcmp(name, "newton") && (argc == 3))
 	{
 		display->set = NEWTON;
 		display->name = "Newton";
