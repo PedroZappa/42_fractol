@@ -33,7 +33,8 @@ int	ft_handle_keys(int keysym, t_display *d)
 		d->iter += 7;
 	else if (keysym == XK_Page_Down)
 		d->iter -= 7;
-	else if (keysym == XK_space)
+	else if ((keysym == XK_space) || (keysym == XK_1) || (keysym == XK_2)
+			|| (keysym == XK_3) || (keysym == XK_4))
 		ft_switch_set(keysym, d);
 	else if ((keysym == XK_Shift_L) || (keysym == XK_Shift_R)
 		|| (keysym == XK_q) || (keysym == XK_r) || (keysym == XK_g)
@@ -75,6 +76,14 @@ static void	ft_switch_set(int keysym, t_display *d)
 		else if (d->set == NEWTON)
 			d->name = "Newton";
 	}
+	if (keysym == XK_1)
+		d->set = MANDELBROT;
+	else if (keysym == XK_2)
+		d->set = JULIA;
+	else if (keysym == XK_3)
+		d->set = TRICORN;
+	else if (keysym == XK_4)
+		d->set = NEWTON;
 }
 
 static void	ft_switch_color(int keysym, t_display *d)
