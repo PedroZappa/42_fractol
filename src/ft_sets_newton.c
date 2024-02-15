@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sets_2.c                                        :+:      :+:    :+:   */
+/*   ft_sets_newton.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:34:26 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 22:38:34 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:45:19 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static t_complex	ft_get_diff(t_complex z_newton, t_complex root);
 void	render_newton(t_display *d, int x, int y)
 {
 	int			i;
+	int			root;
 	int			color;
 
 	i = 0;
@@ -27,13 +28,16 @@ void	render_newton(t_display *d, int x, int y)
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
 	d->z_newton.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
-	// ft_set_scale(d, &d->z_newton, x, y);
 	while (i++ < d->iter)
 	{
 		calculate_newton(d);
-		if (!ft_check_roots(d))
+		root = ft_check_roots(d);
+		// if (!ft_check_roots(d))
+		if (root)
 		{
-			color = (ft_map(i, d->color_iter, d->color_range) * 5);
+			// color = (ft_map(i, d->color_iter, d->color_range) * 5);
+			// color = ft_color_newton(d, ft_check_roots(d));
+			color = ft_color_newton(d, root);
 			return (ft_put_pixel(d->img, x, y, color));
 		}
 	}
@@ -73,12 +77,13 @@ static unsigned ft_check_roots(t_display *d)
 	diff = ft_get_diff(d->z_newton, roots[1]);
 	if ((ft_abs(diff.r) < d->newton_escape)
 		&& (ft_abs(diff.i) < d->newton_escape))
-		return (1);
+		return (2);
 	diff = ft_get_diff(d->z_newton, roots[2]);
 	if ((ft_abs(diff.r) < d->newton_escape)
 		&& (ft_abs(diff.i) < d->newton_escape))
-		return (1);
-	return (0);
+		return (3);
+	else
+		return (0);
 }
 
 static void	ft_init_roots(t_complex *roots)

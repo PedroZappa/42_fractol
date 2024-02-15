@@ -6,7 +6,7 @@
 /*   By: passunca <passunca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:20:17 by passunca          #+#    #+#             */
-/*   Updated: 2024/02/12 22:06:09 by passunca         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:33:10 by passunca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,5 +190,8 @@ int			ft_is_argdbl(char *arg);
 
 /* ft_ui.c : UI rendering functionality */
 void		ft_render_ui(t_display *d);
+
+/*	ft_color.c : Color functions */
+int	ft_color_newton(t_display *d, unsigned root);
 
 #endif
