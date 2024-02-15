@@ -33,3 +33,10 @@ int	ft_usage(void)
 	ft_sep_color('#', '=', 50, GRN);
 	return (0);
 }
+
+int	ft_no_args(void)
+{
+	ft_perror_color("No arguments provided.\n", RED);
+	ft_usage();
+	exit(EXIT_FAILURE);
+}

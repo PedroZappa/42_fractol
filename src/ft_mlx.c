@@ -60,7 +60,6 @@ void	ft_init_data(t_display *display)
 	display->height = HEIGHT;
 	display->width = WIDTH;
 	display->name = display->name;
-	display->iter = INIT_ITER;
 	display->escape = 4.0;
 	display->x_offset = 0.0;
 	display->y_offset = 0.0;

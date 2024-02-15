@@ -43,6 +43,18 @@ int	ft_select_fractal(t_display *display, int argc, char **argv)
 		display->name = "Julia";
 		display->iter = ft_atoi(argv[2]);
 	}
+	else if (!ft_strcmp(name, "tricorn"))
+	{
+		display->set = TRICORN;
+		display->name = "Tricorn";
+		display->iter = ft_atoi(argv[2]);
+	}
+	else if (!ft_strcmp(name, "newton"))
+	{
+		display->set = NEWTON;
+		display->name = "Newton";
+		display->iter = ft_atoi(argv[2]);
+	}
 	else
 		return (0);
 	return (1);
@@ -75,11 +87,4 @@ static int	ft_invalid_args(char *name)
 	ft_printf("%s\n", name);
 	ft_usage();
 	return (0);
-}
-
-int	ft_no_args(void)
-{
-	ft_perror_color("No arguments provided.\n", RED);
-	ft_usage();
-	exit(EXIT_FAILURE);
 }

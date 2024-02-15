@@ -145,10 +145,10 @@ typedef struct s_display
 /* ft_args.c */
 int			ft_args(t_display *display, int argc, char **argv);
 int			ft_select_fractal(t_display *display, int argc, char **argv);
-int			ft_no_args(void);
 
 /*	ft_help.c : Args handling & help functions */
 int			ft_usage(void);
+int			ft_no_args(void);
 
 /* ft_mlx.c : MLX setup functions */
 void		ft_init_display(t_display *display);
@@ -193,6 +193,6 @@ int			ft_is_argdbl(char *arg);
 void		ft_render_ui(t_display *d);
 
 /*	ft_color.c : Color functions */
-int	ft_color_newton(t_display *d, unsigned root);
+int			ft_color_newton(t_display *d, unsigned root);
 
 #endif
