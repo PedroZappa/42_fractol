@@ -93,8 +93,8 @@ static void	ft_init_roots(t_complex *roots)
 	if (!set)
 	{
 		roots[0] = (t_complex){1, 0};
-		roots[1] = (t_complex){0.5, 0.866025403784438};
-		roots[2] = (t_complex){0.5, -0.866025403784438};
+		roots[1] = (t_complex){0.5, 0.866025};
+		roots[2] = (t_complex){0.5, -0.866025};
 		set = 1;
 	}
 }
