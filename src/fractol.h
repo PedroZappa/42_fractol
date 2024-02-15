@@ -33,6 +33,7 @@
 # define INIT_C_I	0.27025
 # define MIN_R		-2.0
 # define MAX_R		2.0
+# define NEWTON_ESC 0.000001
 
 # define SETS		4
 # define COLORS		0xFFFFFF

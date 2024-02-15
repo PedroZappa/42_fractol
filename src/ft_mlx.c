@@ -72,7 +72,7 @@ void	ft_init_data(t_display *display)
 	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
 	display->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
 	display->color = HEX_BLACK;
-	display->newton_escape = 0.000001;
+	display->newton_escape = NEWTON_ESC;
 }
 
 t_complex	ft_init_complex(double r, double i)
