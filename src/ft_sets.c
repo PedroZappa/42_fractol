@@ -12,6 +12,9 @@
 
 #include "fractol.h"
 
+/*	Mandelbrot Formula : z = z^2 + c
+ *		Where z is the complex number initialized to 0
+ *	*/
 void	render_mandelbrot(t_display *d, int x, int y)
 {
 	double		zr_tmp;
@@ -39,7 +42,9 @@ void	render_mandelbrot(t_display *d, int x, int y)
 	}
 	ft_put_pixel(d->img, x, y, d->color);
 }
-
+/*	Julia Formula : z = z^2 + c_julia
+*		Where c_julia is a user input complex number
+*	*/
 void	render_julia(t_display *d, int x, int y)
 {
 	t_complex	z_tmp;
@@ -67,6 +72,9 @@ void	render_julia(t_display *d, int x, int y)
 	ft_put_pixel(d->img, x, y, d->color);
 }
 
+/*	Tricorn Formula : z = z^-2 + c
+ *		Where z is the complex number initialized to 0
+ *	*/
 void	render_tricorn(t_display *d, int x, int y)
 {
 	double		zr_tmp;
@@ -95,6 +103,9 @@ void	render_tricorn(t_display *d, int x, int y)
 	ft_put_pixel(d->img, x, y, d->color);
 }
 
+/*	Burning Ship Formula : z = (|z.r| + |z.i|)² + c
+*		Where z is the complex number initialized to 0
+*	*/
 void	render_burning(t_display *d, int x, int y)
 {
 	double		zr_tmp;
