@@ -63,18 +63,6 @@ static void	ft_handle_offset(int keysym, t_display *d)
 
 static void	ft_switch_set(int keysym, t_display *d)
 {
-	if (keysym == XK_space)
-	{
-		d->set = (d->set + 1) % SETS;
-		if (d->set == MANDELBROT)
-			d->name = "Mandelbrot";
-		else if (d->set == JULIA)
-			d->name = "Julia";
-		else if (d->set == TRICORN)
-			d->name = "Tricorn";
-		else if (d->set == NEWTON)
-			d->name = "Newton";
-	}
 	if (keysym == XK_1)
 		d->set = MANDELBROT;
 	else if (keysym == XK_2)
@@ -83,6 +71,14 @@ static void	ft_switch_set(int keysym, t_display *d)
 		d->set = TRICORN;
 	else if (keysym == XK_4)
 		d->set = NEWTON;
+	if (d->set == MANDELBROT)
+		d->name = "Mandelbrot";
+	else if (d->set == JULIA)
+		d->name = "Julia";
+	else if (d->set == TRICORN)
+		d->name = "Tricorn";
+	else if (d->set == NEWTON)
+		d->name = "Newton";
 }
 
 static void	ft_switch_color(int keysym, t_display *d)

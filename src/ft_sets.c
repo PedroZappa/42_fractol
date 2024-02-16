@@ -62,7 +62,7 @@ void	render_julia(t_display *d, int x, int y)
 	d->frac_range.max = -2.0;
 	d->z.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
 	// ft_set_scale(d, &d->z, x, y);
-	while (++i <= d->iter)
+	while (++i < d->iter)
 	{
 		z_tmp.r = d->z.r;
 		z_tmp.i = d->z.i;

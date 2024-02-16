@@ -55,6 +55,19 @@ define ft_render
 	display y
 end
 
+define render_julia
+	display *d
+	display d->z
+	display d.escape
+	display z_tmp
+	display color
+	display i
+	display x
+	display y
+
+
+end
+
 define ft_get_pixel
 	display *display
 	display display->z
@@ -120,10 +133,10 @@ end
 # ft_select_fractal
 
 ## Star @ ft_set_complex
-fs cmd
-break ft_set_complex
-run "julia" 43 0.1 0.7
-ft_set_complex
+# fs cmd
+# break ft_set_complex
+# run "julia" 43 0.1 0.7
+# ft_set_complex
 
 ## Start @ ft_init_display
 # fs cmd
@@ -137,6 +150,14 @@ ft_set_complex
 # run "mandelbrot"
 # ft_render
 # rfr
+
+# Star @ render_julia
+fs cmd
+break render_julia
+run "julia" 88 0.3 1
+render_julia
+rfr
+
 
 # Start @ ft_get_pixel
 # fs cmd
