@@ -12,12 +12,12 @@
 
 #include "fractol.h"
 
-void	ft_set_scale(t_display *d, t_complex *n, int x, int y)
+void	ft_set_scale(t_display *d, t_complex *n, int *x, int *y)
 {
-	n->r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	n->r = (ft_map(*x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
-	n->i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	n->i = (ft_map(*y, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
 	// ft_printf("(%f, %f)\n", n->r, n->i);
 }
 
@@ -61,8 +61,7 @@ void	render_julia(t_display *d, int x, int y)
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
 	d->z.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
-	// ft_set_scale(d, &d->z, x, y);
-	while (++i < d->iter)
+	while (++i <= d->iter)
 	{
 		z_tmp.r = d->z.r;
 		z_tmp.i = d->z.i;
