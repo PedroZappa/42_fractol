@@ -34,7 +34,7 @@ int	ft_select_fractal(t_display *d, int argc, char **argv)
 	name = ft_stolower(argv[1]);
 	if (!ft_strcmp(name, "mandelbrot") && (argc == 3))
 		ft_set_fractal(d, MANDELBROT, "Mandelbrot", ft_atoi(argv[2]));
-	else if (!ft_strcmp(name, "julia") && ((argc == 3) || (argc == 5)))
+	else if (!ft_strcmp(name, "julia") && (argc == 5))
 		ft_set_fractal(d, JULIA, "Julia", ft_atoi(argv[2]));
 	else if (!ft_strcmp(name, "tricorn") && (argc == 3))
 		ft_set_fractal(d, TRICORN, "Tricorn", ft_atoi(argv[2]));

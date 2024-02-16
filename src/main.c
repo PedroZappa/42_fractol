@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 		return (ft_no_args());
 	else if (!ft_args(&display, argc, argv))
 		exit(EXIT_FAILURE);
-	ft_init_display(&display);
+	ft_init_display(&display, argv);
 	ft_usage();
 	ft_printf("Fract'ol: %s\n", display.name);
 	ft_render(&display);

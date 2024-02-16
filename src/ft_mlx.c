@@ -18,7 +18,7 @@
  *		mlx_new_image() : Creates a new image;
  *		Setup event listening
  *	*/
-void	ft_init_display(t_display *display)
+void	ft_init_display(t_display *display, char **argv)
 {
 	display->mlx_conn = mlx_init();
 	if (!display->mlx_conn)
@@ -38,7 +38,7 @@ void	ft_init_display(t_display *display)
 		(display->img.img, &display->img.bpp, &display->img.line_len,
 			&display->img.endian);
 	ft_events_init(display);
-	ft_init_data(display);
+	ft_init_data(display, argv);
 }
 
 /*	Setup hook for pressed keys;
@@ -58,7 +58,7 @@ void	ft_events_init(t_display *d)
  *		Sets Initial x and y offset 0.0
  *		Set Zoom to 1 so it can be used as a factor in multiplications
  *	*/
-void	ft_init_data(t_display *display)
+void	ft_init_data(t_display *display, char **argv)
 {
 	display->height = HEIGHT;
 	display->width = WIDTH;
@@ -69,7 +69,10 @@ void	ft_init_data(t_display *display)
 	display->zoom = SCALE_FACTOR;
 	display->z = ft_init_complex(0.0, 0.0);
 	display->c = ft_init_complex(0.0, 0.0);
-	display->c_julia = ft_init_complex(0.0, 0.0);
+	if (display->set == JULIA)
+		display->c = ft_init_complex(ft_atod(argv[3]), ft_atod(argv[4]));
+	else
+		display->c_julia = ft_init_complex(0.0, 0.0);
 	display->win_size = ft_init_range(0, WIDTH);
 	display->frac_range = ft_init_range(MIN_R, MAX_R);
 	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);

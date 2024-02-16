@@ -152,9 +152,9 @@ int			ft_usage(void);
 int			ft_no_args(void);
 
 /* ft_mlx.c : MLX setup functions */
-void		ft_init_display(t_display *display);
+void		ft_init_display(t_display *display, char **argv);
 void		ft_events_init(t_display *display);
-void		ft_init_data(t_display *display);
+void		ft_init_data(t_display *display, char **argv);
 t_complex	ft_init_complex(double r, double i);
 t_range		ft_init_range(double min, double max);
 
