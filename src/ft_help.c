@@ -21,10 +21,11 @@ int	ft_usage(void)
 	ft_sep_color('#', '=', 45, GRN);
 	ft_pout_color("\tAvailable Sets\n", YEL);
 	ft_sep_color('#', '=', 45, GRN);
-	ft_printf("> Mandelbrot\n\t%s./fractol mandelbrot <iter>%s\n", CYN, NC);
-	ft_printf("> Julia\n\t%s./fractol julia <iter> <c.r> <c.i>%s\n", CYN, NC);
-	ft_printf("> Tricorn\n\t%s./fractol tricorn <iter>%s\n", CYN, NC);
-	ft_printf("> Newton\n\t%s./fractol newton <iter>%s\n", CYN, NC);
+	ft_printf("1: Mandelbrot\n\t%s./fractol mandelbrot <iter>%s\n", CYN, NC);
+	ft_printf("2: Julia\n\t%s./fractol julia <iter> <c.r> <c.i>%s\n", CYN, NC);
+	ft_printf("3: Tricorn\n\t%s./fractol tricorn <iter>%s\n", CYN, NC);
+	ft_printf("4: Burning Ship\n\t%s./fractol burning <iter>%s\n", CYN, NC);
+	ft_printf("5: Newton\n\t%s./fractol newton <iter>%s\n", CYN, NC);
 	ft_controls();
 	return (0);
 }
@@ -41,7 +42,7 @@ static void	ft_controls(void)
 	ft_printf(":Change color scheme with:\n\t> %sL-Shift & R-Shift%s\n",
 		CYN, NC);
 	ft_printf(":Select a specific Set with:\n\t", CYN, NC);
-	ft_printf("> %s1, 2, 3, 4%s\n", CYN, NC);
+	ft_printf("> %s1, 2, 3, 4, 5%s\n", CYN, NC);
 	ft_printf(":To Exit press:\n\t> %sESC%s\n", CYN, NC);
 	ft_sep_color('#', '=', 45, GRN);
 }

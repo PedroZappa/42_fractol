@@ -27,7 +27,7 @@ void	ft_render(t_display *d)
 		x = -1;
 		while (++x < WIDTH)
 			ft_select_set(d, x, y);
-		ft_printf("\rRendering: [%d%%]", ((y * 100) / d->height));
+		ft_printf("\r%sRendering:%s [%d%%]", YEL, NC, ((y * 100) / d->height));
 	}
 	ft_printf("\t%sComplete!%s\n", MAG, NC);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);

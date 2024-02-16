@@ -21,9 +21,9 @@ static void	ft_handle_zoom(int button, int x, int y, t_display *d);
  *	*/
 int	ft_handle_mouse(int button, int x, int y, t_display *d)
 {
-	ft_printf("Mouse: (%d, %d)\n", x, y);
-	if ((button == Button1) && (d->set == MANDELBROT))
+	if ((button == Button1) && ((d->set == MANDELBROT) || (d->set == JULIA)))
 	{
+		ft_printf("Mouse: (%d, %d)\n", d->c_julia.r, d->c_julia.i);
 		d->c_julia.r = ft_map(x, d->win_size, d->frac_range);
 		d->c_julia.i = ft_map(y, d->win_size, d->frac_range);
 		d->name = "Julia";
