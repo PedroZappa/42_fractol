@@ -45,17 +45,17 @@ static void	ft_handle_zoom(int button, int x, int y, t_display *d)
 	if (button == Button4)
 	{
 		d->x_offset += (ft_map(x, d->win_size, d->frac_range) * d->zoom)
-			* 0.02;
+			* 0.05;
 		d->y_offset += (ft_map(y, d->win_size, d->frac_range) * d->zoom)
-			* 0.02;
+			* 0.05;
 		d->zoom /= ft_absd(SCALE_FACTOR);
 	}
 	else if (button == Button5)
 	{
 		d->x_offset -= (ft_map(x, d->win_size, d->frac_range) * d->zoom)
-			* 0.02;
+			* 0.05;
 		d->y_offset -= (ft_map(y, d->win_size, d->frac_range) * d->zoom)
-			* 0.02;
+			* 0.05;
 		d->zoom *= ft_absd(SCALE_FACTOR);
 	}
 	else
