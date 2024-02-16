@@ -50,8 +50,8 @@ int	ft_kill_handle(t_display *display)
 	mlx_destroy_window(display->mlx_conn, display->mlx_win);
 	mlx_destroy_display(display->mlx_conn);
 	free(display->mlx_conn);
-	free(display->name);
-	free(display);
+	// free(display->name);
+	// free(display);
 	exit(EXIT_SUCCESS);
 }
 
