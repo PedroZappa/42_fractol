@@ -12,6 +12,8 @@
 
 #include "fractol.h"
 
+static void	ft_set_range(t_display *d, t_complex *c, int x, int y);
+
 /*	ft_render : Renders the fractal
  *		Get all the pixels
  *		Pushes image into the window
@@ -49,7 +51,18 @@ void	ft_select_set(t_display *d, int x, int y)
 		render_newton(d, x, y);
 	else
 		ft_kill_handle(d);
-	return ;
+	if (d->set == JULIA)
+		ft_set_range(d, &d->z, x, y);
+	else
+		ft_set_range(d, &d->c, x, y);
+}
+
+static void	ft_set_range(t_display *d, t_complex *c, int x, int y)
+{
+	c->r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	d->frac_range.min = -2.0;
+	d->frac_range.max = 2.0;
+	c->i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
 }
 
 /*	ft_put_pixel : Puts a pixel to the d
