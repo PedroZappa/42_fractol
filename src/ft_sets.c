@@ -12,15 +12,6 @@
 
 #include "fractol.h"
 
-void	ft_set_scale(t_display *d, t_complex *n, int *x, int *y)
-{
-	n->r = (ft_map(*x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
-	d->frac_range.min = 2.0;
-	d->frac_range.max = -2.0;
-	n->i = (ft_map(*y, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
-	// ft_printf("(%f, %f)\n", n->r, n->i);
-}
-
 void	render_mandelbrot(t_display *d, int x, int y)
 {
 	double		zr_tmp;
@@ -34,7 +25,6 @@ void	render_mandelbrot(t_display *d, int x, int y)
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
 	d->c.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
-	// ft_set_s-cale(d, &d->c, x, y);
 	while (++i <= d->iter)
 	{
 		zr_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
@@ -90,7 +80,6 @@ void	render_tricorn(t_display *d, int x, int y)
 	d->frac_range.min = 2.0;
 	d->frac_range.max = -2.0;
 	d->c.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
-	// ft_set_scale(d, &d->c, x, y);
 	while (++i <= d->iter)
 	{
 		zr_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
