@@ -18,7 +18,7 @@ void	ft_render_ui(t_display *d)
 	char	*join;
 
 	str = ft_itoa(d->iter);
-	join = ft_strjoin("iter: ", str);
+	join = ft_strjoin("i: ", str);
 	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 20, HEX_WHITE, d->name);
 	mlx_string_put(d->mlx_conn, d->mlx_win, 10, 40, HEX_WHITE, join);
 	free(str);
