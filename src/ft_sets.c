@@ -94,3 +94,31 @@ void	render_tricorn(t_display *d, int x, int y)
 	}
 	ft_put_pixel(d->img, x, y, d->color);
 }
+
+void	render_burning(t_display *d, int x, int y)
+{
+	double		zr_tmp;
+	int			color;
+	int			i;
+
+	i = 0;
+	d->z.r = 0;
+	d->z.i = 0;
+	d->c.r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
+	d->frac_range.min = 2.0;
+	d->frac_range.max = -2.0;
+	d->c.i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
+	while (++i <= d->iter)
+	{
+		zr_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
+		d->z.i = (-2.0 * ft_abs(d->z.r * d->z.i)) + d->c.i;
+		d->z.r = zr_tmp;
+		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
+		{
+			color = (ft_map(i, d->color_iter, d->color_range) * 5);
+			ft_put_pixel(d->img, x, y, color);
+			return ;
+		}
+	}
+	ft_put_pixel(d->img, x, y, d->color);
+}

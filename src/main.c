@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	else if (!ft_args(&display, argc, argv))
 		exit(EXIT_FAILURE);
 	ft_init_display(&display);
+	ft_usage();
 	ft_printf("Fract'ol: %s\n", display.name);
 	ft_render(&display);
 	mlx_loop(display.mlx_conn);

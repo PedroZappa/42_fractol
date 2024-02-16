@@ -35,13 +35,14 @@
 # define MAX_R		2.0
 # define NEWTON_ESC 0.000001
 
-# define SETS		4
+# define SETS		5
 # define COLORS		0xFFFFFF
 // Set IDs
 # define MANDELBROT	0
 # define JULIA		1
 # define TRICORN	2
-# define NEWTON		3
+# define BURNING	3
+# define NEWTON		4
 
 //=============================================================================/
 //								Librariy Headers                               /
@@ -130,7 +131,7 @@ typedef struct s_display
 	t_complex	c;
 	t_complex	c_julia;
 	t_complex	z_newton;
-	double		newton_escape;
+	double		newton_esc;
 	t_range		win_size;
 	t_range		frac_range;
 	t_range		color_iter;
@@ -163,10 +164,10 @@ void		ft_select_set(t_display *d, int x, int y);
 void		ft_put_pixel(t_img img, int x, int y, int color);
 
 /*	ft_sets.c : Fractal set renderers */
-void		ft_set_scale(t_display *d, t_complex *n, int *x, int *y);
 void		render_mandelbrot(t_display *display, int x, int y);
 void		render_julia(t_display *display, int x, int y);
 void		render_tricorn(t_display *d, int x, int y);
+void		render_burning(t_display *d, int x, int y);
 
 /*	ft_sets_newton.c : Newton's set needed its own file */
 void		render_newton(t_display *display, int x, int y);

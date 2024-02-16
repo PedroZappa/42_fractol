@@ -22,14 +22,14 @@ void	ft_render(t_display *d)
 	int	y;
 
 	y = -1;
-	while (++y < HEIGHT)
+	while (++y <= HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
 			ft_select_set(d, x, y);
-		ft_printf("\rRendering: [%d%%]", ((y * 100) / d->height) + 1);
+		ft_printf("\rRendering: [%d%%]", ((y * 100) / d->height));
 	}
-	ft_pout_color("\tComplete!\n", MAG);
+	ft_printf("\t%sComplete!%s\n", MAG, NC);
 	mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
 	ft_render_ui(d);
 	return ;
@@ -43,6 +43,8 @@ void	ft_select_set(t_display *d, int x, int y)
 		render_julia(d, x, y);
 	else if (d->set == TRICORN)
 		render_tricorn(d, x, y);
+	else if (d->set == BURNING)
+		render_burning(d, x, y);
 	else if (d->set == NEWTON)
 		render_newton(d, x, y);
 	else

@@ -73,16 +73,13 @@ static unsigned int	ft_check_roots(t_display *d)
 
 	ft_init_roots(roots);
 	diff = ft_get_diff(d->z_newton, roots[0]);
-	if ((ft_abs(diff.r) < d->newton_escape)
-		&& (ft_abs(diff.i) < d->newton_escape))
+	if ((ft_abs(diff.r) < d->newton_esc) && (ft_abs(diff.i) < d->newton_esc))
 		return (1);
 	diff = ft_get_diff(d->z_newton, roots[1]);
-	if ((ft_abs(diff.r) < d->newton_escape)
-		&& (ft_abs(diff.i) < d->newton_escape))
+	if ((ft_abs(diff.r) < d->newton_esc) && (ft_abs(diff.i) < d->newton_esc))
 		return (2);
 	diff = ft_get_diff(d->z_newton, roots[2]);
-	if ((ft_abs(diff.r) < d->newton_escape)
-		&& (ft_abs(diff.i) < d->newton_escape))
+	if ((ft_abs(diff.r) < d->newton_esc) && (ft_abs(diff.i) < d->newton_esc))
 		return (3);
 	else
 		return (0);

@@ -30,11 +30,11 @@ int	ft_handle_keys(int keysym, t_display *d)
 		|| (keysym == XK_Up) || (keysym == XK_Down))
 		ft_handle_offset(keysym, d);
 	else if (keysym == XK_Page_Up)
-		d->iter += 7;
+		d->iter += 1;
 	else if (keysym == XK_Page_Down)
-		d->iter -= 7;
+		d->iter -= 1;
 	else if ((keysym == XK_space) || (keysym == XK_1) || (keysym == XK_2)
-		|| (keysym == XK_3) || (keysym == XK_4))
+		|| (keysym == XK_3) || (keysym == XK_4) || (keysym == XK_5))
 		ft_switch_set(keysym, d);
 	else if ((keysym == XK_Shift_L) || (keysym == XK_Shift_R)
 		|| (keysym == XK_q) || (keysym == XK_r) || (keysym == XK_g)
@@ -70,6 +70,8 @@ static void	ft_switch_set(int keysym, t_display *d)
 	else if (keysym == XK_3)
 		d->set = TRICORN;
 	else if (keysym == XK_4)
+		d->set = BURNING;
+	else if (keysym == XK_5)
 		d->set = NEWTON;
 	if (d->set == MANDELBROT)
 		d->name = "Mandelbrot";
@@ -77,6 +79,8 @@ static void	ft_switch_set(int keysym, t_display *d)
 		d->name = "Julia";
 	else if (d->set == TRICORN)
 		d->name = "Tricorn";
+	else if (d->set == BURNING)
+		d->name = "Burning Ship";
 	else if (d->set == NEWTON)
 		d->name = "Newton";
 }

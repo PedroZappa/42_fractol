@@ -40,7 +40,6 @@ static void	ft_controls(void)
 		CYN, NC);
 	ft_printf(":Change color scheme with:\n\t> %sL-Shift & R-Shift%s\n",
 		CYN, NC);
-	ft_printf(":Toggle between Sets with:\n\t> %sSpacebar%s\n", CYN, NC);
 	ft_printf(":Select a specific Set with:\n\t", CYN, NC);
 	ft_printf("> %s1, 2, 3, 4%s\n", CYN, NC);
 	ft_printf(":To Exit press:\n\t> %sESC%s\n", CYN, NC);

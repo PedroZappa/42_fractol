@@ -38,6 +38,8 @@ int	ft_select_fractal(t_display *d, int argc, char **argv)
 		ft_set_fractal(d, JULIA, "Julia", ft_atoi(argv[2]));
 	else if (!ft_strcmp(name, "tricorn") && (argc == 3))
 		ft_set_fractal(d, TRICORN, "Tricorn", ft_atoi(argv[2]));
+	else if (!ft_strcmp(name, "burning") && (argc == 3))
+		ft_set_fractal(d, BURNING, "Burning Ship", ft_atoi(argv[2]));
 	else if (!ft_strcmp(name, "newton") && (argc == 3))
 		ft_set_fractal(d, NEWTON, "Newton", ft_atoi(argv[2]));
 	else
