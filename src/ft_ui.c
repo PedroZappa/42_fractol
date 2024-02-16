@@ -14,8 +14,8 @@
 
 void	ft_render_ui(t_display *d)
 {
-	char *str;
-	char *join;
+	char	*str;
+	char	*join;
 
 	str = ft_itoa(d->iter);
 	join = ft_strjoin("iter: ", str);
