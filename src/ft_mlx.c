@@ -39,7 +39,6 @@ void	ft_init_display(t_display *display)
 			&display->img.endian);
 	ft_events_init(display);
 	ft_init_data(display);
-	ft_sep_color('#', '=', 40, GRN);
 }
 
 /*	Setup hook for pressed keys;
