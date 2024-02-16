@@ -111,8 +111,8 @@ void	render_burning(t_display *d, int x, int y)
 	while (++i <= d->iter)
 	{
 		zr_tmp = (d->z.r * d->z.r) - (d->z.i * d->z.i) + d->c.r;
-		d->z.i = (-2.0 * ft_abs(d->z.r * d->z.i)) + d->c.i;
-		d->z.r = zr_tmp;
+		d->z.i = (fabs(2.0 * d->z.r * d->z.i)) + d->c.i;
+		d->z.r = fabs(zr_tmp);
 		if (((d->z.r * d->z.r) + (d->z.i * d->z.i)) > d->escape)
 		{
 			color = (ft_map(i, d->color_iter, d->color_range) * 5);
