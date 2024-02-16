@@ -42,6 +42,7 @@ void	render_mandelbrot(t_display *d, int x, int y)
 	}
 	ft_put_pixel(d->img, x, y, d->color);
 }
+
 /*	Julia Formula : z = z^2 + c_julia
 *		Where c_julia is a user input complex number
 *	*/
