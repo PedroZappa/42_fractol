@@ -90,6 +90,15 @@ define ft_kill_handle
 	display *display
 end
 
+define vgdb
+	target remote | vgdb
+end
+
+define mchk
+	monitor leak_check full reachable any
+end
+
+
 # set logging enabled on
 
 ## Start @ main

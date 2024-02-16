@@ -22,7 +22,11 @@ void	ft_init_display(t_display *display)
 {
 	display->mlx_conn = mlx_init();
 	if (!display->mlx_conn)
+	{
+		free(display->mlx_conn);
+		free(display);
 		ft_error();
+	}
 	display->mlx_win = mlx_new_window
 		(display->mlx_conn, WIDTH, HEIGHT, "Fracto'l");
 	if (!display->mlx_win)
