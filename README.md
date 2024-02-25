@@ -36,6 +36,7 @@ ___
 * [Implementation](#implementation)
   * [`main.c`](#mainc)
 * [Usage](#usage)
+* [Footnotes](#footnotes)
 * [License](#license)
 
 <!-- mtoc-end -->
@@ -169,6 +170,14 @@ ___
 ___
 ## Usage
 
+___
+# Footnotes
+
+[^1]: [minilibx-linux repo : 42Paris](https://github.com/42Paris/minilibx-linux)
+[^2]: [X-Window System : Wikipedia](https://en.wikipedia.org/wiki/X-Window_System)
+[^3]: [Bitmap : Wikipedia](https://en.wikipedia.org/wiki/Bitmap)
+[^4]: [Xlib : Wikipedia](https://en.wikipedia.org/wiki/Xlib)
+[^5]: [Xlib Keysyms : Oreilly.com](https://www.oreilly.com/library/view/xlib-reference-manual/9780937175262/16_appendix-h.html)
 ___
 ## License
 
