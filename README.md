@@ -50,6 +50,7 @@ ___
 
 **MinilibX** is a small library, a simplified version of **XLib** (X11R6) written in C , designed to introduce students to the **X-Window System**. [^1]
 
+___
 #### X-Window System
 
 The **X-Window System** is an architecture independent windowing system for bitmap displays that provides a basic framework for creating graphical user interfaces. [^2]
@@ -60,6 +61,7 @@ It enables users to draw and move windows on a display using the mouse and keybo
 >
 > In computing, a `bitmap` (also known as `bit array` or `bitmap index`) is a mapping from a given domain (for instance, a range of integers) to bits. [^3]
 
+___
 #### X client-server Architecture
 
 X is based on a client-server model: 
