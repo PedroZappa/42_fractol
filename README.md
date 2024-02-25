@@ -103,11 +103,11 @@ ____
 
 > [!Note]
 >
-> The `i` unit is the square root of `-1` $sqrt(-1)$
+> `i` = $\sqrt-1$
 
 ### Complex Plane
 
-We can take complex numbers and plot them in plane known as the `Complex Plane`.
+We can take complex numbers and plot them in a plane known as the `Complex Plane`.
 
 > This plane is formed by the mapping of the real and imaginary parts of a complex number to a Cartesian coordinate system. The real part mapped to the `x`-axis and the imaginary part to the `y` axis.
 
