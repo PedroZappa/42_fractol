@@ -22,6 +22,7 @@ ___
 <!-- mtoc-start -->
 
 * [About](#about)
+  * [The Math : Complex Numbers](#the-math--complex-numbers)
 * [Implementation](#implementation)
 * [Usage](#usage)
 * [License](#license)
@@ -29,6 +30,13 @@ ___
 <!-- mtoc-end -->
 
 ## About
+
+Fract'ol is the first graphics project of the Common Core curriculum. A simple implementation of computer graphics using the `minilibx` a simplified version of `Xlib`.
+
+This project is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
+
+### The Math : Complex Numbers
+
 
 ___
 ## Implementation
