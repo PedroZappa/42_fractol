@@ -240,7 +240,7 @@ For the Julia set, we use the same complex number `c` for all pixels. There are 
 ___
 #### Mandelbrot Set
 
-For the Mandelbrot set, we uses different complex numbers for each pixel.
+For the Mandelbrot set, we uses different complex numbers for each pixel. It is the one map to all Julia sets.
 
 * For each pixel in the image:
 	* `z` is initially set to 0
