@@ -14,6 +14,9 @@
 #                                NAMES & PATHS                                 #
 #==============================================================================#
 
+USER		= passunca
+PROJECT		= $(NAME)
+
 NAME		= fractol
 UNAME 		= $(shell uname)
 
@@ -36,6 +39,11 @@ MLXINC		= -I$(MLX_PATH)
 LIBFT_ARC	= $(LIBFT_PATH)/libft.a
 MLX_ARC		= $(MLX_PATH)/libmlx.a
 
+### Verbose Level
+# Level 3 makes Make print each command, 
+# Level 4 makes it prints debug info
+VERBOSE		= 3
+
 SHELL := zsh
 
 #==============================================================================#
@@ -46,18 +54,20 @@ CC		= cc
 
 CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
+CFLAGS		+= -lm
 # CFLAGS 		+= -O3
-MLXFLAGS	= -lX11 -lXext -lm
-# MLXFLAGS	+= -L/usr/X11R6/lib
+# Enables fastm memory error detection
+FSANITIZE := -fsanitize=address
 
-# GRAPHICAL LFGLAGS (for linux):
 ifeq ($(shell uname), Linux)
 	MLXFLAGS		+= -lXext -lX11
 else
 	MLXFLAGS		+= -L./inc/mlx -framework OpenGL -framework AppKit
 endif
 
-INC			= -I
+ifeq ($(VERBOSE), 4)
+	CFLAGS		+= --debug=v
+endif
 
 AR			= ar rcs
 RM			= rm -rf
