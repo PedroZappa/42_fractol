@@ -25,14 +25,13 @@ ___
   * [MinilibX](#minilibx)
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
-  * [The Math ](#the-math-)
-    * [Complex Numbers](#complex-numbers)
-    * [Complex Arithmetic](#complex-arithmetic)
-      * [Addition](#addition)
-      * [Subtraction](#subtraction)
-      * [Multiplication](#multiplication)
-        * [Complex * Real](#complex--real)
-        * [Complex * Complex](#complex--complex)
+  * [Complex Numbers](#complex-numbers)
+  * [Complex Arithmetic](#complex-arithmetic)
+    * [Addition](#addition)
+    * [Subtraction](#subtraction)
+    * [Multiplication](#multiplication)
+      * [Complex * Real](#complex--real)
+      * [Complex * Complex](#complex--complex)
 * [Implementation](#implementation)
   * [`main.c`](#mainc)
 * [Usage](#usage)
@@ -64,7 +63,7 @@ ___
 
 X is based on a client-server model: 
 
-> one **X server** connects to multiple **X client** programs.
+* one **X server** connects to multiple **X client** programs.
 ```mermaid
 flowchart TB
 	Display[Display]
@@ -92,19 +91,17 @@ The X Server receives requests to output graphics on the display (through window
 > - [Xlib : X Consortium Standard](https://www.x.org/releases/current/doc/libX11/libX11/libX11.html)
 
 ____
-### The Math 
-
-#### Complex Numbers
+### Complex Numbers
 
 `Complex numbers` are numbers in the form `a + bi` where `a` is the real part and `b` is the imaginary part and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
 
 The real part of a complex number is mapped to the `x` axis and the imaginary part to the `y` axis describing a 2D grid, the `Complex Plane`. 
 
-#### Complex Arithmetic
+### Complex Arithmetic
 
 Like with real numbers, we can perform **arithmetic** on complex numbers.
 
-##### Addition
+#### Addition
 
 > $(a + bi) + (c + di) = (a + c) + (b + d)i$
 
@@ -116,15 +113,15 @@ Example of how to add two complex numbers:
 >
 > $(5 + i)$
 
-##### Subtraction
+#### Subtraction
 
 > $(a + bi) - (c + di) = (a - c) + (b - d)i$
 
-##### Multiplication
+#### Multiplication
 
 Multiplication is similar to multiplying binomials but with complex numbers we work with the real and imaginary parts separately.
 
-###### Complex * Real
+##### Complex * Real
 
 > $c(a + bi) = (c * a) + (c * b)i$
 
@@ -136,7 +133,7 @@ Example:
 >
 > $(18 * 6i)$ # Simplify
 
-###### Complex * Complex
+##### Complex * Complex
 
 > $(a + bi)(c + di) = ac + adi + bci + bdi^2$
 
