@@ -26,6 +26,7 @@ ___
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
   * [Complex Numbers](#complex-numbers)
+  * [Fractals](#fractals)
   * [Complex Arithmetic](#complex-arithmetic)
     * [Addition](#addition)
     * [Subtraction](#subtraction)
@@ -93,9 +94,20 @@ The X Server receives requests to output graphics on the display (through window
 ____
 ### Complex Numbers
 
-`Complex numbers` are numbers in the form `(a + bi)` where `a` is the real part and `b` is the imaginary part and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
+`Complex numbers` are numbers in the form `(a + bi)` where:
 
-The real part of a complex number is mapped to the `x` axis and the imaginary part to the `y` axis describing a 2D grid, the `Complex Plane`. 
+* `a` is the real part:
+* `b` is the imaginary part;
+* and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
+
+The way we use this notion in this program is:
+
+* We take the real part of a complex number and map it to the `x`-axis of the screen and the imaginary part to the `y` axis;
+
+describe a 2D grid, the `Complex Plane`. 
+
+### Fractals
+
 
 ### Complex Arithmetic
 
