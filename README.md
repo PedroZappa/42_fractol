@@ -22,6 +22,8 @@ ___
 <!-- mtoc-start -->
 
 * [About](#about)
+  * [Mandatory Features](#mandatory-features)
+  * [Bonus Features](#bonus-features)
   * [MinilibX](#minilibx)
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
@@ -45,6 +47,41 @@ ___
 ## About
 
 **Fract'ol** is the first graphics project of the Common Core curriculum. It is a simple computer graphics program using `minilibx`. It is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
+
+___
+### Mandatory Features
+
+* The program must take the type of the fractal to be displayed as a parameter and any other relevant option.
+
+* The program must display the fractal in the window powered by `minilibx`.
+
+* The project must contain a `Makefile` that compiles all sources. It must nor relink.
+
+* Global variables are forbidden.
+
+* **Rendering**
+	* The program must offer the Julia and Mandelbrot sets.
+	* The mouse wheel zooms in and out almost infinitely, within the limits of the computer.
+	* A different Julia set must be rendered if the program is passed the appropriate parameters.
+	* A parameter passed on startup must be the type of the fractal to be rendered.
+		* Adding more parameters is optional.
+		If no parameter is provided, or the parameters are invalid, the list displays the help page and exits cleanly.
+	* A few different color schemes must be implemented.
+
+* **Graphic Management**
+	* The program has to display the image in a window.
+	* The management of the window must remain smooth.
+	* Pressing `ESC` must close the window and exit the program in a clean way.
+	* Clicking on the cross on the top window frame must have the same effect.
+	* It is mandatory to use `images` from `minilibx`.
+
+___
+### Bonus Features
+
+* One extra fractal.
+* The zoom follows the mouse position.
+* Moving the view by pressing the arrow keys.
+* Make the color range shift
 
 ___
 ### MinilibX
@@ -117,6 +154,7 @@ ___
 
 
 
+___
 ### Complex Arithmetic
 
 Like with real numbers, we can perform **arithmetic** on complex numbers.
