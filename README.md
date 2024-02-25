@@ -90,11 +90,11 @@ Example:
 
 > $(a + bi)(c + di) = ac + adi + bci + bdi^2$
 
-Because $i^2 = -1$, we can simplify the expression to:
+* Because $i^2 = -1$, we can simplify the expression to:
 
 > $(a + bi)(c + di) = ac + adi +bci - bd$
 
-Simplifying, we combine the real parts, and then the imaginary parts:
+* Simplifying, we combine the real parts, and then the imaginary parts:
 
 > $(a + bi)(c + di) =$
 > 
