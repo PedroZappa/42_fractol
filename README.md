@@ -42,14 +42,14 @@ ___
 
 ## About
 
-Fract'ol is the first graphics project of the Common Core curriculum. A simple implementation of computer graphics using the `minilibx` a simplified version of `Xlib`.
+**Fract'ol** is the first graphics project of the Common Core curriculum. It is a simple computer graphics program using `minilibx`.
 
 This project is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
 
 ___
 ### `MinilibX`
 
-**MinilibX** is a small library, a simplified version of XLib written in C , designed to introduce students to the **X-Window System**. [^1]
+**MinilibX** is a small library, a simplified version of **XLib** written in C , designed to introduce students to the **X-Window System**. [^1]
 
 `MinilibX` is a simple X-Window (X11R6) API in C designed for students.
 
