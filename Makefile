@@ -11,21 +11,41 @@
 # **************************************************************************** #
 
 #==============================================================================#
+#                                  MAKE CONFIG                                 #
+#==============================================================================#
+
+SHELL := zsh
+
+# Verbose levels
+# 0: Make will be totaly silenced
+# 1: Make will print echos and printf
+# 2: Make will not be silenced but target commands will not be printed
+# 3: Make will print each command
+# 4: Make will print all debug info
+#
+# If no value is specified or an incorrect value is given make will print each
+# command like if VERBOSE was set to 3.
+VERBOSE		= 3
+
+#==============================================================================#
 #                                NAMES & PATHS                                 #
 #==============================================================================#
 
+### Names 
 USER		= passunca
 PROJECT		= $(NAME)
 
 NAME		= fractol
 UNAME 		= $(shell uname)
 
+### Paths
 SRC_PATH	= src
 INC_PATH	= inc
 BUILD_PATH	= .build
 LIBFT_PATH	= $(INC_PATH)/libft
 MLX_PATH 	= $(INC_PATH)/mlx
 
+### Files
 SRC			= $(addprefix $(SRC_PATH)/, main.c ft_help.c ft_sets.c ft_kill.c \
 			  ft_render.c ft_math.c ft_mlx.c ft_args.c ft_utils.c ft_ui.c \
 			  ft_sets_newton.c ft_events_mouse.c ft_events_keys.c ft_color.c)
@@ -33,21 +53,12 @@ SRC			= $(addprefix $(SRC_PATH)/, main.c ft_help.c ft_sets.c ft_kill.c \
 OBJS		= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
 DEPS		= $(OBJS:.o=.d)
 
-LIBINC		= -I$(LIBFT_PATH)
-MLXINC		= -I$(MLX_PATH)
-
+### Archives
 LIBFT_ARC	= $(LIBFT_PATH)/libft.a
 MLX_ARC		= $(MLX_PATH)/libmlx.a
 
-### Verbose Level
-# Level 3 makes Make print each command, 
-# Level 4 makes it prints debug info
-VERBOSE		= 3
-
-SHELL := zsh
-
 #==============================================================================#
-#                            FLAGS & CMDS                                      #
+#                              COMPILER & FLAGS                                #
 #==============================================================================#
 
 CC		= cc
@@ -55,7 +66,7 @@ CC		= cc
 CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
 CFLAGS		+= -lm
-# CFLAGS 		+= -O3
+CFLAGS 		+= -O3
 # Enables fastm memory error detection
 FSANITIZE := -fsanitize=address
 
@@ -69,6 +80,10 @@ ifeq ($(VERBOSE), 4)
 	CFLAGS		+= --debug=v
 endif
 
+#==============================================================================#
+#                                COMMANDS                                      #
+#==============================================================================#
+
 AR			= ar rcs
 RM			= rm -rf
 MKDIR_P		= mkdir -p
@@ -81,7 +96,7 @@ MAKE		= make -C
 
 ##@ Fract'ol Compilation Rules 🏗
 
-all: $(NAME)		## Compile Fract'ol
+all: deps $(NAME)		## Compile Fract'ol
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	@echo -n "$(MAG)█$(D)"
@@ -106,7 +121,7 @@ deps:			## Download/Update libft & mlx
 		else echo "$(YEL)[libft]$(D) folder found"; fi
 	@if test ! -d "$(MLX_PATH)"; then make get_mlx; \
 		else echo "$(YEL)[mlx]$(D) folder found"; fi
-	@make update_modules
+	@echo " $(RED)$(D) [$(GRN)Nothing to be done!$(D)]"
 
 -include $(DEPS)
 
