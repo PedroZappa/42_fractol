@@ -38,6 +38,8 @@ ___
   * [Fractals](#fractals)
     * [Julia Set](#julia-set)
     * [Mandelbrot Set](#mandelbrot-set)
+    * [Tricorn Set](#tricorn-set)
+    * [Burning Ship Set](#burning-ship-set)
 * [Implementation 📜](#implementation-)
   * [`main.c`](#mainc)
 * [Usage 🏁](#usage-)
@@ -54,11 +56,8 @@ ___
 ### Mandatory Features
 
 * The program must take the type of the fractal to be displayed as a parameter and any other relevant option.
-
 * The program must display the fractal in the window powered by `minilibx`.
-
 * The project must contain a `Makefile` that compiles all sources. It must nor relink.
-
 * Global variables are forbidden.
 
 * **Rendering**
@@ -248,6 +247,12 @@ For the Mandelbrot set, we uses different complex numbers for each pixel.
 	* `z` is updated repeatedly following the formula $z = z^2 + c$.
 	* `c` is a complex number defined as: $c = (x + yi)$ where: $i^2 = -1$
 
+___
+#### Tricorn Set
+
+
+___
+#### Burning Ship Set
 
 
 ___
