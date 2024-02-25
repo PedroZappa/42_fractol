@@ -99,7 +99,7 @@ ____
 
 * `a` is the real part:
 * `b` is the imaginary part;
-* and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
+* `i` is the imaginary unit, defined by the equation $i^2 = -1$.
 
 > [!Note]
 >
