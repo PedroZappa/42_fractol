@@ -93,7 +93,7 @@ The X Server receives requests to output graphics on the display (through window
 ____
 ### Complex Numbers
 
-`Complex numbers` are numbers in the form `a + bi` where `a` is the real part and `b` is the imaginary part and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
+`Complex numbers` are numbers in the form `(a + bi)` where `a` is the real part and `b` is the imaginary part and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
 
 The real part of a complex number is mapped to the `x` axis and the imaginary part to the `y` axis describing a 2D grid, the `Complex Plane`. 
 
