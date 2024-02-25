@@ -36,10 +36,10 @@ _NORM_INFO 		= $(BLU)File no:$(D)
 #==============================================================================#
 
 SRC_PATH	= src
-INC_PATH	= inc
+LIBS_PATH	= lib
 BUILD_PATH	= .build
-LIBFT_PATH	= $(INC_PATH)/libft
-MLX_PATH 	= $(INC_PATH)/mlx
+LIBFT_PATH	= $(LIBS_PATH)/libft
+MLX_PATH 	= $(LIBS_PATH)/mlx
 
 ### Files
 SRC			= $(addprefix $(SRC_PATH)/, main.c ft_help.c ft_sets.c ft_kill.c \
@@ -174,7 +174,7 @@ libclean: fclean	## Remove libft & mlx
 	@echo "==> $(GRN)libft successfully removed!$(D)\n"
 	$(RM) $(MLX_PATH)
 	@echo "==> $(GRN)mlx successfully removed!$(D)\n"
-	$(RM) $(INC_PATH)
+	$(RM) $(LIBS_PATH)
 	@echo "==> $(GRN)inc folder successfully removed!$(D)\n"
 
 re: fclean all	## Purge and Recompile

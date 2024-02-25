@@ -55,9 +55,9 @@
 # include <X11/keysym.h>				// Keysym for event handling
 # include <math.h>						// sqrt()
 
-# include "../inc/libft/libft/libft.h"	// Libft library
-# include "../inc/libft/ft_printf/ft_printf.h"
-# include "../inc/mlx/mlx.h"			// MLX library
+# include "../lib/libft/libft/libft.h"	// Libft library
+# include "../lib/libft/ft_printf/ft_printf.h"
+# include "../lib/mlx/mlx.h"			// MLX library
 
 //=============================================================================/
 //                               Structures                                    /
