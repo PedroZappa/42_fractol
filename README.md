@@ -28,14 +28,14 @@ ___
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
   * [Complex Numbers](#complex-numbers)
-  * [Complex Plane](#complex-plane)
-  * [Fractals](#fractals)
   * [Complex Arithmetic](#complex-arithmetic)
     * [Addition](#addition)
     * [Subtraction](#subtraction)
     * [Multiplication](#multiplication)
       * [Complex * Real](#complex--real)
       * [Complex * Complex](#complex--complex)
+  * [Complex Plane](#complex-plane)
+  * [Fractals](#fractals)
 * [Implementation 📜](#implementation-)
   * [`main.c`](#mainc)
 * [Usage 🏁](#usage-)
@@ -142,18 +142,6 @@ ____
 >
 > `i` = $\sqrt-1$
 
-### Complex Plane
-
-We can take complex numbers and plot them in a plane known as the `Complex Plane`.
-
-> This plane is formed by the mapping of the real and imaginary parts of a complex number to a Cartesian coordinate system. The real part mapped to the `x`-axis and the imaginary part to the `y` axis.
-
-___
-### Fractals
-
-
-
-
 ___
 ### Complex Arithmetic
 
@@ -216,6 +204,20 @@ Example:
 > $8 + 15 - 20i + 6i =$
 >
 > $(23 - 14i)$
+
+___
+### Complex Plane
+
+We can take complex numbers and plot them in a plane known as the `Complex Plane`.
+
+> This plane is formed by the mapping of the real and imaginary parts of a complex number to a Cartesian coordinate system. The real part mapped to the `x`-axis and the imaginary part to the `y` axis.
+
+___
+### Fractals
+
+
+
+
 
 ___
 ## Implementation 📜
