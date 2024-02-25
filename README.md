@@ -22,6 +22,9 @@ ___
 <!-- mtoc-start -->
 
 * [About](#about)
+  * [`MinilibX`](#minilibx)
+* [X-Window System](#x-window-system)
+* [X client-server Architecture](#x-client-server-architecture)
   * [The Math ](#the-math-)
     * [Complex Numbers](#complex-numbers)
     * [Complex Arithmetic](#complex-arithmetic)
@@ -31,6 +34,7 @@ ___
         * [Complex * Real](#complex--real)
         * [Complex * Complex](#complex--complex)
 * [Implementation](#implementation)
+  * [`main.c`](#mainc)
 * [Usage](#usage)
 * [License](#license)
 
@@ -42,6 +46,54 @@ Fract'ol is the first graphics project of the Common Core curriculum. A simple i
 
 This project is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
 
+### `MinilibX`
+
+**MinilibX** is a small library, a simplified version of XLib written in C , designed to introduce students to the **X-Window System**. [^1]
+
+`MinilibX` is a simple X-Window (X11R6) API in C designed for students.
+
+## X-Window System
+
+The **X-Window System** is an architecture independent windowing system for bitmap displays that provides a basic framework for creating graphical user interfaces. [^2]
+
+It enables users to draw and move windows on a display using the mouse and keyboard.
+
+> [!Note]
+>
+> In computing, a `bitmap` (also known as `bit array` or `bitmap index`) is a mapping from a given domain (for instance, a range of integers) to bits. [^3]
+
+## X client-server Architecture
+
+X is based on a client-server model: 
+
+> one **X server** connects to multiple **X client** programs.
+```mermaid
+flowchart TB
+	Display[Display]
+	Keys[Keyboard]
+	Mouse[Mouse]
+
+	Keys[Keyboard] --->|input| Xserv[X Server]
+	Mouse[Mouse] --->|input| Xserv
+	Display[Display] <---|output| Xserv
+	subgraph W[User Workstation]
+		Xserv[X Server]
+		Xserv --> X-client[X client1]
+		Xserv --> X-client2[X client2]
+	end
+	subgraph Remote Machine
+		Xserv -->|Network Conn| X-client3[X client3]
+	end
+```
+
+The X Server receives requests to output graphics on the display (through windows) and sends back user input (from a keyboard, mouse, etc).
+
+> [!Note]
+>
+> There are many implementations of the X Window System (Xlib), minilibx being just one among many following the X Consortium standard; [^4]
+> - [Xlib : X Consortium Standard](https://www.x.org/releases/current/doc/libX11/libX11/libX11.html)
+
+____
 ### The Math 
 
 #### Complex Numbers
@@ -114,6 +166,8 @@ Example:
 
 ___
 ## Implementation
+
+### `main.c`
 
 ___
 ## Usage
