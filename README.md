@@ -21,10 +21,10 @@ ___
 
 <!-- mtoc-start -->
 
-* [About](#about)
+* [About 📌](#about-)
   * [Mandatory Features](#mandatory-features)
   * [Bonus Features](#bonus-features)
-  * [MinilibX](#minilibx)
+  * [MinilibX 🪟](#minilibx-)
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
   * [Complex Numbers](#complex-numbers)
@@ -36,15 +36,15 @@ ___
     * [Multiplication](#multiplication)
       * [Complex * Real](#complex--real)
       * [Complex * Complex](#complex--complex)
-* [Implementation](#implementation)
+* [Implementation 📜](#implementation-)
   * [`main.c`](#mainc)
-* [Usage](#usage)
+* [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
 
 <!-- mtoc-end -->
 
-## About
+## About 📌
 
 **Fract'ol** is the first graphics project of the Common Core curriculum. It is a simple computer graphics program using `minilibx`. It is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
 
@@ -84,7 +84,7 @@ ___
 * Make the color range shift
 
 ___
-### MinilibX
+### MinilibX 🪟
 
 **MinilibX** is a small library, a simplified version of **XLib** (X11R6) written in C , designed to introduce students to the **X-Window System**. [^1]
 
@@ -218,12 +218,12 @@ Example:
 > $(23 - 14i)$
 
 ___
-## Implementation
+## Implementation 📜
 
 ### `main.c`
 
 ___
-## Usage
+## Usage 🏁
 
 ___
 # Footnotes
