@@ -49,9 +49,7 @@ This project is an opportunity to learn how to use the mathematical notion of **
 ___
 ### `MinilibX`
 
-**MinilibX** is a small library, a simplified version of **XLib** written in C , designed to introduce students to the **X-Window System**. [^1]
-
-`MinilibX` is a simple X-Window (X11R6) API in C designed for students.
+**MinilibX** is a small library, a simplified version of **XLib** (X11R6) written in C , designed to introduce students to the **X-Window System**. [^1]
 
 ## X-Window System
 
