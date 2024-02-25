@@ -26,6 +26,7 @@ ___
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
   * [Complex Numbers](#complex-numbers)
+  * [Complex Plane](#complex-plane)
   * [Fractals](#fractals)
   * [Complex Arithmetic](#complex-arithmetic)
     * [Addition](#addition)
@@ -100,13 +101,20 @@ ____
 * `b` is the imaginary part;
 * and `i` is the imaginary unit, defined by the equation $i^2 = -1$.
 
-The way we use this notion in this program is:
+> [!Note]
+>
+> The `i` unit is the square root of `-1` $sqrt(-1)$
 
-* We take the real part of a complex number and map it to the `x`-axis of the screen and the imaginary part to the `y` axis;
+### Complex Plane
 
-describe a 2D grid, the `Complex Plane`. 
+We can take complex numbers and plot them in plane known as the `Complex Plane`.
 
+> This plane is formed by the mapping of the real and imaginary parts of a complex number to a Cartesian coordinate system. The real part mapped to the `x`-axis and the imaginary part to the `y` axis.
+
+___
 ### Fractals
+
+
 
 
 ### Complex Arithmetic
