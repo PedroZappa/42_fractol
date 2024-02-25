@@ -16,29 +16,25 @@
 
 SHELL := zsh
 
-# Verbose levels
-# 0: Make will be totaly silenced
-# 1: Make will print echos and printf
-# 2: Make will not be silenced but target commands will not be printed
-# 3: Make will print each command
-# 4: Make will print all debug info
-#
-# If no value is specified or an incorrect value is given make will print each
-# command like if VERBOSE was set to 3.
-VERBOSE		= 3
-
 #==============================================================================#
-#                                NAMES & PATHS                                 #
+#                                     NAMES                                    #
 #==============================================================================#
 
-### Names 
-USER		= passunca
-PROJECT		= $(NAME)
+USER			= passunca
+NAME			= fractol
+UNAME 			= $(shell uname)
 
-NAME		= fractol
-UNAME 		= $(shell uname)
+### Message Vars
+_SUCCESS 		= [$(GRN)SUCCESS$(D)]
+_INFO 			= [$(BLU)INFO$(D)]
+_NORM 			= [$(YEL)Norminette$(D)]
+_NORM_SUCCESS 	= $(GRN)\tOK:$(D)
+_NORM_INFO 		= $(BLU)File no:$(D)
 
-### Paths
+#==============================================================================#
+#                                    PATHS                                     #
+#==============================================================================#
+
 SRC_PATH	= src
 INC_PATH	= inc
 BUILD_PATH	= .build
@@ -74,10 +70,6 @@ ifeq ($(shell uname), Linux)
 	MLXFLAGS		+= -lXext -lX11
 else
 	MLXFLAGS		+= -L./inc/mlx -framework OpenGL -framework AppKit
-endif
-
-ifeq ($(VERBOSE), 4)
-	CFLAGS		+= --debug=v
 endif
 
 #==============================================================================#
@@ -145,15 +137,23 @@ update_modules:	## Update modules
 	git submodule update --recursive --remote
 	@echo "[$(GRN)Submodules successfully updated$(D)]"
 
-##@ Debug & Leak Check Rules 󰃢
+##@ Test, Debug & Leak Check Rules 󰃢
 
-leak: all			## Check for leaks w/ valgrind
-	@valgrind -q --leak-check=full --show-leak-kinds=all \
-		--suppressions=readline_supression ./$(NAME)
+valgrind: 		## Check for leaks w/ valgrind
+	@valgrind -q --leak-check=full --show-leak-kinds=all ./$(NAME)
+
+norm: 		## Run norminette test
+	@printf "${_NORM}\n"
+	@printf "${_NORM_INFO} "
+	@norminette $(SRC_PATH) | wc -l
+	@norminette $(SRC_PATH)
+	@printf "${_NORM_SUCCESS} "
+	@norminette $(SRC_PATH) | grep -wc "OK"
+
 
 ##@ Clean-up Rules 󰃢
 
-clean: 				## Remove object files
+clean: 			## Remove object files
 	@echo "[$(RED)Cleaning $(NAME) objects 󰃢$(D)]"
 	$(RM) $(OBJS)
 	@echo "[$(RED)Cleaning Libft objects 󰃢$(D)]"
@@ -190,8 +190,8 @@ help: 			## Display this help page
 		/^##@/ { \
 			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
 
-.PHONY: deps get_mlx compile_mlx get_libft update_modules leak clean fclean \
-	libclean re
+.PHONY: deps get_mlx compile_mlx get_libft update_modules valgrind clean \
+	fclean libclean re
 
 #==============================================================================#
 #                                  UTILS                                       #
