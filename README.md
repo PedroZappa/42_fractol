@@ -22,7 +22,7 @@ ___
 <!-- mtoc-start -->
 
 * [About](#about)
-  * [`MinilibX`](#minilibx)
+  * [MinilibX](#minilibx)
     * [X-Window System](#x-window-system)
     * [X client-server Architecture](#x-client-server-architecture)
   * [The Math ](#the-math-)
@@ -46,16 +46,14 @@ ___
 **Fract'ol** is the first graphics project of the Common Core curriculum. It is a simple computer graphics program using `minilibx`. It is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
 
 ___
-### `MinilibX`
+### MinilibX
 
 **MinilibX** is a small library, a simplified version of **XLib** (X11R6) written in C , designed to introduce students to the **X-Window System**. [^1]
 
 ___
 #### X-Window System
 
-The **X-Window System** is an architecture independent windowing system for bitmap displays that provides a basic framework for creating graphical user interfaces. [^2]
-
-It enables users to draw and move windows on a display using the mouse and keyboard.
+The **X-Window System** is an architecture independent windowing system for bitmap displays that provides a basic framework for creating graphical user interfaces. [^2] It enables users to draw and move windows on a display using the mouse and keyboard.
 
 > [!Note]
 >
