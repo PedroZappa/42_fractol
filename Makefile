@@ -140,7 +140,7 @@ update_modules:	## Update modules
 ##@ Test, Debug & Leak Check Rules 󰃢
 
 valgrind: 		## Check for leaks w/ valgrind
-	@valgrind -q --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) mandelbrot 42
 
 norm: 		## Run norminette test
 	@printf "${_NORM}\n"
