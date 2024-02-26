@@ -51,6 +51,9 @@ ___
   * [`ft_init.c` : Initialization Functions](#ft_initc--initialization-functions)
     * [`ft_init_display()`](#ft_init_display)
     * [`ft_init_events()`](#ft_init_events)
+      * [`ft_kill_handle()`;](#ft_kill_handle)
+      * [`ft_handle_keys()`;](#ft_handle_keys)
+      * [`ft_handle_mouse()`;](#ft_handle_mouse)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -410,7 +413,7 @@ It initializes:
 * the image pointer into `d->img.img` by calling `mlx_new_image()`;
 * the image pixels into `d->img.pix` by calling `mlx_get_data_addr()`;
 
-> All these calls are properly protected by calls to cleanup functions in case a initialization error problem arises.
+> All these calls are properly protected by calls to cleanup functions in case a initialization error arises.
 
 After everything is properly allocated we proceed to initialize the **event handling** functionality.
 
@@ -418,23 +421,32 @@ ___
 #### `ft_init_events()`
 
 This function initializes three **event handlers** to be triggered when certain events are received:
-* `ft_kill_handle()`;
-	* Listens for `DestroyNotify` event;
-	* Destroys the image data;
-	* Destroys the `mlx` window;
-	* Destroys the `mlx` connection;
-	* Frees the `t_display` pointer to the `mlx_conn`;
-* `ft_handle_keys()`;
-	* Listens for `KeyPress` events;
-	* If <kbd>Escape</kbd> is received, it exits by calling `ft_kill_handle()`;
-	* If the arrow keys are pressed, `ft_handle_offsets()` is called;
-	* If <kbd>PageUp</kbd> or <kbd>PageDown</kbd> are pressed, the `d->iter` is increased or decreased by 1 respectively;
-	* If <kbd>Space</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, <kbd>5</kbd> are pressed, `ft_swith_set()` is called.
-	* If <kbd>Left-Shift</kbd>, <kbd>Right-Shift</kbd>, <kbd>r</kbd>, <kbd>g</kbd> or <kbd>b</kbd> are pressed, `ft_switch_color()` is invoked.
-	* Else if the key press received is not being handled, a message with the keysym value is printed to `stdout`.
-	* If an event was successfully caught `ft_render()` is called causing a re-render.
+
+___
+##### `ft_kill_handle()`;
+* Listens for `DestroyNotify` event;
+* Destroys the image data;
+* Destroys the `mlx` window;
+* Destroys the `mlx` connection;
+* Frees the `t_display` pointer to the `mlx_conn`;
+
+___
+##### `ft_handle_keys()`;
+* Listens for `KeyPress` events;
+* If <kbd>Escape</kbd> is received, it exits by calling `ft_kill_handle()`;
+* If the arrow keys are pressed, `ft_handle_offsets()` is called;
+* If <kbd>PageUp</kbd> or <kbd>PageDown</kbd> are pressed, the `d->iter` is increased or decreased by 1 respectively;
+* If <kbd>Space</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, <kbd>5</kbd> are pressed, `ft_swith_set()` is called.
+* If <kbd>Left-Shift</kbd>, <kbd>Right-Shift</kbd>, <kbd>r</kbd>, <kbd>g</kbd> or <kbd>b</kbd> are pressed, `ft_switch_color()` is invoked.
+* Else if the key press received is not being handled, a message with the keysym value is printed to `stdout`.
+* If an event was successfully caught `ft_render()` is called causing a re-render of the window.
 	
-* `ft_handle_mouse()`;
+___
+##### `ft_handle_mouse()`;
+* Listens for `ButtonPress` events;
+* If the left mouse button is pressed inside the window when on the Mandelbrot set the fractal settings are changed and a re-render is triggered with a Julia set with its `c` set to the current mouse position;
+* Else if the right button is pressed the window re-renders the Mandelbrot set.
+* Else if the mouse wheel is scrolled up or down `ft_handle_zoom()` is called.
 
 
 
