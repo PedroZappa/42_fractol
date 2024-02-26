@@ -42,13 +42,12 @@ ___
     * [Tricorn Set](#tricorn-set)
     * [Burning Ship Set](#burning-ship-set)
 * [Implementation 📜](#implementation-)
-  * [`main.c`](#mainc)
-    * [`t_display` Structure](#t_display-structure)
-    * [Argument Parsing Functions](#argument-parsing-functions)
-      * [`ft_no_args()`  ](#ft_no_args--)
-      * [`ft_args()`  ](#ft_args--)
-        * [`ft_select_fractal()`](#ft_select_fractal)
-        * [`ft_set_args()`](#ft_set_args)
+  * [`t_display` Structure](#t_display-structure)
+  * [Argument Parsing Functions](#argument-parsing-functions)
+    * [`ft_no_args()`  ](#ft_no_args--)
+    * [`ft_args()`  ](#ft_args--)
+      * [`ft_select_fractal()`](#ft_select_fractal)
+      * [`ft_set_args()`](#ft_set_args)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -306,12 +305,10 @@ This modification results in the distinctive "burning ship" appearance of the fr
 ___
 ## Implementation 📜
 
-### `main.c`
-
 Before anything else, `main()` function declares a `t_display` variable named `display` that stores all the necessary data, conveniently packed to be passed around the program.
 
 ___
-#### `t_display` Structure
+### `t_display` Structure
 ```c 
 typedef struct s_display
 {
@@ -342,7 +339,7 @@ typedef struct s_display
 }               t_display;
 ```
 ___
-#### Argument Parsing Functions
+### Argument Parsing Functions
 
 The main logic for argument parsing can be found inside the `ft_args.c` file.
 
@@ -354,11 +351,12 @@ else if (!ft_args(&display, argc, argv))
 	exit(EXIT_FAILURE);
 ```
 ___
-##### `ft_no_args()`  
+#### `ft_no_args()`  
 
 If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
+
 ___
-##### `ft_args()`  
+#### `ft_args()`  
 
 Checks if the arguments passed are valid. 
 
@@ -376,16 +374,16 @@ int	ft_args(t_display *d, int argc, char **argv)
 }
 ```
 ___
-###### `ft_select_fractal()`
+##### `ft_select_fractal()`
 
 This function checks if the fractal type is valid. 
 * If it is, it calls `ft_set_fractal()` and outputs 1.
 * If it is NOT valid it outputs 0.
 
 ___
-###### `ft_set_args()`
+##### `ft_set_args()`
 
-Here we make sure we got the right number of arguments and check if they are the right type before it starts rendering.
+Here we make sure we got the right number of arguments and check if they are the right type before the program initializes anything.
 
 * First checks the iterations argument:
 	* If the 2nd argument is a valid input for the number of iterations, we set it to `d->iter`. In case it is a negative value a default value is set instead.
@@ -395,6 +393,7 @@ Here we make sure we got the right number of arguments and check if they are the
 	* If the input arguments are a valid doubles we set them to `d->c_julia.r` and `d->c_julia.i`.
 	* Otherwise the program prints an error to `stderr` and exits.
 
+___
 
 
 
