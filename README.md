@@ -356,12 +356,22 @@ ___
 If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
 ___
 ##### `ft_args()`  
-
+```c
+int	ft_args(t_display *d, int argc, char **argv)
+{
+	if (!ft_select_fractal(d, argc, argv))
+		return (ft_invalid_args(argv[1]));
+	if (!ft_set_args(d, argc, argv))
+		return (0);
+	return (1);
+}
+```
 Checks if the arguments passed are valid. 
 
 * First checks if the fractal type is valid.
 * Then attempts to set the input arguments:
 
+___
 ###### `ft_set_args()`
 
 Here we make sure we got the right number of arguments and check if they are the right type before it starts rendering.
