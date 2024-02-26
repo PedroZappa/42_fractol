@@ -214,7 +214,12 @@ Here is an example on how to expand a squared complex number:
 
 > $(a + bi)^2 =$
 >
-> (a^2 - b^2) + (2ab)i)$
+> $(a * a) + (a * bi) + (a * bi) - (bi * bi)$
+>
+> $(a^2 - bi^2) + 2(a * bi))$
+
+* The real part is $a^2 - b^2$;
+* The imaginary part is $2(a * bi)$;
 
 ___
 ### Complex Plane
