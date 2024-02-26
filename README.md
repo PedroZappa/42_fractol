@@ -49,6 +49,8 @@ ___
       * [`ft_select_fractal()`](#ft_select_fractal)
       * [`ft_set_args()`](#ft_set_args)
   * [`ft_init.c` : Initialization Functions](#ft_initc--initialization-functions)
+    * [`ft_init_display()`](#ft_init_display)
+    * [`ft_init_events()`](#ft_init_events)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -400,10 +402,17 @@ ___
 After all validation tests are passed, the program calls `ft_init_display()` 
 
 It initializes:
-* the `mlx` connection into `d->mlx_conn`;
-* 
+* the `mlx` connection into `d->mlx_conn` by calling `mlx_init()`;
+* the `mlx` window into `d->mlx_win` by calling `mlx_new_window()`;
+* the image into `d->img.img` by calling `mlx_new_image()`;
+* the image pixels into `d->img.pix` by calling `mlx_get_data_addr()`;
 
+> All these calls are properly protected by calls to cleanup functions in case a initialization error problem arises.
 
+After everything is properly allocated we proceed to initialize the **event handling** functionality.
+
+#### `ft_init_display()`
+#### `ft_init_events()`
 
 
 
