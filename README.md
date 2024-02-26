@@ -44,6 +44,9 @@ ___
 * [Implementation 📜](#implementation-)
   * [`main.c`](#mainc)
     * [`t_display` Structure](#t_display-structure)
+    * [Argument Parsing Functions](#argument-parsing-functions)
+      * [`ft_no_args()`  ](#ft_no_args--)
+      * [`ft_args()`  ](#ft_args--)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -336,6 +339,15 @@ typedef struct s_display
 	int         color;       // Stores a color for the Newton fractal
 }               t_display;
 ```
+___
+#### Argument Parsing Functions
+
+The `ft_no_args()` and `ft_args()` functions are used to parse the input arguments and ensure that if there is something wrong the program exits correctly (without memory leaks).
+___
+##### `ft_no_args()`  
+
+___
+##### `ft_args()`  
 
 
 ___
