@@ -308,7 +308,7 @@ This modification results in the distinctive "burning ship" appearance of the fr
 ___
 ## Implementation 📜
 
-Before anything else, `main()` function declares a `t_display` variable named `display` that stores all the necessary data, conveniently packed to be passed around the program.
+Before anything else, the `main()` function declares a `t_display` variable named `display` that stores all the necessary data, conveniently packed to be passed around the program.
 
 ___
 ### `t_display` Structure
@@ -344,7 +344,7 @@ typedef struct s_display
 ___
 ### `ft_args.c` : Argument Parsing Functions
 
-The main logic for argument parsing can be found inside the `ft_args.c` file.
+> The main logic for argument parsing can be found inside the `ft_args.c` file.
 
 `ft_no_args()` and `ft_args()` are used to parse the input arguments and ensure that if there is something wrong the program exits correctly (without memory leaks).
 ```c
@@ -356,12 +356,12 @@ else if (!ft_args(&display, argc, argv))
 ___
 #### `ft_no_args()`  
 
-If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
+> If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
 
 ___
 #### `ft_args()`  
 
-Checks if the arguments passed are valid. 
+> Checks if the arguments passed are valid. 
 
 * First checks if the fractal type is valid.
 * Then attempts to set the input arguments:
@@ -390,16 +390,16 @@ Here we make sure we got the right number of arguments and check if they are the
 
 * First checks the iterations argument:
 	* If the 2nd argument is a valid input for the number of iterations, we set it to `d->iter`. In case it is a negative value a default value is set instead.
-	* Otherwise the program prints and error to `stderr` and exits.
+	* Otherwise the program prints an error to `stderr` and exits.
 
-* Then we check for the case in which we get a complex number as the third and fourth arguments.
+* Then we check for the Julia case in which we get a complex number as the third and fourth arguments.
 	* If the input arguments are a valid doubles we set them to `d->c_julia.r` and `d->c_julia.i`.
 	* Otherwise the program prints an error to `stderr` and exits.
 
 ___
 ### `ft_init.c` : Initialization Functions
 
-After all validation tests are passed, the program calls `ft_init_display()` 
+> After all validation tests are passed, the program calls `ft_init_display()`. 
 
 ___
 #### `ft_init_display()`
