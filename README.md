@@ -47,6 +47,7 @@ ___
     * [Argument Parsing Functions](#argument-parsing-functions)
       * [`ft_no_args()`  ](#ft_no_args--)
       * [`ft_args()`  ](#ft_args--)
+        * [`ft_select_fractal()`](#ft_select_fractal)
         * [`ft_set_args()`](#ft_set_args)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
@@ -343,7 +344,9 @@ typedef struct s_display
 ___
 #### Argument Parsing Functions
 
-The `ft_no_args()` and `ft_args()` functions are used to parse the input arguments and ensure that if there is something wrong the program exits correctly (without memory leaks).
+The main logic for argument parsing can be found inside the `ft_args.c` file.
+
+`ft_no_args()` and `ft_args()` are used to parse the input arguments and ensure that if there is something wrong the program exits correctly (without memory leaks).
 ```c
 if (argc < 2)
 	return (ft_no_args());
@@ -356,6 +359,12 @@ ___
 If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
 ___
 ##### `ft_args()`  
+
+Checks if the arguments passed are valid. 
+
+* First checks if the fractal type is valid.
+* Then attempts to set the input arguments:
+
 ```c
 int	ft_args(t_display *d, int argc, char **argv)
 {
@@ -366,10 +375,12 @@ int	ft_args(t_display *d, int argc, char **argv)
 	return (1);
 }
 ```
-Checks if the arguments passed are valid. 
+___
+###### `ft_select_fractal()`
 
-* First checks if the fractal type is valid.
-* Then attempts to set the input arguments:
+This function checks if the fractal type is valid. 
+* If it is, it calls `ft_set_fractal()` and outputs 1.
+* If it is NOT valid it outputs 0.
 
 ___
 ###### `ft_set_args()`
@@ -393,7 +404,6 @@ Here we make sure we got the right number of arguments and check if they are the
 
 
 
-If not, it prints an error to `stderr`, displays the help page and exits cleanly.
 
 ___
 ## Usage 🏁
