@@ -18,27 +18,27 @@
  *		mlx_new_image() : Creates a new image;
  *		Setup event listening
  *	*/
-void	ft_init_display(t_display *display, char **argv)
+void	ft_init_display(t_display *d, char **argv)
 {
-	display->mlx_conn = mlx_init();
-	if (!display->mlx_conn)
+	d->mlx_conn = mlx_init();
+	if (!d->mlx_conn)
 	{
-		free(display->mlx_conn);
-		free(display);
+		free(d->mlx_conn);
+		free(d);
 		ft_error();
 	}
-	display->mlx_win = mlx_new_window
-		(display->mlx_conn, WIDTH, HEIGHT, "Fracto'l");
-	if (!display->mlx_win)
-		ft_clean_kill(display);
-	display->img.img = mlx_new_image(display->mlx_conn, WIDTH, HEIGHT);
-	if (!display->img.img)
-		ft_kill_window(display);
-	display->img.pix = mlx_get_data_addr
-		(display->img.img, &display->img.bpp, &display->img.line_len,
-			&display->img.endian);
-	ft_events_init(display);
-	ft_init_data(display, argv);
+	d->mlx_win = mlx_new_window
+		(d->mlx_conn, WIDTH, HEIGHT, "Fracto'l");
+	if (!d->mlx_win)
+		ft_clean_kill(d);
+	d->img.img = mlx_new_image(d->mlx_conn, WIDTH, HEIGHT);
+	if (!d->img.img)
+		ft_kill_window(d);
+	d->img.pix = mlx_get_data_addr
+		(d->img.img, &d->img.bpp, &d->img.line_len,
+			&d->img.endian);
+	ft_events_init(d);
+	ft_init_data(d, argv);
 }
 
 /*	Setup hook for pressed keys;
@@ -53,32 +53,32 @@ void	ft_events_init(t_display *d)
 }
 
 /*	ft_init_data : Initializes t_display's data
- *		Set display->escape to 4.0, c² (See Pythagorean theorem)
- *		Set display->iter to 420 iterations as a default
+ *		Set d->escape to 4.0, c² (See Pythagorean theorem)
+ *		Set d->iter to 420 iterations as a default
  *		Sets Initial x and y offset 0.0
  *		Set Zoom to 1 so it can be used as a factor in multiplications
  *	*/
-void	ft_init_data(t_display *display, char **argv)
+void	ft_init_data(t_display *d, char **argv)
 {
-	display->height = HEIGHT;
-	display->width = WIDTH;
-	display->name = display->name;
-	display->escape = 4.0;
-	display->x_offset = 0.0;
-	display->y_offset = 0.0;
-	display->zoom = SCALE_FACTOR;
-	display->z = ft_init_complex(0.0, 0.0);
-	display->c = ft_init_complex(0.0, 0.0);
-	if (display->set == JULIA)
-		display->c = ft_init_complex(ft_atod(argv[3]), ft_atod(argv[4]));
+	d->height = HEIGHT;
+	d->width = WIDTH;
+	d->name = d->name;
+	d->escape = 4.0;
+	d->x_offset = 0.0;
+	d->y_offset = 0.0;
+	d->zoom = SCALE_FACTOR;
+	d->z = ft_init_complex(0.0, 0.0);
+	d->c = ft_init_complex(0.0, 0.0);
+	if (d->set == JULIA)
+		d->c = ft_init_complex(ft_atod(argv[3]), ft_atod(argv[4]));
 	else
-		display->c_julia = ft_init_complex(0.0, 0.0);
-	display->win_size = ft_init_range(0, WIDTH);
-	display->frac_range = ft_init_range(MIN_R, MAX_R);
-	display->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
-	display->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
-	display->color = HEX_BLACK;
-	display->newton_esc = NEWTON_ESC;
+		d->c_julia = ft_init_complex(0.0, 0.0);
+	d->win_size = ft_init_range(0, WIDTH);
+	d->frac_range = ft_init_range(MIN_R, MAX_R);
+	d->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
+	d->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
+	d->color = HEX_BLACK;
+	d->newton_esc = NEWTON_ESC;
 }
 
 t_complex	ft_init_complex(double r, double i)
