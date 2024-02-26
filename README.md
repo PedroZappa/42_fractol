@@ -261,6 +261,10 @@ The Tricorn fractal is a variant of the Mandelbrot set and is characterized by i
 * $\overline{z}$ represents the complex conjugate of `z`. 
 * `c` is a complex constant that varies for each pixel in the image.
 
+> [!Note]
+> To get the `complex conjugate` of a complex number `(a + bi)`, we simply invert the sign of the imaginary part like so: `(a - bi)`
+>
+> For example: The conjugate of `(4 + 7i)` is `(4 - 7i)`.
 ___
 #### Burning Ship Set
 
