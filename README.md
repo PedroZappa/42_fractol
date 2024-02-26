@@ -256,7 +256,7 @@ There are infinitely many Julia sets. To generate them, we use the same complex 
 
 * For each pixel in the image:
 	* `z` is initially set to 0.
-	* `z` is updated repeatedly following the formula $z = z^2 + c$.
+	* `z` is updated repeatedly following the formula $z_{n+1} = z^2 + c$.
 	* `c` is a complex number that seeds a specific Julia set.
 
 ___
@@ -264,7 +264,7 @@ ___
 
 > **Formula** :  $f(z_{n+1}) = z_n^2 + c$
 
-For the Mandelbrot set, we uses different complex numbers for each pixel. It is the one map to all Julia sets.
+For the Mandelbrot set, we use different complex numbers for each pixel. It is the one map to all Julia sets.
 
 * For each pixel in the image:
 	* `z` is initially set to 0.
