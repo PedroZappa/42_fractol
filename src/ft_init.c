@@ -37,7 +37,7 @@ void	ft_init_display(t_display *d, char **argv)
 	d->img.pix = mlx_get_data_addr
 		(d->img.img, &d->img.bpp, &d->img.line_len,
 			&d->img.endian);
-	ft_events_init(d);
+	ft_init_events(d);
 	ft_init_data(d, argv);
 }
 
@@ -45,7 +45,7 @@ void	ft_init_display(t_display *d, char **argv)
 *	Setup hook for mouse clicks;
 *	Setup hook to listen clicking X on the window
  *	*/
-void	ft_events_init(t_display *d)
+void	ft_init_events(t_display *d)
 {
 	mlx_hook(d->mlx_win, DestroyNotify, StructureNotifyMask, ft_kill_handle, d);
 	mlx_hook(d->mlx_win, KeyPress, KeyPressMask, ft_handle_keys, d);
