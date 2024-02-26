@@ -232,7 +232,7 @@ ___
 
 > **Formula** :  $f(z_{n+1}) = z^2 + c$
 
-For the Julia set, we use the same complex number `c` for all pixels. There are infinitely many Julia sets.
+There are infinitely many Julia sets. To generate them, we use the same complex number `c` for all pixels. 
 
 * For each pixel in the image:
 	* `z` is initially set to 0.
