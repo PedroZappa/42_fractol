@@ -308,7 +308,7 @@ ___
 
 ### `main.c`
 
-The `main()` function of the program declares a `t_display` variable named `display` that stores all the necessary data, conveniently packed to be passed around the program.
+Before anything else, `main()` function declares a `t_display` variable named `display` that stores all the necessary data, conveniently packed to be passed around the program.
 
 ___
 #### `t_display` Structure
