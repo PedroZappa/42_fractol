@@ -141,7 +141,7 @@ ____
 
 > [!Note]
 >
-> `i` = $\sqrt-1$
+> $i = \sqrt-1$
 
 ___
 ### Complex Arithmetic
