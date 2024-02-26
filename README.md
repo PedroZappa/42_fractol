@@ -43,11 +43,12 @@ ___
     * [Burning Ship Set](#burning-ship-set)
 * [Implementation 📜](#implementation-)
   * [`t_display` Structure](#t_display-structure)
-  * [Argument Parsing Functions](#argument-parsing-functions)
+  * [`ft_args.c` : Argument Parsing Functions](#ft_argsc--argument-parsing-functions)
     * [`ft_no_args()`  ](#ft_no_args--)
     * [`ft_args()`  ](#ft_args--)
       * [`ft_select_fractal()`](#ft_select_fractal)
       * [`ft_set_args()`](#ft_set_args)
+  * [`ft_init.c` : Initialization Functions](#ft_initc--initialization-functions)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -339,7 +340,7 @@ typedef struct s_display
 }               t_display;
 ```
 ___
-### Argument Parsing Functions
+### `ft_args.c` : Argument Parsing Functions
 
 The main logic for argument parsing can be found inside the `ft_args.c` file.
 
@@ -394,7 +395,13 @@ Here we make sure we got the right number of arguments and check if they are the
 	* Otherwise the program prints an error to `stderr` and exits.
 
 ___
+### `ft_init.c` : Initialization Functions
 
+After all validation tests are passed, the program calls `ft_init_display()` 
+
+It initializes:
+* the `mlx` connection into `d->mlx_conn`;
+* 
 
 
 
