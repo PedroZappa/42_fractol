@@ -379,14 +379,14 @@ int	ft_args(t_display *d, int argc, char **argv)
 ___
 ##### `ft_select_fractal()`
 
-This function checks if the fractal type is valid. 
+> This function checks if the fractal type is valid. 
 * If it is, it calls `ft_set_fractal()` and outputs 1.
 * If it is NOT valid it outputs 0.
 
 ___
 ##### `ft_set_args()`
 
-Here we make sure we got the right number of arguments and check if they are the right type before the program initializes anything.
+> Here we make sure we got the right number of arguments and check if they are the right type before the program initializes anything.
 
 * First checks the iterations argument:
 	* If the 2nd argument is a valid input for the number of iterations, we set it to `d->iter`. In case it is a negative value a default value is set instead.
