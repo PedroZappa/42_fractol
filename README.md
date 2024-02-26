@@ -56,10 +56,11 @@ ___
 ___
 ### Mandatory Features
 
-* The program must take the type of the fractal to be displayed as a parameter and any other relevant option.
-* The program must display the fractal in the window powered by `minilibx`.
-* The project must contain a `Makefile` that compiles all sources. It must nor relink.
-* Global variables are forbidden.
+* **General**
+	* The program must take the type of the fractal to be displayed as a parameter and any other relevant option.
+	* The program must display the fractal in the window powered by `minilibx`.
+	* The project must contain a `Makefile` that compiles all sources. It must not relink.
+	* Global variables are forbidden.
 
 * **Rendering**
 	* The program must offer the Julia and Mandelbrot sets.
