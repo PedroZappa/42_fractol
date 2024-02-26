@@ -98,20 +98,8 @@ typedef struct s_range
 	double		max;
 }				t_range;
 
-/* X Environment Structure
- *	// MLX variables
- *		mlx_conn:	Stores pointer to the MLX connection
- * 		mlx_win:	Stores pointer to the MLX window
- *	// Image variables
- *		name:		Fractal Name
- * 		img:		Pointer to image struct data
- * 		iter:		Number of iterations; determines the depth of the fractal
- *		escape:		Escape radius (hypothenuse) to stop the iteration
- *		x_offset:	Sets how much to shift on x-axis
- *		y_offset:	Sets how much to shift on y-axis
- * 	// Math Vars
- *		z:			Complex number z
- *		c:			Complex number c
+/* t_display : X Environment Structure
+ *		Check README.md for details
  *	*/
 typedef struct s_display
 {
