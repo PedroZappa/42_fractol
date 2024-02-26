@@ -414,10 +414,27 @@ It initializes:
 
 After everything is properly allocated we proceed to initialize the **event handling** functionality.
 
-
-
+___
 #### `ft_init_events()`
 
+This function initializes three **event handlers** to be triggered when certain events are received:
+* `ft_kill_handle()`;
+	* Listens for `DestroyNotify` event;
+	* Destroys the image data;
+	* Destroys the `mlx` window;
+	* Destroys the `mlx` connection;
+	* Frees the `t_display` pointer to the `mlx_conn`;
+* `ft_handle_keys()`;
+	* Listens for `KeyPress` events;
+	* If <kbd>Escape</kbd> is received, it exits by calling `ft_kill_handle()`;
+	* If the arrow keys are pressed, `ft_handle_offsets()` is called;
+	* If <kbd>PageUp</kbd> or <kbd>PageDown</kbd> are pressed, the `d->iter` is increased or decreased by 1 respectively;
+	* If <kbd>Space</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, <kbd>5</kbd> are pressed, `ft_swith_set()` is called.
+	* If <kbd>Left-Shift</kbd>, <kbd>Right-Shift</kbd>, <kbd>r</kbd>, <kbd>g</kbd> or <kbd>b</kbd> are pressed, `ft_switch_color()` is invoked.
+	* Else if the key press received is not being handled, a message with the keysym value is printed to `stdout`.
+	* If an event was successfully caught `ft_render()` is called causing a re-render.
+	
+* `ft_handle_mouse()`;
 
 
 
