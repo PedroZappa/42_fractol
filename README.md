@@ -149,6 +149,7 @@ ___
 
 Like with real numbers, we can perform **arithmetic** on complex numbers.
 
+___
 #### Addition
 
 > $(a + bi) + (c + di) = (a + c) + (b + d)i$
@@ -161,14 +162,17 @@ Example of how to add two complex numbers:
 >
 > $(5 + i)$
 
+___
 #### Subtraction
 
 > $(a + bi) - (c + di) = (a - c) + (b - d)i$
 
+___
 #### Multiplication
 
 Multiplication is similar to multiplying binomials but with complex numbers we work with the real and imaginary parts separately.
 
+___
 ##### Complex * Real
 
 > $c(a + bi) = (c * a) + (c * b)i$
@@ -181,6 +185,7 @@ Example:
 >
 > $(18 * 6i)$ # Simplify
 
+___
 ##### Complex * Complex
 
 > $(a + bi)(c + di) = ac + adi + bci + bdi^2$
@@ -207,7 +212,7 @@ Example:
 >
 > $(23 - 14i)$
 
-
+___
 #### Expanding a Complex Number
 
 Here is an example on how to expand a squared complex number:
