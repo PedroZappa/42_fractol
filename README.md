@@ -172,7 +172,6 @@ ___
 
 Multiplication is similar to multiplying binomials but with complex numbers we work with the real and imaginary parts separately.
 
-___
 ##### Complex * Real
 
 > $c(a + bi) = (c * a) + (c * b)i$
@@ -192,7 +191,7 @@ ___
 
 * Because $i^2 = -1$, we can simplify the expression to:
 
-> $(a + bi)(c + di) = ac + adi +bci - bd$
+> $(a + bi)(c + di) = ac + adi + bci - bd$
 
 * Simplifying, we combine the real parts, and then the imaginary parts:
 
@@ -223,7 +222,7 @@ Here is an example on how to expand a squared complex number:
 >
 > $(a^2 - bi^2) + 2(a * bi))$
 
-* The real part is $a^2 - b^2$;
+* The real part is $(a^2 - b^2)$;
 * The imaginary part is $2(a * bi)$;
 
 ___
