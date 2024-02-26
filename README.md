@@ -43,6 +43,7 @@ ___
     * [Burning Ship Set](#burning-ship-set)
 * [Implementation 📜](#implementation-)
   * [`main.c`](#mainc)
+    * [`t_display` Structure](#t_display-structure)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -301,6 +302,40 @@ ___
 ## Implementation 📜
 
 ### `main.c`
+
+The `main()` function of the program declares a `t_display` variable named `display` that stores all the necessary data, conveniently packed to be passed around the program.
+
+#### `t_display` Structure
+```c 
+typedef struct s_display
+{
+	// mlx Data
+	void        *mlx_conn;   // Stores pointer to mlx connection
+	void        *mlx_win;    // Stores pointer to mlx window
+	t_img       img;         // Stores the image data
+	int         width;       // Stores the width of the window
+	int         height;      // Stores the height of the window
+	t_range     win_size;    // Stores the size of the window
+	double      x_offset;    // Stores how much to shift when moving the view 
+	double      y_offset;    // Stores how much to shift when moving the view
+	double      zoom;        // Stores the zoom factor
+	// Fractal Data
+	char        *name;       // Stores the name of the fractal
+	int         set;         // Stores the type of fractal
+	long        iter;        // Stores the number of iterations
+	t_complex   z;           // Stores z for Mandelbrot/Julia/Tricorn/Burning Ship
+	t_complex   c;           // Stores c for Mandelbrot/Tricorn/Burning Ship
+	t_complex   c_julia;     // Stores c for Julia
+	t_complex   z_newton;    // Stores z for Newton
+	t_range     frac_range;  // Stores the range of the complex plane
+	double      escape;      // Stores the complex plane escape value
+	double      newton_esc;  // Stores escape value for Newton
+	t_range     color_iter;  // Stores a range of 0 to n iterations 
+	t_range     color_range; // Stores a range from black to white
+	int         color;       // Stores a color for the Newton fractal
+}               t_display;
+```
+
 
 ___
 ## Usage 🏁
