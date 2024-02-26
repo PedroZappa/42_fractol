@@ -47,6 +47,7 @@ ___
     * [Argument Parsing Functions](#argument-parsing-functions)
       * [`ft_no_args()`  ](#ft_no_args--)
       * [`ft_args()`  ](#ft_args--)
+        * [`ft_set_args()`](#ft_set_args)
 * [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 * [License](#license)
@@ -343,12 +344,46 @@ ___
 #### Argument Parsing Functions
 
 The `ft_no_args()` and `ft_args()` functions are used to parse the input arguments and ensure that if there is something wrong the program exits correctly (without memory leaks).
+```c
+if (argc < 2)
+	return (ft_no_args());
+else if (!ft_args(&display, argc, argv))
+	exit(EXIT_FAILURE);
+```
 ___
 ##### `ft_no_args()`  
 
+If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
 ___
 ##### `ft_args()`  
 
+Checks if the arguments passed are valid. 
+
+* First checks if the fractal type is valid.
+* Then attempts to set the input arguments:
+
+###### `ft_set_args()`
+
+Here we make sure we got the right number of arguments and check if they are the right type before it starts rendering.
+
+* First checks the iterations argument:
+	* If the 2nd argument is a valid input for the number of iterations, we set it to `d->iter`. In case it is a negative value a default value is set instead.
+	* Otherwise the program prints and error to `stderr` and exits.
+
+* Then we check for the case in which we get a complex number as the third and fourth arguments.
+	* If the input arguments are a valid doubles we set them to `d->c_julia.r` and `d->c_julia.i`.
+	* Otherwise the program prints an error to `stderr` and exits.
+
+
+
+
+
+
+
+
+
+
+If not, it prints an error to `stderr`, displays the help page and exits cleanly.
 
 ___
 ## Usage 🏁
