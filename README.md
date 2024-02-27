@@ -293,7 +293,7 @@ The Tricorn fractal is a variant of the Mandelbrot set and is characterized by i
 * `c` is a complex constant that varies for each pixel in the image.
 
 > [!Note]
-> To get the `complex conjugate` of a complex number `(a + bi)`, we simply invert the sign of the imaginary part like so: `(a - bi)`
+> To get the `complex conjugate` of a complex number $z = (a + bi)$, we simply invert the sign of the imaginary part like so: $\overline{z}(a - bi)$
 >
 > For example: The conjugate of `(4 + 7i)` is `(4 - 7i)`.
 ___
