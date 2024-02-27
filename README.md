@@ -359,7 +359,9 @@ else if (!ft_args(&display, argc, argv))
 ___
 #### `ft_no_args()`  
 
-> If the program is passed no arguments, it prints an error to `stderr`, displays the help page and exits cleanly.
+> If the program is passed no arguments:
+* It prints an error to `stderr`;
+* Displays the help page and exits cleanly.
 
 ___
 #### `ft_args()`  
