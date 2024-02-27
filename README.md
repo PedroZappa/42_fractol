@@ -368,9 +368,6 @@ ___
 
 > Checks if the arguments passed are valid. 
 
-* First checks if the fractal type is valid.
-* Then attempts to set the input arguments:
-
 ```c
 int	ft_args(t_display *d, int argc, char **argv)
 {
@@ -381,6 +378,10 @@ int	ft_args(t_display *d, int argc, char **argv)
 	return (1);
 }
 ```
+
+* First checks if the fractal type selected is valid.
+* Then attempts to set the input arguments:
+
 ___
 ##### `ft_select_fractal()`
 
