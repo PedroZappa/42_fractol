@@ -55,6 +55,7 @@ ___
       * [`ft_handle_keys()`;](#ft_handle_keys)
       * [`ft_handle_mouse()`;](#ft_handle_mouse)
     * [`ft_init_data()`](#ft_init_data)
+    * [`ft_usage()`](#ft_usage)
 
 <!-- mtoc-end -->
 
@@ -485,3 +486,7 @@ In this function we initialize the data inside the `t_display` structure to be p
 
 > Check out [ft_init.c](https://github.com/PedroZappa/42_fractol/blob/main/src/ft_init.c) and [fractol.h](https://github.com/PedroZappa/42_fractol/blob/main/src/fractol.h) for a closer look at what is being initialized and to what values.
 
+___
+#### `ft_usage()`
+
+The `ft_usage()` function prints the usage of the program to `stdout`.
