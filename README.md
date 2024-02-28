@@ -513,8 +513,8 @@ This is where the pixel-by-pixel drawing of the window takes place.
 ft_render(&display);
 ```
 * It iterates over each pixel in the window;
-* Selects the rendering function based on the type of the fractal;
-* For each pixel it evaluates the selected rendering function;
+* Selects the rendering function based on the chosen fractal type;
+* For each pixel it evaluates the function describing the selected set;
 ```c
 while (++y <= HEIGHT)
 {
@@ -525,6 +525,10 @@ while (++y <= HEIGHT)
 }
 ft_printf("\t%sComplete!%s\n", MAG, NC);
 ```
+
+
+
+
 
 ___
 ## Footnotes
