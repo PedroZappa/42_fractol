@@ -481,3 +481,7 @@ Now that we got the X connection, the window and event handling up and running a
 ___
 #### `ft_init_data()`
 
+In this function we initialize the data inside the `t_display` structure to be passed and used by the program.
+
+> Take a look at [ft_init.c](https://github.com/PedroZappa/42_fractol/blob/main/src/ft_init.c) the [fractol.h](https://github.com/PedroZappa/42_fractol/blob/main/src/fractol.h)
+
