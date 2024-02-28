@@ -62,7 +62,7 @@ ___
 
 ## About 📌
 
-> **Fract'ol** is the first graphics project of the Common Core curriculum. It is a simple computer graphics program using `minilibx`. It is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
+> **Fract'ol** is the first computer graphics project of the Common Core curriculum. It is a simple graphics program using `minilibx`. It is an opportunity to learn how to use the mathematical notion of **complex numbers**, have a first contact with the concept of **optimization** in computer graphics, and **event handling**. 
 
 ___
 ### Mandatory Features
