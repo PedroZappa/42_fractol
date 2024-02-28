@@ -457,5 +457,5 @@ ___
 > * Adjusting the view's scale, by changing the `d->zoom` factor;
 >
 > **Mouse Position & Zoom Center**
->  
-
+> The `x` and `y` coordinates of the mouse are used to determine the zoom center;
+> * This is done by mapping the mouse position to the range of the complex plane;
