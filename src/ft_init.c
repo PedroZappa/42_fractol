@@ -74,7 +74,7 @@ void	ft_init_data(t_display *d, char **argv)
 	else
 		d->c_julia = ft_init_complex(0.0, 0.0);
 	d->win_size = ft_init_range(0, WIDTH);
-	d->frac_range = ft_init_range(MIN_R, MAX_R);
+	d->cc_range = ft_init_range(MIN_R, MAX_R);
 	d->color_iter = ft_init_range(HEX_BLACK, INIT_ITER);
 	d->color_range = ft_init_range(HEX_BLACK, HEX_WHITE);
 	d->color = HEX_BLACK;

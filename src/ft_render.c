@@ -59,10 +59,10 @@ void	ft_select_set(t_display *d, int x, int y)
 
 static void	ft_set_range(t_display *d, t_complex *c, int x, int y)
 {
-	c->r = (ft_map(x, d->win_size, d->frac_range) * d->zoom) + d->x_offset;
-	d->frac_range.min = -2.0;
-	d->frac_range.max = 2.0;
-	c->i = (ft_map(y, d->win_size, d->frac_range) * d->zoom) + d->y_offset;
+	c->r = (ft_map(x, d->win_size, d->cc_range) * d->zoom) + d->x_offset;
+	d->cc_range.min = -2.0;
+	d->cc_range.max = 2.0;
+	c->i = (ft_map(y, d->win_size, d->cc_range) * d->zoom) + d->y_offset;
 }
 
 /*	ft_put_pixel : Puts a pixel to the d
