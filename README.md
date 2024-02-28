@@ -80,7 +80,7 @@ ___
 	* Global variables are forbidden.
 
 * **Rendering**
-	* The program must offer the Julia and Mandelbrot sets.
+	* The program must offer the **Julia** and **Mandelbrot** sets.
 	* The mouse wheel zooms in and out almost infinitely, within the limits of the computer.
 	* A different Julia set must be rendered if the program is passed the appropriate parameters.
 	* A parameter passed on startup must be the type of the fractal to be rendered.
