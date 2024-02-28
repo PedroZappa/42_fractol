@@ -459,10 +459,12 @@ ___
 > * Adjusting the view's scale, by changing the `d->zoom` factor;
 >
 > **Mouse Position & Zoom Center**
+>
 > The `x` and `y` coordinates of the mouse are used to determine the zoom center;
 > * This is done by mapping the mouse position to the range of the complex plane;
 >
 > **Zoom Factor & Scaling**
+>
 > * The zoom factor (SCALE_FACTOR) determines how much the view is scaled with each zoom operation.
 > * Increasing the zoom level enlarges the view, and decreasing it shrinks the view. The fabs function is used to ensure that the scale factor is always positive, regardless of the current zoom level.
 
