@@ -466,7 +466,8 @@ ___
 > **Zoom Factor & Scaling**
 >
 > * The zoom factor (`SCALE_FACTOR`) determines how much the view is scaled with each zoom operation.
-> * Increasing the zoom level enlarges the view, and decreasing it shrinks the view. 
+> * Increasing the zoom level, divides `d->zoom` value by the `SCALE_FACTOR`, enlarging the view;
+> * Decreasing the zoom level, multiplies `d->zoom` value by the `SCALE_FACTOR`, shrinking the view. 
 > * `fabs()` is used to ensure that the scale factor is always positive, regardless of the current zoom level.
 >
 > **Offset Adjustment** 
