@@ -42,7 +42,7 @@ LIBFT_PATH	= $(LIBS_PATH)/libft
 MLX_PATH 	= $(LIBS_PATH)/mlx
 
 ### Files
-SRC			= $(addprefix $(SRC_PATH)/, main.c ft_help.c ft_sets.c ft_kill.c \
+SRC			= $(addprefix $(SRC_PATH)/, main.c ft_usage.c ft_sets.c ft_kill.c \
 			  ft_render.c ft_math.c ft_init.c ft_args.c ft_utils.c ft_ui.c \
 			  ft_sets_newton.c ft_events_mouse.c ft_events_keys.c ft_color.c)
 
