@@ -59,6 +59,7 @@ ___
     * [`ft_render()`](#ft_render)
     * [`mlx_loop()`](#mlx_loop)
 * [Usage 🏁](#usage-)
+* [Testing 🧪 ](#testing--)
 * [Footnotes](#footnotes)
 
 <!-- mtoc-end -->
@@ -557,6 +558,17 @@ git clone git@github.com:PedroZappa/42_fractol.git
 Then, make sure that the program is compiled with all its dependencies using `make`:
 ```sh
 make
+```
+One way to find out all available startup options and keybindings, is to run the program without arguments:
+```sh
+./fractol
+```
+___
+## Testing 🧪 
+
+If you want to test the program with `valgrind`, you can use the following `make` rule:
+```sh
+make valgrind
 ```
 
 ___
