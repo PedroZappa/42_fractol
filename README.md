@@ -54,7 +54,6 @@ ___
       * [`ft_kill_handle()`;](#ft_kill_handle)
       * [`ft_handle_keys()`;](#ft_handle_keys)
       * [`ft_handle_mouse()`;](#ft_handle_mouse)
-        * [Understanding `ft_handle_zoom()` :](#understanding-ft_handle_zoom-)
     * [`ft_init_data()`](#ft_init_data)
 
 <!-- mtoc-end -->
@@ -451,30 +450,31 @@ ___
 	* Else if the right button is pressed the window re-renders the Mandelbrot set.
 	* Else if the mouse wheel is scrolled up or down `ft_handle_zoom()` is called.
 
-###### Understanding `ft_handle_zoom()` :
-
-**Centering & Scaling**
-
-The keys to zooming in computer graphics are :
-* Adjusting the view's center, by changing the `d->x_offset` and `d->y_offset`;
-* Adjusting the view's scale, by changing the `d->zoom` factor;
-
-**Mouse Position & Zoom Center**
-
-The `x` and `y` coordinates of the mouse are used to determine the zoom center;
-* This is done by mapping the mouse position to the range of the complex plane;
-
-**Zoom Factor & Scaling**
-
-* The zoom factor (`SCALE_FACTOR`) determines how much the view is scaled with each zoom operation.
-* Increasing the zoom level, divides `d->zoom` value by the `SCALE_FACTOR`, enlarging the view;
-* Decreasing the zoom level, multiplies `d->zoom` value by the `SCALE_FACTOR`, shrinking the view. 
-* `fabs()` is used to ensure that the scale factor is always positive, regardless of the current zoom level.
-
-**Offset Adjustment** 
-
-* The offset adjustment (0.13 * fabs(d->zoom)) is a scaling factor that controls how much the view is moved in response to zooming.
-* This factor is multiplied by the mapped mouse position to ensure that the zoom center is adjusted proportionally to the zoom level, providing a smoother and more controlled zooming.
+> [!Note]
+> Understanding `ft_handle_zoom()` :
+>
+> **Centering & Scaling**
+>
+> The keys to zooming in computer graphics are :
+> * Adjusting the view's center, by changing the `d->x_offset` and `d->y_offset`;
+> * Adjusting the view's scale, by changing the `d->zoom` factor;
+>
+> **Mouse Position & Zoom Center**
+>
+> The `x` and `y` coordinates of the mouse are used to determine the zoom center;
+> * This is done by mapping the mouse position to the range of the complex plane;
+>
+> **Zoom Factor & Scaling**
+>
+> * The zoom factor (`SCALE_FACTOR`) determines how much the view is scaled with each zoom operation.
+> * Increasing the zoom level, divides `d->zoom` value by the `SCALE_FACTOR`, enlarging the view;
+> * Decreasing the zoom level, multiplies `d->zoom` value by the `SCALE_FACTOR`, shrinking the view. 
+> * `fabs()` is used to ensure that the scale factor is always positive, regardless of the current zoom level.
+>
+> **Offset Adjustment** 
+>
+> * The offset adjustment (0.13 * fabs(d->zoom)) is a scaling factor that controls how much the view is moved in response to zooming.
+> * This factor is multiplied by the mapped mouse position to ensure that the zoom center is adjusted proportionally to the zoom level, providing a smoother and more controlled zooming.
 
 Now that we got the X connection, the window and event handling up and running all there is left to do it the data initialization.
 
