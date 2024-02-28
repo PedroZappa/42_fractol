@@ -23,8 +23,8 @@ int	ft_handle_mouse(int button, int x, int y, t_display *d)
 {
 	if ((button == Button1) && ((d->set == MANDELBROT) || (d->set == JULIA)))
 	{
-		d->c_julia.r = ft_map(x, d->win_size, d->frac_range);
-		d->c_julia.i = ft_map(y, d->win_size, d->frac_range);
+		d->c_julia.r = ft_map(x, d->win_size, d->cc_range);
+		d->c_julia.i = ft_map(y, d->win_size, d->cc_range);
 		d->name = "Julia";
 		d->set = JULIA;
 		ft_printf("Mouse: (%f, %f)\n", d->c_julia.r, d->c_julia.i);
@@ -44,17 +44,17 @@ static void	ft_handle_zoom(int button, int x, int y, t_display *d)
 {
 	if (button == Button4)
 	{
-		d->x_offset += (ft_map(x, d->win_size, d->frac_range) * 0.1
-				* fabs(d->zoom));
-		d->y_offset += (ft_map(y, d->win_size, d->frac_range) * 0.1
-				* fabs(d->zoom));
+		d->x_offset += (ft_map(x, d->win_size, d->cc_range)
+				* 0.1 * fabs(d->zoom));
+		d->y_offset += (ft_map(y, d->win_size, d->cc_range)
+				* 0.1 * fabs(d->zoom));
 		d->zoom /= fabs(SCALE_FACTOR);
 	}
 	else if (button == Button5)
 	{
-		d->x_offset -= (ft_map(x, d->win_size, d->frac_range) * 0.1
+		d->x_offset -= (ft_map(x, d->win_size, d->cc_range) * 0.1
 				* fabs(d->zoom));
-		d->y_offset -= (ft_map(y, d->win_size, d->frac_range) * 0.1
+		d->y_offset -= (ft_map(y, d->win_size, d->cc_range) * 0.1
 				* fabs(d->zoom));
 		d->zoom *= fabs(SCALE_FACTOR);
 	}

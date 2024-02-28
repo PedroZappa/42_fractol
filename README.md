@@ -386,7 +386,7 @@ ___
 ##### `ft_select_fractal()`
 
 > This function checks if the fractal type is valid. 
-* It first converts the first argument to lowercase.
+* It first converts the fractal type (first argument) to lowercase.
 * If it is valid, `ft_set_fractal()` is called and the function outputs 1.
 * If it is NOT valid it outputs 0.
 

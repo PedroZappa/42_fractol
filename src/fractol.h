@@ -119,7 +119,7 @@ typedef struct s_display
 	t_complex	c;
 	t_complex	c_julia;
 	t_complex	z_newton;
-	t_range		frac_range;
+	t_range		cc_range;
 	double		escape;
 	double		newton_esc;
 	t_range		color_iter;
