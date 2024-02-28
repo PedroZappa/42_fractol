@@ -54,9 +54,6 @@ ___
       * [`ft_kill_handle()`;](#ft_kill_handle)
       * [`ft_handle_keys()`;](#ft_handle_keys)
       * [`ft_handle_mouse()`;](#ft_handle_mouse)
-* [Usage 🏁](#usage-)
-* [Footnotes](#footnotes)
-* [License](#license)
 
 <!-- mtoc-end -->
 
@@ -452,26 +449,13 @@ ___
 	* Else if the right button is pressed the window re-renders the Mandelbrot set.
 	* Else if the mouse wheel is scrolled up or down `ft_handle_zoom()` is called.
 
-
-
-
-
-
-___
-## Usage 🏁
-
-___
-# Footnotes
-
-[^1]: [minilibx-linux repo : 42Paris](https://github.com/42Paris/minilibx-linux)
-[^2]: [X-Window System : Wikipedia](https://en.wikipedia.org/wiki/X-Window_System)
-[^3]: [Bitmap : Wikipedia](https://en.wikipedia.org/wiki/Bitmap)
-[^4]: [Xlib : Wikipedia](https://en.wikipedia.org/wiki/Xlib)
-[^5]: [Xlib Keysyms : Oreilly.com](https://www.oreilly.com/library/view/xlib-reference-manual/9780937175262/16_appendix-h.html)
-___
-## License
-
-This work is published under the terms of <a href="https://github.com/PedroZappa/42_fractol/blob/main/LICENSE">42 Unlicense</a>.
-
-<p align="right">(<a href="#readme-top">get to top</a>)</p>
+> [!Note]
+> Understanding `ft_handle_zoom()` :
+> **Centering & Scaling**
+> The keys to zooming in computer graphics are :
+> * Adjusting the view's center, by changing the `d->x_offset` and `d->y_offset`;
+> * Adjusting the view's scale, by changing the `d->zoom` factor;
+>
+> **Mouse Position & Zoom Center**
+>  
 
