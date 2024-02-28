@@ -523,7 +523,7 @@ while (++y <= HEIGHT)
 		ft_select_set(d, x, y);
 	ft_printf("\r%sRendering:%s [%d%%]", YEL, NC, ((y * 100) / d->height));
 }
-	ft_printf("\t%sComplete!%s\n", MAG, NC);
+ft_printf("\t%sComplete!%s\n", MAG, NC);
 ```
 
 ___
