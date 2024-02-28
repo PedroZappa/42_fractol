@@ -56,6 +56,7 @@ ___
       * [`ft_handle_mouse()`;](#ft_handle_mouse)
     * [`ft_init_data()`](#ft_init_data)
     * [`ft_usage()`](#ft_usage)
+    * [`ft_render()`](#ft_render)
 
 <!-- mtoc-end -->
 
@@ -494,5 +495,17 @@ ___
 #### `ft_usage()`
 
 The `ft_usage()` function prints the usage of the program and all available commands to `stdout`.
+```c
+ft_usage();
+```
+
+___
+#### `ft_render()`
+
+This is where the pixel-by-pixel drawing of the window takes place.
+```c
+ft_render(&display);
+```
+
 
 
