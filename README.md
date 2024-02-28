@@ -526,8 +526,16 @@ while (++y <= HEIGHT)
 ft_printf("\t%sComplete!%s\n", MAG, NC);
 ```
 
-
-
+* Once the calculations are done `mlx_put_image_to_window()` is called to render the image to the window.
+```c
+mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
+```
+* Then `ft_render_ui()` is called to print a simple UI to the window.
+```c
+ft_render_ui(d);
+```
+> [!Note]
+> This is a function that can produce memory leaks if the usage of `ft_itoa()` and `ft_strjoin()` are not handled correctly. Take a look at [ft_ui.c](https://github.com/PedroZappa/42_fractol/blob/main/src/ft_ui.c) for details.
 
 
 ___
