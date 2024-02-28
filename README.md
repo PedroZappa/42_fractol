@@ -57,6 +57,7 @@ ___
     * [`ft_init_data()`](#ft_init_data)
     * [`ft_usage()`](#ft_usage)
     * [`ft_render()`](#ft_render)
+* [Footnotes](#footnotes)
 
 <!-- mtoc-end -->
 
@@ -97,7 +98,7 @@ ___
 * One extra fractal.
 * The zoom follows the mouse position.
 * Moving the view by pressing the arrow keys.
-* Make the color range shift
+* Make the color range shift.
 
 ___
 ### MinilibX 🪟
@@ -514,3 +515,14 @@ ft_render(&display);
 
 
 
+___
+## Footnotes
+
+[^1]: [The Fractal Geometry of Nature - Benoit B. Mandelbrot - Google Livros](https://books.google.pt/books?id=0R2LkE3N7-oC&redir_esc=y)
+[^2]: [Are Fractals or Fractal Curves Differentiable?](https://nnart.org/are-fractals-differentiable/)
+[^3]: [How to Draw Fractals by Hand: A Beginner's Guide](https://nnart.org/how-to-draw-fractals-by-hand-a-beginners-guide/)
+[^4]: [Complete List of Books by Benoit Mandelbrot](https://nnart.org/complete-list-of-books-by-benoit-mandelbrot/)
+[^5]: [How Are Fractals Used in Technology and Engineering?](https://nnart.org/how-are-fractals-used-in-technology-and-engineering/)
+[^6]: [Style Guide: How Did Jackson Pollock Paint?](https://nnart.org/style-guide-jackson-pollock/)
+[^7]: [How Do Fractals Appear in Nature? 10 Outstanding Examples](https://nnart.org/fractals-in-nature/)
+[^8]: [How Are Fractals Used in Technology and Engineering?](https://nnart.org/how-are-fractals-used-in-technology-and-engineering/)
