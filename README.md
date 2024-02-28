@@ -58,6 +58,7 @@ ___
     * [`ft_usage()`](#ft_usage)
     * [`ft_render()`](#ft_render)
     * [`mlx_loop()`](#mlx_loop)
+* [Usage 🏁](#usage-)
 * [Footnotes](#footnotes)
 
 <!-- mtoc-end -->
@@ -544,6 +545,18 @@ ___
 Finally, the program enters an infinite loop, keeping the window open listening for user events.
 ```c
 mlx_loop(d->mlx_conn);
+```
+
+___
+## Usage 🏁
+
+First, clone the contents of this repository over SSH:
+```sh
+git clone git@github.com:PedroZappa/42_fractol.git
+```
+Then, make sure that the program is compiled with all its dependencies using `make`:
+```sh
+make
 ```
 
 ___
