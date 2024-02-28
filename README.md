@@ -54,6 +54,7 @@ ___
       * [`ft_kill_handle()`;](#ft_kill_handle)
       * [`ft_handle_keys()`;](#ft_handle_keys)
       * [`ft_handle_mouse()`;](#ft_handle_mouse)
+    * [`ft_init_data()`](#ft_init_data)
 
 <!-- mtoc-end -->
 
@@ -475,5 +476,8 @@ ___
 > * The offset adjustment (0.13 * fabs(d->zoom)) is a scaling factor that controls how much the view is moved in response to zooming.
 > * This factor is multiplied by the mapped mouse position to ensure that the zoom center is adjusted proportionally to the zoom level, providing a smoother and more controlled zooming.
 
+Now that we got the X connection, the window and event handling up and running all there is left to do it the data initialization.
 
+___
+#### `ft_init_data()`
 
