@@ -57,6 +57,7 @@ ___
     * [`ft_init_data()`](#ft_init_data)
     * [`ft_usage()`](#ft_usage)
     * [`ft_render()`](#ft_render)
+    * [`mlx_loop()`](#mlx_loop)
 * [Footnotes](#footnotes)
 
 <!-- mtoc-end -->
@@ -535,8 +536,15 @@ mlx_put_image_to_window(d->mlx_conn, d->mlx_win, d->img.img, 0, 0);
 ft_render_ui(d);
 ```
 > [!Note]
-> This is a function that can produce memory leaks if the usage of `ft_itoa()` and `ft_strjoin()` are not handled correctly. Take a look at [ft_ui.c](https://github.com/PedroZappa/42_fractol/blob/main/src/ft_ui.c) for details.
+> This is a function that can produce memory leaks if the usage of `ft_itoa()` and `ft_strjoin()` are not handled correctly. Take a look for yourself at [ft_ui.c](https://github.com/PedroZappa/42_fractol/blob/main/src/ft_ui.c) for details.
 
+___
+#### `mlx_loop()`
+
+Finally, the program enters an infinite loop, keeping the window open listening for user events.
+```c
+mlx_loop(d->mlx_conn);
+```
 
 ___
 ## Footnotes
