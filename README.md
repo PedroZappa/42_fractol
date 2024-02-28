@@ -410,6 +410,9 @@ ___
 
 ___
 #### `ft_init_display()`
+```c
+ft_init_display(&display, argv);
+```
 
 It initializes:
 * the `mlx` connection into `d->mlx_conn` by calling `mlx_init()`;
