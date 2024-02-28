@@ -571,6 +571,11 @@ If you want to test the program with `valgrind`, you can use the following `make
 make valgrind
 ```
 
+There is also a convenient `make` rule to run a `Norminette` check:
+```sh
+make norm
+``` 
+
 ___
 ## Footnotes
 
