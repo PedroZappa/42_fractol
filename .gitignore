@@ -57,3 +57,7 @@ dkms.conf
 inc/
 .build
 lib/
+norm.txt
+norm_ls.txt
+norm_err.txt
+norm_errn.txt

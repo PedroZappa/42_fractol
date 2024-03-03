@@ -27,9 +27,10 @@ UNAME 			= $(shell uname)
 ### Message Vars
 _SUCCESS 		= [$(GRN)SUCCESS$(D)]
 _INFO 			= [$(BLU)INFO$(D)]
-_NORM 			= [$(YEL)Norminette$(D)]
-_NORM_SUCCESS 	= $(GRN)\tOK:$(D)
+_NORM 			= [$(MAG)Norminette$(D)]
+_NORM_SUCCESS 	= $(GRN)=== OK:$(D)
 _NORM_INFO 		= $(BLU)File no:$(D)
+_NORM_ERR 		= $(RED)=== KO:$(D)
 
 #==============================================================================#
 #                                    PATHS                                     #
@@ -139,16 +140,25 @@ update_modules:	## Update modules
 
 ##@ Test, Debug & Leak Check Rules 󰃢
 
+norm: ## Run norminette test
+	@printf "${_NORM}\n"
+	@ls $(SRC_PATH) | wc -l > norm_ls.txt
+	@printf "$(_NORM_INFO) $$(cat norm_ls.txt)\n"
+	@printf "$(_NORM_SUCCESS) "
+	@norminette $(SRC_PATH) | grep -wc "OK" > norm.txt
+	@printf "$$(cat norm.txt)\n"
+	@if ! diff -q norm_ls.txt norm.txt > /dev/null; then \
+		printf "$(_NORM_ERR) "; \
+		norminette $(SRC_PATH) | grep -v "OK" > norm_err.txt; \
+		cat norm_err.txt | grep -wc "Error:" > norm_errn.txt; \
+		printf "$$(cat norm_errn.txt)\n"; \
+		printf "$$(cat norm_err.txt)"; \
+	else \
+		printf "[$(YEL)Everything is OK$(D)]\n"; \
+	fi
+
 valgrind: 		## Check for leaks w/ valgrind
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) mandelbrot 42
-
-norm: 		## Run norminette test
-	@printf "${_NORM}\n"
-	@printf "${_NORM_INFO} "
-	@norminette $(SRC_PATH) | wc -l
-	@norminette $(SRC_PATH)
-	@printf "${_NORM_SUCCESS} "
-	@norminette $(SRC_PATH) | grep -wc "OK"
 
 
 ##@ Clean-up Rules 󰃢
@@ -161,6 +171,8 @@ clean: 			## Remove object files
 	@echo "[$(RED)Removing $(BUILD_PATH) 󰃢$(D)]"
 	$(RM) $(BUILD_PATH)
 	@echo "==> $(GRN)Object files successfully removed!$(D)\n"
+	$(RM) norm.txt norm_ls.txt norm_err.txt norm_errn.txt
+	@echo "* $(YEL)Removing Norminette temp files:$(D) $(_SUCCESS)"
 
 fclean: clean	## Remove archives & executables
 	@echo "[$(RED)Cleaning executable 󰃢$(D)]"
