@@ -25,6 +25,9 @@ NAME			= fractol
 UNAME 			= $(shell uname)
 
 ### Message Vars
+_NAME	 		= [$(MAG)fract'ol$(D)]
+_LIBFT	 		= [$(MAG)libft$(D)]
+_MLX	 		= [$(MAG)mlx$(D)]
 _SUCCESS 		= [$(GRN)SUCCESS$(D)]
 _INFO 			= [$(BLU)INFO$(D)]
 _NORM 			= [$(MAG)Norminette$(D)]
@@ -96,47 +99,46 @@ $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_PATH):
+	@echo "[$(BCYA)Setting up$(D) $(BUILD_PATH) path]"
 	$(MKDIR_P) $(BUILD_PATH)
 
-$(NAME): $(BUILD_PATH) $(OBJS) $(LIBFT_ARC) $(MLX_ARC)
+$(NAME): $(BUILD_PATH) $(LIBFT_ARC) $(MLX_ARC) $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) $(MLX_ARC) $(MLXFLAGS) -o $(NAME)
+	@echo "* Compiling $(_NAME) executable : $(_SUCCESS) $(YEL)🖔$(D)"
 
 $(LIBFT_ARC):
+	@echo "[$(BCYA)Building$(D) $(_LIBFT) $(BCYA)module$(D)]"
 	$(MAKE) $(LIBFT_PATH) extra
-	@printf "$(D)$(B)$(BLU)\nlibft compiled\n\n$(D)"
 
 $(MLX_ARC):
+	@echo "[$(BCYA)Building$(D) $(_MLX) $(BCYA)module$(D)]"
 	$(MAKE) $(MLX_PATH)
-	@printf "$(D)$(B)$(BLU)\nmlx compiled\n\n$(D)"
 
 deps:			## Download/Update libft & mlx
+	@echo "[$(BCYA)Getting$(D) $(_NAME) $(BCYA)dependencies$(D)]"
 	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; \
 		else echo "$(YEL)[libft]$(D) folder found"; fi
 	@if test ! -d "$(MLX_PATH)"; then make get_mlx; \
 		else echo "$(YEL)[mlx]$(D) folder found"; fi
-	@echo " $(RED)$(D) [$(GRN)Nothing to be done!$(D)]"
+	@echo " $(RED)$(D) [$(GRN)Nothing to be done!$(D)] $(YEL)🖔$(D)"
 
 -include $(DEPS)
 
-get_mlx: compile_mlx	## Get MLX module
-	@echo "[$(CYA)Getting MLX submodule$(D)]"
+get_mlx: 
+	@echo "[$(BCYA)Getting$(D) $(_MLX) $(BCYA)submodule$(D)]"
 	git clone git@github.com:42Paris/minilibx-linux.git $(MLX_PATH)
-	@echo "[$(GRN)MLX submodule successfully downloaded$(D)]"
+	@echo "* $(_MLX) submodule download : $(_SUCCESS) $(YEL)🖔$(D)"
 
-compile_mlx:	## Compile MLX module
-	$(MAKE) $(MLX_PATH) > /dev/null 2>&1 || true
-	@printf "[$(B)$(CYA)$(MLX_ARC) successfully compiled$(D)]\n"
-
-get_libft:		## Get Libft module
-	@echo "[$(CYA)Getting Libft submodule$(D)]"
+get_libft:
+	@echo "[$(BCYA)Getting$(D) $(_LIBFT) $(BCYA)submodule$(D)]"
 	git clone git@github.com:PedroZappa/libft.git $(LIBFT_PATH)
-	@echo "[$(GRN)Libft submodule successfully downloaded$(D)]"
+	@echo "* $(_LIBFT) submodule download : $(_SUCCESS) $(YEL)🖔$(D)"
 
-update_modules:	## Update modules
-	@echo "[$(CYA)Updating submodules$(D)]"
+update_modules:
+	@echo "* $(BCYA)Updating submodules$(D)"
 	git submodule init
 	git submodule update --recursive --remote
-	@echo "[$(GRN)Submodules successfully updated$(D)]"
+	@echo "* Submodules update : $(_SUCCESS) $(YEL)🖔$(D)"
 
 ##@ Test, Debug & Leak Check Rules 󰃢
 
@@ -151,7 +153,7 @@ norm: ## Run norminette test
 		printf "$(_NORM_ERR) "; \
 		norminette $(SRC_PATH) | grep -v "OK" > norm_err.txt; \
 		cat norm_err.txt | grep -wc "Error:" > norm_errn.txt; \
-		printf "$$(cat norm_errn.txt)\n"; \
+		printf "$$(cat norm_errn.txt)"; \
 		printf "$$(cat norm_err.txt)"; \
 	else \
 		printf "[$(YEL)Everything is OK$(D)]\n"; \
@@ -164,13 +166,13 @@ valgrind: 		## Check for leaks w/ valgrind
 ##@ Clean-up Rules 󰃢
 
 clean: 			## Remove object files
-	@echo "[$(RED)Cleaning $(NAME) objects 󰃢$(D)]"
+	@echo "* Cleaning $(_NAME) objects 󰃢"
 	$(RM) $(OBJS)
-	@echo "[$(RED)Cleaning Libft objects 󰃢$(D)]"
+	@echo "* $(YEL)Cleaning $(_LIBFT) objects$(D) 󰃢"
 	$(MAKE) $(LIBFT_PATH) clean
-	@echo "[$(RED)Removing $(BUILD_PATH) 󰃢$(D)]"
+	@echo "* $(YEL)Removing $(BUILD_PATH)$(D) 󰃢"
 	$(RM) $(BUILD_PATH)
-	@echo "==> $(GRN)Object files successfully removed!$(D)\n"
+	@echo "* $(YEL)Removing $(BUILD_PATH)$(D) : $(_SUCCESS)"
 	$(RM) norm.txt norm_ls.txt norm_err.txt norm_errn.txt
 	@echo "* $(YEL)Removing Norminette temp files:$(D) $(_SUCCESS)"
 
@@ -178,18 +180,19 @@ fclean: clean	## Remove archives & executables
 	@echo "[$(RED)Cleaning executable 󰃢$(D)]"
 	$(RM) $(NAME)
 	$(MAKE) $(LIBFT_PATH) fclean
-	@echo "==> $(GRN)$(NAME) Successfully removed!$(D)\n"
+	@echo "* $(_NAME) removed!"
 
 libclean: fclean	## Remove libft & mlx
 	@echo "[$(RED)Cleaning libft 󰃢$(D)]"
 	$(RM) $(LIBFT_PATH)
-	@echo "==> $(GRN)libft successfully removed!$(D)\n"
+	@echo "* $(_LIBFT) removed : $(_SUCCESS)"
 	$(RM) $(MLX_PATH)
-	@echo "==> $(GRN)mlx successfully removed!$(D)\n"
+	@echo "* $(_MLX) removed : $(_SUCCESS)"
 	$(RM) $(LIBS_PATH)
-	@echo "==> $(GRN)inc folder successfully removed!$(D)\n"
+	@echo "* [$(MAG)$(LIBS_PATH)$(D)] folder removed : $(_SUCCESS)"
 
 re: fclean all	## Purge and Recompile
+	@echo "* $(_NAME) Recompiled : $(_SUCCESS)$(D) $(YEL)🖔$(D)"
 
 ##@ Help 󰛵
 
@@ -202,7 +205,7 @@ help: 			## Display this help page
 		/^##@/ { \
 			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
 
-.PHONY: deps get_mlx compile_mlx get_libft update_modules valgrind clean \
+.PHONY: deps get_mlx get_libft update_modules norm valgrind clean \
 	fclean libclean re
 
 #==============================================================================#
