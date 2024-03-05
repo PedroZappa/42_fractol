@@ -131,7 +131,7 @@ get_mlx:
 
 get_libft:
 	@echo "[$(BCYA)Getting$(D) $(_LIBFT) $(BCYA)submodule$(D)]"
-	git clone git@github.com:PedroZappa/libft.git $(LIBFT_PATH)
+	git clone git@github.com:PedroZappa/42_libft.git $(LIBFT_PATH)
 	@echo "* $(_LIBFT) submodule download : $(_SUCCESS) $(YEL)🖔$(D)"
 
 update_modules:
