@@ -570,6 +570,9 @@ The Tricorn fractal is a variant of the Mandelbrot set and is characterized by i
 > To get the `complex conjugate` of a complex number $z_n = (a + bi)$, we simply invert the sign of the imaginary part like so: $\overline{z_n} = (a - bi)$
 >
 > For example: The conjugate of `(4 + 7i)` is `(4 - 7i)`.
+
+<img alt="Tricorn Fractol Demo" src="./video/fractol_tricorn.gif" width="100%" />
+
 ___
 #### Burning Ship Set
 
