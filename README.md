@@ -13,6 +13,8 @@
     <img src="https://img.shields.io/github/last-commit/PedroZappa/42_minitalk?style=for-the-badge" />
 </p>
 
+<img alt="Fractol Demo Overview" src="./video/fractol_intro.gif" width="100%" />
+
 ___
 
 <h3>Table o'Contents</h3>
