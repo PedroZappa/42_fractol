@@ -554,6 +554,8 @@ For the Mandelbrot set, we use different complex numbers for each pixel. It is t
 	* `z` is updated repeatedly following the formula $z_{n+1} = z^2 + c$.
 	* `c` is a complex constant defined as: $c = (x + yi)$ where: $i^2 = -1$
 
+<img alt="Mandelbrot Fractol Demo" src="./video/fractol_mandelbrot.gif" width="100%" />
+
 ___
 #### Tricorn Set
 
