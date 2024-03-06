@@ -540,6 +540,8 @@ There are infinitely many Julia sets. To generate them, we use the same complex 
 	* `z` is updated repeatedly following the formula $z_{n+1} = z^2 + c$.
 	* `c` is a complex number that seeds a specific Julia set.
 
+<img alt="Julia Fractol Demo" src="./video/fractol_julia.gif" width="100%" />
+
 ___
 #### Mandelbrot Set
 
