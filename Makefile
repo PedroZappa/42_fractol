@@ -207,6 +207,8 @@ help: 			## Display this help page
 			printf "\t$(GRN)%-15s$(D) %s\n", $$1, $$2 } \
 		/^##@/ { \
 			printf "\n=> %s\n", substr($$0, 5) } ' Makefile
+## Tweaked from source:
+### https://www.padok.fr/en/blog/beautiful-makefile-awk
 
 .PHONY: deps get_mlx get_libft update_modules norm valgrind clean \
 	fclean libclean re
