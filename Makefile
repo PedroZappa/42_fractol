@@ -94,6 +94,9 @@ MAKE		= make -C
 
 all: deps $(NAME)		## Compile Fract'ol
 
+bonus: all			## Compile fractol with bonus features
+	@echo "[Compiled $(MAG)fractol$(D) $(YEL)with bonus!$(D)] $(_SUCCESS) $(YEL)🖔$(D)"
+
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c
 	@echo -n "$(MAG)█$(D)"
 	$(CC) $(CFLAGS) -c $< -o $@
