@@ -65,7 +65,6 @@ CC		= cc
 
 CFLAGS		= -Wall -Werror -Wextra
 CFLAGS		+= -g
-CFLAGS		+= -lm
 CFLAGS 		+= -O3
 # Enables fastm memory error detection
 FSANITIZE := -fsanitize=address
