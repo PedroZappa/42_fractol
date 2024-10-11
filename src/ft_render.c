@@ -65,7 +65,7 @@ static void	ft_set_range(t_display *d, t_complex *c, int x, int y)
 	c->i = (ft_map(y, d->win_size, d->cc_range) * d->zoom) + d->y_offset;
 }
 
-/*	ft_put_pixel : Puts a pixel to the d
+/*	ft_put_pixel : Puts a pixel to the display
  *										 img->bpp
  *	offset = (y * img->line_len) + ( x * -------- )
  *										    8
